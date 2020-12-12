@@ -1,0 +1,36 @@
+.navbar{
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    transition: background 0.4s, all 0.3s linear;
+}
+.navbarContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 90px;
+    padding-right: 70px;
+    padding-left: 70px;
+}
+.navLinks{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    font-size: 17px;
+}
+.navLinks li{
+    margin: 0 10px;
+    color: #8B4513;
+    padding: 0px;
+    display: inline-block;
+    font-weight: 600;
+}
+.navLinks li:hover{
+    color: #654321;
+}
+.navLinks .active{
+    color: #654321;     
+}
+.logo img{
+    width: 150px;
+}

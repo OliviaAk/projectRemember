@@ -1,0 +1,25 @@
+.home{
+    background-image: url('../../../assets/images/home.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    min-height: 900px;
+    position: relative;
+    background-size: cover;
+}
+.homeContainer{
+
+    width: 1200px;
+    padding: 10%;
+}
+.homeContent{
+    margin-top: 50px;
+}
+.description{
+    width: 400px;
+}
+.title{
+    font-size: 23px;
+    margin-bottom: 10px;
+    
+}
