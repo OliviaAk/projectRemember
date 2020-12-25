@@ -1,0 +1,157 @@
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 1;
+}
+.modalMain{
+    position:fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 8px;
+  border-radius: 8px;
+  min-height: 645px;
+  width: 600px;
+  max-height: 700px;
+}
+.modalButton{
+  outline: none;
+  border: none;
+  background-color: rgb(45, 48, 41);
+}
+.modalButton img{
+  width: 20px;
+}
+.modalHide{
+    display: none;
+    position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 1;
+}
+.modalActive{
+    display: block;
+    position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 1;
+}
+.modalHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+background-color: rgb(45, 48, 41);
+  color:#f2f2f2;
+   padding: 10px 30px;
+   border-radius: 8px 8px 0 0;
+}
+
+.modalItems{
+    margin: 0 30px;
+
+}
+.modalItem{
+  display: flex;
+    
+    align-items: center;
+    margin-top: 10px;
+}
+
+.modalIcon{
+  width: 20px;
+}
+.modalContent{
+  margin: 0px auto 0px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  background-color: #f2f2f2;
+}
+
+.loginForm{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.loginFormInput{
+  box-sizing: border-box;
+  height: 50px;
+  width: 350px;
+  border: 1px solid #e8e8e8;
+  border-radius: 25px;
+  font-size: 14px;
+  line-height: 14px;
+  color: #000;
+  padding: 5px 20px 0 20px;
+  display: flex
+}
+
+.checkItems{
+  display: flex;
+  margin-right: 60px;
+}
+.formItem{
+  margin: 20px 0;   
+}
+.formItemCheckout{
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+}
+.loginCheckInput{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.checkbox{
+  margin-top: 5px;
+  margin-right: 5px;
+  
+}
+.formInput{
+  
+  outline: none;
+  padding: 5px 5px;
+  border: none;
+  width: 250px;
+  
+ 
+}
+.loginIcon{
+  width: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+.registration{
+  color: #7FBE41;
+}
+.inputErrors{
+  color: #bf1650;
+  text-align: right;
+  align-items: flex-start;
+  font-size: 12px;
+  margin-left: 25px;
+}
+
+.inputErrors::before {
+  display: inline;
+  content: "⚠ ";
+}
