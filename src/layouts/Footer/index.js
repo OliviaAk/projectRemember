@@ -24,6 +24,9 @@ export default function Footer() {
           <Link to="/" className={styles.footerLink}>
             Контакты
           </Link>
+          <Link to="/" className={styles.footerLink}>
+            Вернуться на главную
+          </Link>
         </div>
       </div>
     </div>

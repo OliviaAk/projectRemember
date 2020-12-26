@@ -48,3 +48,20 @@
     cursor: pointer;
 
   }
+  .primary-btn3{
+
+    background: #250606;
+    color: #f2f2f2;
+    line-height: 48px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease 0s;
+    outline: none;
+
+  }
+  .primary-btn3:hover{
+    border: 1px solid #250606;
+    background:transparent;
+    cursor: pointer;
+    color: #250606;
+
+  }
