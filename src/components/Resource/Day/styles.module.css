@@ -3,7 +3,9 @@
     width: 100%;
     background-color: #fff;
     padding: 20px 0;
-    border-radius: 25px;
+    border-radius: 10px;
+    background-image: url('../../../assets/images/hom.jpg');
+
 
 }
 .hero{
@@ -26,15 +28,28 @@
     font-size: 18px;
     text-align: center;
 }
-.mainHero{
-    margin: 20px 20px;
+
+.dayImg img{
+    width: 10vw;
+    height: 30px;
+    margin-left: 25px;
+    margin-top: 20px;
 }
-.heroTextOne{
-    display: flex;
+
+.dayDate{
+    align-items: center;
+    text-align: center;
+    color: rgb(116, 30, 30);
+    font-size: 30px;
+    font-weight: 500;
+    
+
 }
-.heroTextLeft{
-    margin: 40px;
+.dayText{
+    margin: 0 50px;
+    margin-top: 70px;
 }
-.heroTextTwo{
-    margin: 10px;
+.dayButton{
+    margin-top: 20px;
+    text-align: center;
 }

@@ -25,7 +25,7 @@ export default function Home() {
                             {mainLinks.map((item,index)=>{
                                 return(
                                     <div key={index} className={styles.mainItem}>
-                                        <Link to='/heroes' className={styles.mainLinks}>
+                                        <Link to={item.link} className={styles.mainLinks}>
                                             <div>{item.name}</div>
                                         </Link>
                                         <div >

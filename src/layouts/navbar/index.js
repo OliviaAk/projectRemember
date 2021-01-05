@@ -2,7 +2,7 @@ import React , {useState} from 'react'
 import Button from '../../components/shared/Button'
 import IconSVG from '../../components/shared/Icons'
 import Modal from '../../components/shared/Modal'
-import Logo from '../../assets/images/belarus.jpg'
+import Logo from '../../assets/images/logot.PNG'
 import styles from './styles.module.css'
 import { Link } from "react-router-dom";
 
