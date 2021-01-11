@@ -7,6 +7,7 @@ import DashboardPage from './pages/Dashboard'
 import HeroPage from './pages/Hero'
 import HistoryPage from './pages/History'
 import DayPage from './pages/Day'
+import AddPage from './pages/Add'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/person' component={HeroPage}/>
         <Route path='/resources' component={HistoryPage}/>
         <Route path='/day' component={DayPage}/>
+        <Route path='/add' component={AddPage}/>
 
 
 

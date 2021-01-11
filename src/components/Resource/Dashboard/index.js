@@ -54,12 +54,13 @@ export default function Dashboard() {
 
                     </div>
                 <div className={styles.dashboardContent}>
-                    <div className={styles.dashboardContentHeader}>ДОСКА!</div>
+                    <div className={styles.dashboardContentHeader}>Участики битвы на Буйничском поле</div>
                     <div className={styles.dashboardItems}>
                         {heroes.map((item,index)=>{
                             return(
                                 <div key={index} className={styles.dashboardItem}>
                                 <div className={styles.itemImage}>
+                                    
                                     <img src={Portrait} alt=''/>
                                 </div>
                                 <div className={styles.itemInfo}>

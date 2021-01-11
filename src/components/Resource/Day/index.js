@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from './styles.module.css'
 import { useSelector, useDispatch } from "react-redux";
 import { getHistoryByDate } from "../../../store/thunks";
@@ -11,12 +11,17 @@ export default function Day() {
     
     const [aboutDay,setAboutDay]= useState([]) 
     const { history} = useSelector((state) => state.dashboardHero);
+    const endPoint = useHistory()
 
     useEffect(()=>{
         if(history){
             setAboutDay(history)
         }
     },[history])
+
+    const returnToHistory = ()=>{
+        endPoint.push('/resources')
+    }
    
     return (
         <div className={styles.hero}>
@@ -36,9 +41,8 @@ export default function Day() {
                     })}
                     </div>
                     <div className={styles.dayButton}>
-                        <Button buttonSize='primary-btn3'>Назад</Button>
-                        <Button buttonSize='primary-btn3'>Вперед</Button>
-                    </div>
+                        <Button buttonSize='primary-btn3' onClick={returnToHistory}>Назад</Button>
+             </div>
                 
                     
                 </div>

@@ -65,3 +65,37 @@
     color: #250606;
 
   }
+  .btn--facebook {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    line-height: 19px;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0;
+    min-width: 50px;
+    background: linear-gradient(135deg,#5249ce,#1114bd);
+    color: #fff;
+    outline: none;
+    text-align: center;
+   }
+   .btn--facebook:hover{
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    border-radius: 35px;
+    font-size: 16px;
+    line-height: 19px;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0;
+    min-width: 50px;
+    background: transparent;
+    color:transparent;
+    outline: none;
+    text-align: center;
+   }
