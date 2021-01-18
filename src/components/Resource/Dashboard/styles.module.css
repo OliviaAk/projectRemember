@@ -85,3 +85,11 @@
     display:block;
     margin: 30px 0;
 }
+.portrait{
+    width: 250px;
+}
+.itemName{
+    list-style: none;
+    color: #000;
+    text-decoration: none;
+}

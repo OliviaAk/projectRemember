@@ -1,5 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { getHeroes, getHero,getHeroByName, getHistory, getHistoryByDate  } from "./thunks";
+import {setDay, setHero} from './actions'
 
 export const initialState = {
   heroes: [],
@@ -14,16 +15,13 @@ const dashboardHero = createReducer(initialState, {
   [getHeroes.fulfilled]: (state, { payload }) => {
     state.heroes = payload;
   },
-  [getHero.fulfilled]: (state,{payload})=>{
+  [setHero.type]: (state,{payload})=>{
     state.current = payload;
   },
   [getHeroByName.fulfilled]: (state,{payload})=>{
     state.currentSearch = payload;
   },
-  [getHistory.fulfilled]: (state, { payload }) => {
-    state.histories = payload;
-  },
-  [getHistoryByDate.fulfilled]: (state, { payload }) => {
+  [setDay.type]: (state, { payload }) => {
     state.history = payload;
   },
 });

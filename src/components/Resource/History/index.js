@@ -2,22 +2,22 @@ import React,{useState, useEffect} from 'react'
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from './styles.module.css'
-import { useSelector, useDispatch } from "react-redux";
-import { getHistory, getHistoryByDate } from "../../../store/thunks";
+import {  useDispatch } from "react-redux";
+import { getHistory } from "../../../store/thunks";
+import {setDay} from '../../../store/actions'
 import Age from '../../../assets/images/age.png'
 import Days from '../../../assets/images/days.png'
+import {historyDay} from '../../../mocks/history'
 
 export default function History() {
     const dispatch = useDispatch();
-
-    const { histories} = useSelector((state) => state.dashboardHero);
 
     useEffect(()=>{
         dispatch(getHistory());
     },[dispatch])
 
-    const openDay = (id)=>{
-        dispatch(getHistoryByDate(id))
+    const openDay = (date)=>{
+        dispatch(setDay(date))
     }
 
 
@@ -31,9 +31,9 @@ export default function History() {
                  </div>
                  <div className={styles.historiesInfo} >
                  {
-                     histories.map((history)=>{
+                     historyDay.map((history)=>{
                          return(
-                             <Link to='/day' className={styles.historyDate} onClick={()=>openDay({id:history._id})}>
+                             <Link to='/day' className={styles.historyDate} onClick={()=>openDay({id:history.id})}>
                                             <div>{history.date}</div>
                             </Link>
                          )

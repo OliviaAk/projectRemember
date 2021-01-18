@@ -1,0 +1,15 @@
+.slider{
+    text-align: center;
+}
+.item{
+    margin-bottom: 24px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+.itemImg{
+    top: 40%;
+    width: 100%;
+    transform: translate(0%, -10%); 
+    margin-bottom: 40px;
+}

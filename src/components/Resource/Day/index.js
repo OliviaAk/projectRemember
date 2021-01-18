@@ -2,20 +2,22 @@ import React,{useState, useEffect} from 'react'
 import PropTypes from "prop-types";
 import { Link, useHistory } from "react-router-dom";
 import styles from './styles.module.css'
-import { useSelector, useDispatch } from "react-redux";
-import { getHistoryByDate } from "../../../store/thunks";
+import { useSelector } from "react-redux";
 import Age from '../../../assets/images/age.png'
 import Button from '../../shared/Button'
+import {historyDay} from '../../../mocks/history'
 
 export default function Day() {
     
-    const [aboutDay,setAboutDay]= useState([]) 
+    const [aboutDay,setAboutDay]= useState({}) 
     const { history} = useSelector((state) => state.dashboardHero);
     const endPoint = useHistory()
 
     useEffect(()=>{
         if(history){
-            setAboutDay(history)
+         const d = historyDay.find(currentValue => currentValue.id === history.id )
+         setAboutDay(d)
+        
         }
     },[history])
 
@@ -31,14 +33,35 @@ export default function Day() {
                     <img src={Age} alt=''/>
                     </div>
                     <div className={styles.dayInfo}>
-                    {aboutDay.map((day)=>{
-                        return(
-                            <>
-                           <p className={styles.dayDate}>{day.date}</p>
-                           <p className={styles.dayText}>{day.text}</p>
-                           </>
-                        )
-                    })}
+                           <p className={styles.dayDate}>{aboutDay.date}</p>
+                    </div>
+                    <div className={styles.dayMain}>
+                    <img className={styles.dayImg} src={aboutDay.img1} alt=''/>
+
+                        <p>{aboutDay.textOne}</p>
+                        <p>{aboutDay.textTwo}</p>
+                        <p>{aboutDay.textTree}</p>
+                    </div>
+                    <div className={styles.dayQuotes}>
+                     <div className={styles.dayQuote}>
+                        <img className={styles.dayImg} src={aboutDay.img2} alt=''/>
+                        <p className={styles.memory}>{aboutDay.memory1}</p>
+                        <p className={styles.memoryText}>{aboutDay.quotes1}</p>
+                      </div>
+                      <div className={styles.dayQuote}>
+                        <img className={styles.dayImg} src={aboutDay.img3} alt=''/>
+                        <p className={styles.memory}>{aboutDay.memory2}</p>
+                        <p className={styles.memoryText}>{aboutDay.quotes2}</p>
+                      </div>
+                      <div className={styles.dayQuote}>
+                        <p className={styles.memory}>{aboutDay.memory3}</p>
+                        <p className={styles.memoryText}>{aboutDay.quotes3}</p>
+                      </div>
+                      <div className={styles.dayQuote}>
+                        <p className={styles.memory}>{aboutDay.memory4}</p>
+                        <p className={styles.memoryText}>{aboutDay.quotes4}</p>
+                      </div>
+                
                     </div>
                     <div className={styles.dayButton}>
                         <Button buttonSize='primary-btn3' onClick={returnToHistory}>Назад</Button>

@@ -42,11 +42,7 @@ export default function NavBar() {
                        КАРТА
                        </li>
                     </Link>
-                    <Link to='/contacts' >
-                       <li >
-                       КОНТАКТЫ
-                       </li>
-                    </Link>
+                    
                             
                     </ul>
                     <div className={styles.navbarButtons}>

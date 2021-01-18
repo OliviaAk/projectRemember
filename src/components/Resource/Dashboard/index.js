@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import Button from '../../shared/Button';
 import { useSelector, useDispatch } from "react-redux";
 import { getHeroes, getHero, getHeroByName } from "../../../store/thunks";
-import Portrait from '../../../assets/images/portrait.png'
-
+import { setHero } from "../../../store/actions";
+import {dashboardInfo} from '../../../mocks/dashboard'
 export default function Dashboard() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -24,13 +24,16 @@ export default function Dashboard() {
     },[dispatch])
     
     const openInfoAboutHero = (id)=>{
-        dispatch(getHero(id))
+        dispatch(setHero(id))
         history.push("/person");
     }
     const searchCurrentHeroByName = ({name})=>{
         dispatch(getHeroByName({name}))
         history.push("/person");
 
+    }
+    const searchStreet = ()=>{
+        window.open(`${dashboardInfo.url}`,"_self")
     }
     return (
         <div className={styles.dashboard}>
@@ -48,36 +51,32 @@ export default function Dashboard() {
                             type="text"
                             name="name"
                             ref={register({ required: true, maxLength: 20 })}
-                    /> 
+                             /> 
                             <Button buttonSize='primary-btn3' onClick={handleSubmit(searchCurrentHeroByName)}> Поиск</Button>                        
                         </form>
 
                     </div>
                 <div className={styles.dashboardContent}>
-                    <div className={styles.dashboardContentHeader}>Участики битвы на Буйничском поле</div>
                     <div className={styles.dashboardItems}>
-                        {heroes.map((item,index)=>{
+                        {dashboardInfo.map((item,index)=>{
                             return(
                                 <div key={index} className={styles.dashboardItem}>
                                 <div className={styles.itemImage}>
                                     
-                                    <img src={Portrait} alt=''/>
+                                    <img className={styles.portrait} src={item.img} alt=''/>
                                 </div>
                                 <div className={styles.itemInfo}>
                                     <div className={styles.itemMainInfo}>
-                                    <p className={styles.itemName}>{item.firstName} {item.secondName} {item.thirdName}</p>
-                                    <p className={styles.itemYears}>{item.dateBirth}</p>
-                                    <p>{item.text}</p>
+                                    <a className={styles.itemName} href={item.url}>{item.lastName} {item.name}</a>
+                                    <p className={styles.itemYears}>{item.date}</p>
+                                    <p>{item.descr}</p>
                                     </div>
-                                    <Button buttonSize='primary-btn3' onClick={()=>openInfoAboutHero({id:item._id})} >Подробнее</Button>
+                                    <Button buttonSize='primary-btn3' onClick={()=>openInfoAboutHero({id:item.id})} >Подробнее</Button>
                                 </div>
                             </div>
                             )
                         })}
                     </div>
-                   
-                    
-                    
                 </div>
             </div>
         </div>

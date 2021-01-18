@@ -22,12 +22,7 @@ const Modal = ({show, closeModal}) => {
   return (
     <div className={show ? styles.modalActive : styles.modalHide}>
       <div className={styles.modalMain}>
-        <div className={styles.modalHeader}>
-          <h2>Вход в систему</h2>
-          <div className={styles.modalButton}  >
-            <IconSVG src={Close} handleClickIcon={closeModal}/>
-          </div>
-        </div>
+        
 
         <div className={styles.modalContent}>
         <form className={styles.loginForm}>

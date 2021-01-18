@@ -1,46 +1,43 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import Button from '../../shared/Button'
+import IconSVG from '../../shared/Icons'
+import MyCarousel from '../../shared/Slider'
 import image from '../../../assets/images/aner.jpg'
 import styles from './styles.module.css'
-import {mainData, mainImages} from '../../../mocks/mainData'
+import {mainData} from '../../../mocks/mainData'
 import {mainLinks} from '../../../mocks/mainLinks'
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import Facebook from '../../../assets/icons/facebook-brands.svg'
+import Vk from '../../../assets/icons/vk-brands.svg'
+import Google from '../../../assets/icons/google-brands.svg'
 
-import Slider from "react-slick";
 
 export default function Home() {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        className: 'slider',
-      };
+      const handleFacebookSignin = ()=>{
+          window.open(`http://localhost:5000/auth/facebook`,"_self")
+      }
     return (
         <div className={styles.home}>
-            <div className={styles.homeContainer}>
+          <div className={styles.navContainer}>
+           <div className={styles.homeLogo}>К 80летию обороны Могилева посвящяется.....</div>
+            <div className={styles.navbarButtons}>
+                <IconSVG handleClickIcon={handleFacebookSignin} src={Facebook} className={styles.gitIcon}/>
+                <IconSVG  src={Vk} className={styles.gitIcon}/>
+                <IconSVG  src={Google} className={styles.gitIcon}/>
+             </div>
+           </div>
+
+         <div className={styles.homeContainer}>          
                 <div className={styles.homeContent}>
-                   
-                         <div className={styles.homeBannerContainer}>
-                         <Slider {...settings}>
-                    {mainImages.map((i)=>{
-                        return(
-                         <img src={i.url} alt="" />
-                         )
+                    <div className={styles.carousel}>
+                    <MyCarousel/>
 
-                        })}
-                        </Slider>
-                </div>
-                    
 
-                   
-                    <div className={styles.mainContent}>
+                    </div>
+
+                
+                <div className={styles.mainContent}>
                         <div className={styles.headerContent}>
-                            <p>ЭЛЕКТРОННЫЙ БАНК ДОКУМЕНТОВ «БИТВА НА БУЙНИЧСКОМ ПОЛЕ 1941 г.»</p>
+                            <p>Виртуальная стена памяти героев обороны Могилева</p>
 
                         </div>
                         
@@ -60,7 +57,7 @@ export default function Home() {
                         </div>
                         <div className={styles.mainInfo}>
                             <p>{mainData.title}</p>
-                            <p>{mainData.text}</p>
+                            <p className={styles.mainText}>{mainData.text}</p>
                         </div>
 
                     </div>

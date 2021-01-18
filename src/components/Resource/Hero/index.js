@@ -4,15 +4,17 @@ import styles from './styles.module.css'
 import Button from '../../shared/Button';
 import { useSelector } from "react-redux";
 import Portrait from '../../../assets/images/portrait.png'
+import {dashboardInfo} from '../../../mocks/dashboard'
 
 
 export default function Hero() {
-    const [hero,setHero]= useState([])
+    const [hero,setHero]= useState({})
     const { current, currentSearch} = useSelector((state) => state.dashboardHero);
 
    useEffect(()=>{
        if(current){
-           setHero(current)
+        const d = dashboardInfo.find(currentValue => currentValue.id === current.id )
+        setHero(d)
        }
    },[current])
 
@@ -26,31 +28,27 @@ export default function Hero() {
         <div className={styles.hero}>
             <div className={styles.heroContainer}>
                 <div className={styles.heroContent}>
-                    {hero.map((item)=>{
-                        return(
-                            <>
                             <div className={styles.heroHeader}>
-                                <p>{item.firstName} {item.secondName} {item.thirdName}</p>
-                                <p>{item.dateBirth}</p>
+                                <a href={hero.url} className={styles.heroUrl}>{hero.name} {hero.lastName} </a>
+                                <p>{hero.date}</p>
                             </div> 
                             <div className={styles.mainHero}>
                             <div className={styles.heroTextOne}>
-                                <img src={Portrait} alt=''/>
-                                <p className={styles.heroTextLeft}>{item.fullTextOne}</p>
+                                <img className={styles.portrait} src={hero.img} alt=''/>
+                                <p className={styles.heroTextLeft}>{hero.textFullOne}</p>
                             </div >
                             <div className={styles.heroTextTwo}>
-                                
-                               <p>{item.fullTextTwo}</p>
-                                <p>{item.fullTextTree}</p>
+                            <img className={styles.portrait} src={hero.imgFull1} alt=''/>
 
+                               <p>{hero.textFullTwo}</p>
                             </div>
-                            </div>
-                            
-                            </>
-                        )
-                    })}
-                    
-                </div>
+                            <div className={styles.heroTextTwo}>
+                               <img className={styles.portrait} src={hero.imgFull2} alt=''/>
+                                <p>{hero.textFullTree}</p>
+                                <img className={styles.portrait} src={hero.imgFull3} alt=''/>
+                            </div>                          
+                        </div>
+               </div>
             </div>
         </div>
     )
