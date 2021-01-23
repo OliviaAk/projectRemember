@@ -1,78 +1,37 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
-import { useForm } from "react-hook-form";
-import  Button  from "../Button";
 import  IconSVG  from '../Icons'
 import Close from '../../../assets/icons/close.svg'
-import User from '../../../assets/icons/user-regular.svg'
-import HidePassword from '../../../assets/icons/eye-solid.svg'
-import ShowPassword from '../../../assets/icons/eye-slash-solid.svg'
-import Password from '../../../assets/icons/lock-solid.svg'
+import Vk from '../../../assets/icons/vk-brands.svg'
+import Google from '../../../assets/icons/google-brands.svg'
+import Facebook from '../../../assets/icons/facebook-brands.svg'
+
 const Modal = ({show, closeModal}) => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-
-  const {
-    register,
-    handleSubmit,
-    errors,
-    formState: { isSubmitSuccessful },
-  } = useForm();
+  const handleLoginWithFacebookClick = () => {
+    window.open("http://localhost:5000/auth/facebook", "_self");
+  };
+ 
 
   return (
-    <div className={show ? styles.modalActive : styles.modalHide}>
-      <div className={styles.modalMain}>
-        
-
-        <div className={styles.modalContent}>
-        <form className={styles.loginForm}>
-          <div className={styles.formItem}>
-            <div className={styles.loginFormInput}>
-              <IconSVG className={styles.loginIcon} src={User} />
-              <input
-                className={styles.formInput}
-                placeholder="Логин"
-                type="text"
-                name="email"
-                ref={register({ required: true, maxLength: 20 })}
-              />
-            </div>
-            {errors.email && errors.email.type === "required" && (
-              <span className={styles.inputErrors}>This field is required</span>
-            )}
-          </div>
-          <div className={styles.formItem}>
-            <div className={styles.loginFormInput}>
-              <IconSVG className={styles.loginIcon} src={Password} />
-              <input
-                className={styles.formInput}
-                placeholder="Пароль"
-                type={isPasswordVisible ? "text" : "password"}
-                name="password"
-                ref={register({ required: true, maxLength: 8 })}
-              />
-              <IconSVG
-                className={styles.loginIcon}
-                src={isPasswordVisible?HidePassword: ShowPassword}
-                handleClickIcon={() => setIsPasswordVisible(!isPasswordVisible)}
-              />
-            </div>
-            {errors.password && errors.password.type === "required" && (
-              <span className={styles.inputErrors}>This field is required</span>
-            )}
-          </div>
-          
-          <div className={styles.formItem}>
-            <Button buttonColor='primary-btn2'>
-              Войти
-            </Button>
-          </div>
-         
-        </form>
-         
-        </div>
+    <div className={ `${styles.modal} ${show ? styles.modalActive : styles.modalHide}`}>
+    <div className={styles.modalMain}>
+      <div className={styles.modalHeader}>
+        <p>Авторизация</p>
+        <button className={styles.modalButton} onClick={closeModal}>
+          <IconSVG src={Close} />
+        </button>
       </div>
+      <div className={styles.modalContent}>
+        <p className={styles.modalText}>Пожалуйста, авторизуйтесь, чтобы создать ваши видео.</p>
+        <div className={styles.modalButtons}>
+            <IconSVG className={styles.modalIcon} src={Vk} />
+            <IconSVG className={styles.modalIcon} src={Google} />
+            <IconSVG className={styles.modalIcon}  src={Facebook} />
+        </div>
+        </div>
     </div>
+  </div>
   );
 };
 export default Modal;

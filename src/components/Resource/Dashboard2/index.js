@@ -8,17 +8,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { getHeroes, getHero, getHeroByName } from "../../../store/thunks";
 import { setHero } from "../../../store/actions";
 import {dashboardInfo} from '../../../mocks/dashboard'
+
 export default function Dashboard() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {
-        register,
-        handleSubmit,
-        errors,
-        formState: { isSubmitSuccessful },
-      } = useForm();
-    const { heroes } = useSelector((state) => state.dashboardHero);
-
     useEffect(()=>{
         dispatch(getHeroes());
     },[dispatch])
@@ -38,26 +31,9 @@ export default function Dashboard() {
     return (
         <div className={styles.dashboard}>
             <div className={styles.dashboardContainer}>
-                 {/* <div className={styles.dashboardSearch}>
-                     <div className={styles.searchHeader}>
-                         <p>{searchData.title}</p>
-                     </div>
-                     <div className={styles.searchInfo}>
-                         <p>{searchData.text}  </p>
-                     </div>
-                        <form className={styles.searchForm}>
-                            <input
-                         className={styles.searchInput}
-                            type="text"
-                            name="name"
-                            ref={register({ required: true, maxLength: 20 })}
-                             /> 
-                            <Button buttonSize='primary-btn3' onClick={handleSubmit(searchCurrentHeroByName)}> Поиск</Button>                        
-                        </form>
-
-                    </div> */}
                 <div className={styles.dashboardContent}>
-                    <div className={styles.dashboardItems}>
+                    <div className={styles.dashboardBg}>
+                      <div className={styles.dashboardItems}>
                         {dashboardInfo.map((item,index)=>{
                             return(
                                 <div key={index} className={styles.dashboardItem}>
@@ -69,13 +45,13 @@ export default function Dashboard() {
                                     <div className={styles.itemMainInfo}>
                                     <a className={styles.itemName} href={item.url}>{item.lastName} {item.name}</a>
                                     <p className={styles.itemYears}>{item.date}</p>
-                                    <p>{item.descr}</p>
                                     </div>
                                     <Button buttonSize='primary-btn3' onClick={()=>openInfoAboutHero({id:item.id})} >Подробнее</Button>
                                 </div>
                             </div>
                             )
                         })}
+                    </div>
                     </div>
                 </div>
             </div>

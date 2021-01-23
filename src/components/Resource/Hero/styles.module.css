@@ -2,8 +2,12 @@
 .heroContent{
     width: 100%;
     background-color: #fff;
-    padding: 20px 0;
     border-radius: 25px;
+    background-image: url('../../../assets/images/border.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
 
 }
 .hero{
@@ -14,9 +18,9 @@
     background-size: cover;
 }
 .heroContainer{
-    max-width: 1200px;
-    padding-left: 10%;
-    padding-right: 10%;
+    max-width: 1400px;
+    margin-left: 5%;
+    margin-right: 5%;
     padding-top: 5%;
     padding-bottom: 10%;
 }
@@ -29,26 +33,30 @@
     color: #000;
     text-decoration: none;
     list-style: none;
+    margin: 0;
 
 }
 .heroHeader{
-    margin: 30px 30px;
-    color : grey;
-    font-size: 18px;
+   
+    font-size: 23px;
     text-align: center;
     color: #000;
     text-decoration: none;
+    font-weight: bold;
+    padding-top: 45px;
 }
 .mainHero{
-    margin: 20px 20px;
     text-align: justify;
 }
+.mainHero p {
+    text-indent: 50px;
+    font-weight: 500;
+
+
+}
+.heroMain{
+    padding: 50px 0px;
+}
 .heroTextOne{
-    display: flex;
-}
-.heroTextLeft{
-    margin: 40px;
-}
-.heroTextTwo{
-    margin: 10px;
+    margin: 0 140px;
 }

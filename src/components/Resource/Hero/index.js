@@ -28,25 +28,19 @@ export default function Hero() {
         <div className={styles.hero}>
             <div className={styles.heroContainer}>
                 <div className={styles.heroContent}>
+                    <div className={styles.heroMain}>
                             <div className={styles.heroHeader}>
                                 <a href={hero.url} className={styles.heroUrl}>{hero.name} {hero.lastName} </a>
                                 <p>{hero.date}</p>
                             </div> 
                             <div className={styles.mainHero}>
                             <div className={styles.heroTextOne}>
-                                <img className={styles.portrait} src={hero.img} alt=''/>
                                 <p className={styles.heroTextLeft}>{hero.textFullOne}</p>
-                            </div >
-                            <div className={styles.heroTextTwo}>
-                            <img className={styles.portrait} src={hero.imgFull1} alt=''/>
-
-                               <p>{hero.textFullTwo}</p>
-                            </div>
-                            <div className={styles.heroTextTwo}>
-                               <img className={styles.portrait} src={hero.imgFull2} alt=''/>
+                                <p>{hero.textFullTwo}</p>
                                 <p>{hero.textFullTree}</p>
-                                <img className={styles.portrait} src={hero.imgFull3} alt=''/>
-                            </div>                          
+
+                            </div >
+                            </div>                     
                         </div>
                </div>
             </div>

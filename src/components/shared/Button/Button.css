@@ -50,8 +50,10 @@
   }
   .primary-btn3{
 
-    background: #250606;
+    background: #8b4734;
     color: #f2f2f2;
+    height: 50px;
+    width: 200px;
     line-height: 48px;
     border: 1px solid transparent;
     transition: all 0.3s ease 0s;
@@ -59,10 +61,79 @@
 
   }
   .primary-btn3:hover{
-    border: 1px solid #250606;
+    border: 1px solid #220505;
     background:transparent;
     cursor: pointer;
     color: #250606;
+
+  }
+    .btn--modal{
+      height: 40px;
+      width: 180px;
+      cursor: pointer;
+      overflow: hidden;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      line-height: 19px;
+      box-sizing: border-box;
+      padding: 0;
+      min-width: 100px;
+      background: linear-gradient(135deg,#7fbe41,#71ab37);
+      color: #fff;
+      margin-top: 20px;
+      outline: none;
+    }
+    .btn-pub{
+      height: 40px;
+      width: 180px;
+      cursor: pointer;
+      overflow: hidden;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      line-height: 19px;
+      box-sizing: border-box;
+      padding: 0;
+      min-width: 100px;
+      background: linear-gradient(135deg,#7fbe41,#71ab37);
+      color: #fff;
+      outline: none;
+
+    }
+    .btn-pub:hover{
+      height: 40px;
+      width: 180px;
+      cursor: pointer;
+      overflow: hidden;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      line-height: 19px;
+      box-sizing: border-box;
+      padding: 0;
+      min-width: 100px;
+      background: transparent;
+      color: #7FBE41;
+      outline: none;
+
+    }
+  .btn--modal:hover{
+    height: 40px;
+    width: 180px;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 0;
+    min-width: 100px;
+    background: linear-gradient(135deg,#7fbe41,#71ab37);
+    color: #fff;
+    outline: none;
 
   }
   .btn--facebook {

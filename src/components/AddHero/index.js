@@ -15,6 +15,7 @@ export default function AddHero() {
       register,
       handleSubmit,
       setValue,
+      reset,
       formState: { isSubmitSuccessful, isValid },
     } = methods;
 
@@ -22,6 +23,17 @@ export default function AddHero() {
       console.log('data',data)
       dispatch(createNewHero(data))
     }
+    useEffect(()=>{
+      if(isSubmitSuccessful){
+        reset('firstName',' ');
+        reset('lastName',' ');
+        reset('dateBirth',' ');
+        reset('firstName',' ');
+        reset('text','')
+        reset('fullTextOne','')
+
+      }
+    },[isSubmitSuccessful])
   
    
     return (
@@ -34,25 +46,20 @@ export default function AddHero() {
                     <form className={styles.registrationForm} onSubmit={handleSubmit(handleClickForm)}>
                       <div className={styles.firstForm}>
             <Input
-              placeholder="Имя"
+              placeholder="Фамилия"
               type="text"
               name="firstName"
               maxLength={{ value: 40, message: "First name must be 40 characters or less." }}
             />
 
             <Input
-              placeholder="Фамилия"
+              placeholder="Имя и Отчество"
               type="text"
               name="lastName"
               maxLength={{ value: 40, message: "Last name must be 40 characters or less." }}
             />
             
-            <Input
-              placeholder="Отчество"
-              type="text"
-              name="thirdName"
-              maxLength={{ value: 40, message: "Last name must be 40 characters or less." }}
-            />
+            
             
             <Input
               placeholder="Годы жизни"

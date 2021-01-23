@@ -1,25 +1,24 @@
-import Por1 from '../assets/heroes/i1.png'
-import Por2 from '../assets/heroes/i2.png'
+import Por1 from '../assets/heroes/i1.jpeg'
+import Por2 from '../assets/heroes/i2.jpg'
 import Por22 from '../assets/heroes/i22.png'
-import Por3 from '../assets/heroes/i3.png'
+import Por3 from '../assets/heroes/i3.jpg'
 import Por33 from '../assets/heroes/i33.png'
-import Por4 from '../assets/heroes/i4.png'
+import Por4 from '../assets/heroes/i4.jpeg'
 import Port44 from '../assets/heroes/i44.png'
 import Port444 from '../assets/heroes/i444.png'
-import Por5 from '../assets/heroes/i5.png'
-import Por6 from '../assets/heroes/i6.png'
+import Por5 from '../assets/heroes/i5.jpg'
+import Por6 from '../assets/heroes/i6.jpg'
 import Por66 from '../assets/heroes/i66.png'
 import Por7 from '../assets/heroes/i7.jpg'
 import Por8 from '../assets/heroes/i8.png'
 import Por88 from '../assets/heroes/i88.png'
 import Por888 from '../assets/heroes/i888.png'
 import Por9 from '../assets/heroes/i9.jpg'
-import Por11 from '../assets/heroes/i11.png'
+import Por11 from '../assets/heroes/i11.jpg'
 import Por111 from '../assets/heroes/i111.png'
-import Por15 from '../assets/heroes/i15.png'
+import Por15 from '../assets/heroes/i15.jpg'
 import Por155 from '../assets/heroes/i155.png'
-
-
+import Port11 from '../assets/heroes/il.jpg'
 
 
 export const dashboardInfo =[
@@ -183,10 +182,10 @@ export const dashboardInfo =[
     },
     {
         id:7,
-        img: '',
+        img: Port11,
         url:'https://yandex.by/maps/158/mogilev/geo/31187823/?ll=30.333084%2C53.874182&z=14.79',
         name:'',
-        lastName:'Непокоренных бульвар. Луполовский лагерь смерти.',
+        lastName:'Непокоренных бульвар Луполовский лагерь смерти',
         date:'',
         descr:`Расположен в южной части города в микрорайоне Заднепровский. Назван в память об узниках Луполовского лагеря смерти, которые погибли, но не покорились врагу в годы Великой Отечественной войны. Протяженность 1910 м, от улицы Гагарина до улицы Габровской. 
         `,

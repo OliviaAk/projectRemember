@@ -19,9 +19,6 @@ export default function Footer() {
             Обратная связь
           </Link>
           <Link to="/" className={styles.footerLink}>
-            Вопроcы-Ответы
-          </Link>
-          <Link to="/" className={styles.footerLink}>
             Контакты
           </Link>
           <Link to="/" className={styles.footerLink}>

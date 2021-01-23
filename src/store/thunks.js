@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getHeroes = createAsyncThunk("heroes", async () => {
-  const { data } = await axios.get(`http://localhost:5000/heroes`);
+  const { data } = await axios.get(`http://localhost:5000/auth/heroAdd`);
   return data;
 });
 
@@ -25,7 +25,7 @@ export const getHistoryByDate = createAsyncThunk("historyBy", async ({id}) => {
   const { data } = await axios.get(`http://localhost:5000/history?id=${id}`);
   return data;
 });
-export const createNewHero = createAsyncThunk('newHero', async (hero)=>{
-  const {data} = await axios.post('http://localhost:5000/add',hero)
+export const createNewHero = createAsyncThunk('heroUser', async (hero)=>{
+  const {data} = await axios.post('http://localhost:5000/auth/heroAdd',hero)
   return data
 })

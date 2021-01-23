@@ -8,7 +8,8 @@ import HeroPage from './pages/Hero'
 import HistoryPage from './pages/History'
 import DayPage from './pages/Day'
 import AddPage from './pages/Add'
-
+import AuthPage from './pages/Auth'
+import AdminPage  from './pages/Admin'
 function App() {
   return (
     <Router>
@@ -19,6 +20,9 @@ function App() {
         <Route path='/resources' component={HistoryPage}/>
         <Route path='/day' component={DayPage}/>
         <Route path='/add' component={AddPage}/>
+        <Route path='/facebook-oauth' component={AuthPage}/>
+        <Route path='/admin' component={AdminPage}/>
+
 
 
 
