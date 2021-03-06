@@ -1,32 +1,19 @@
 import React,{useState, useEffect} from 'react'
 import styles from './styles.module.css'
-import {searchData} from '../../../mocks/heroSearch'
 import {  useHistory } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import Button from '../../shared/Button';
 import { useSelector, useDispatch } from "react-redux";
-import { getHeroes, getHero, getHeroByName } from "../../../store/thunks";
 import { setHero } from "../../../store/actions";
 import {dashboardInfo} from '../../../mocks/dashboard'
 
 export default function Dashboard() {
     const dispatch = useDispatch();
     const history = useHistory();
-    useEffect(()=>{
-        dispatch(getHeroes());
-    },[dispatch])
+
     
     const openInfoAboutHero = (id)=>{
         dispatch(setHero(id))
         history.push("/person");
-    }
-    const searchCurrentHeroByName = ({name})=>{
-        dispatch(getHeroByName({name}))
-        history.push("/person");
-
-    }
-    const searchStreet = ()=>{
-        window.open(`${dashboardInfo.url}`,"_self")
     }
     return (
         <div className={styles.dashboard}>

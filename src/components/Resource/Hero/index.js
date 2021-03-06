@@ -1,15 +1,16 @@
 import React,{useState, useEffect} from 'react'
 import PropTypes from "prop-types";
 import styles from './styles.module.css'
-import Button from '../../shared/Button';
 import { useSelector } from "react-redux";
-import Portrait from '../../../assets/images/portrait.png'
 import {dashboardInfo} from '../../../mocks/dashboard'
+import Button from '../../shared/Button'
+import { Link , useHistory} from "react-router-dom";
 
 
 export default function Hero() {
     const [hero,setHero]= useState({})
     const { current, currentSearch} = useSelector((state) => state.dashboardHero);
+    const history = useHistory()
 
    useEffect(()=>{
        if(current){
@@ -23,6 +24,9 @@ export default function Hero() {
         setHero(currentSearch)
     }
 },[currentSearch])
+const returnDashboard = ()=>{
+    history.push('/heroes')
+}
 
     return (
         <div className={styles.hero}>
@@ -30,7 +34,7 @@ export default function Hero() {
                 <div className={styles.heroContent}>
                     <div className={styles.heroMain}>
                             <div className={styles.heroHeader}>
-                                <a href={hero.url} className={styles.heroUrl}>{hero.name} {hero.lastName} </a>
+                                <p className={styles.heroUrl}>{hero.name} {hero.lastName} </p>
                                 <p>{hero.date}</p>
                             </div> 
                             <div className={styles.mainHero}>
@@ -40,7 +44,9 @@ export default function Hero() {
                                 <p>{hero.textFullTree}</p>
 
                             </div >
-                            </div>                     
+                            </div>    
+                            <Button className={styles.btnHero} onClick={()=>returnDashboard()} buttonSize='primary-back'>Назад</Button>
+                 
                         </div>
                </div>
             </div>
