@@ -1,31 +1,27 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
-import Logo from '../../assets/images/logo.png'
 
+import {navLinks} from '../../mocks/LinksData'
 
 export default function Footer() {
   return (
     <div className={styles.footer}>
-      <div className={styles.context}>
-        <div className={styles.contextItems}>
-          <img src={Logo} alt="" className={styles.contextLogo} />
+      <div className={styles.footerContainer}>
+        <div className={styles.footerHeader}>
+          <p>Информация для создания проекта предоставлена центральной городской библиотекой имени К. Маркса учреждения культуры "Централизованная система государственных публичных библиотек г. Могилева"</p>
         </div>
-        <div className={styles.contextItems}>
-          <Link to="/" className={styles.footerLink}>
-            О проекте
-          </Link>
-          <Link to="/" className={styles.footerLink}>
-            Обратная связь
-          </Link>
-          <Link to="/" className={styles.footerLink}>
-            Контакты
-          </Link>
-          <Link to="/" className={styles.footerLink}>
-            Вернуться на главную
-          </Link>
+        <div className={styles.footerLinks}>
+          {navLinks.map((link) => {
+            return (
+              <Link to={link.path} key={link.title} className={styles.footerLink}>
+                {link.title}
+              </Link>
+            );
+          })}
         </div>
       </div>
+     
     </div>
   );
 }
