@@ -1,5 +1,3 @@
-import  Image3 from '../assets/images/i3.jpg'
-import  Image4 from '../assets/images/aner.jpg'
 import styles from '../components/shared/Slider/styles.module.css'
 
 export const mainData ={
