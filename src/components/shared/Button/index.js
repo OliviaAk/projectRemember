@@ -19,7 +19,6 @@ Button.propTypes = {
 Button.defaultProps = {
   onClick: () => null,
   children: null,
-  buttonColor: "primary-btn1",
   buttonSize: "",
 };
 

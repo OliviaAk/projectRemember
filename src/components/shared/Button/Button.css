@@ -17,14 +17,10 @@
     border: 1px solid transparent;
     transition: all 0.3s ease 0s;
     outline: none;
-  }
-  .primary-btn1:hover{
-    color: #f2f2f2;
-    border: 1px solid #fff;
-    background:transparent;
-    cursor: pointer;
-    line-height: 48px;
-
+    height: 60px;
+    align-self: center;
+    width: 200px;
+    margin: 5px;
   }
   .primary-btn2{
     cursor: pointer;
@@ -48,6 +44,50 @@
     cursor: pointer;
 
   }
+  .primary-back{
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    border-radius: 25px;
+    border-color: rgb(44, 106, 110);
+    font-size: 16px;
+    line-height: 19px;
+    font-style: normal;
+    box-sizing: border-box;
+    text-transform:none;
+    height: 45px;
+    padding: 0;
+    min-width: 180px;
+    background:rgb(138, 223, 229);
+    color: rgb(19, 7, 53);
+    outline: none;
+    align-self: center;
+justify-self: center;
+margin: 0 120px;
+
+  }
+  .primary-back:hover{
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    border-radius: 25px;
+    border-color: rgb(44, 106, 110);
+    font-size: 16px;
+    line-height: 19px;
+    font-style: normal;
+    box-sizing: border-box;
+    text-transform:none;
+    height: 45px;
+    padding: 0;
+    min-width: 180px;
+    background:rgb(80, 211, 235);
+    color: rgb(20, 68, 87);
+    outline: none;
+    align-self: center;
+
+justify-self: center;
+  }
+ 
   .primary-btn3{
 
     background: #8b4734;
@@ -169,4 +209,31 @@
     color:transparent;
     outline: none;
     text-align: center;
+   }
+   .btn-nav{
+    background: #d14b4b;
+    color: #f2f2f2;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: all 0.3s ease 0s;
+    outline: none;
+    padding: 0;
+    height: 50px;
+    width: 100px;
+    justify-self: center;
+    align-self: center;
+   }
+   .btn-nav:hover{
+    background: #d14b4b;
+    color: #f2f2f2;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: all 0.3s ease 0s;
+    outline: none;
+    padding: 0;
+    height: 50px;
+    width: 100px;
+    justify-self: center;
+    align-self: center;
+
    }

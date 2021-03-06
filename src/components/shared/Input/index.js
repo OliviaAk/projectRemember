@@ -3,22 +3,16 @@ import PropTypes from "prop-types";
 import styles from "./styles.module.css";
 import { useFormContext } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import  IconSVG  from "../Icons";
 
 const Input = ({
   name,
   type,
   placeholder,
-  icon,
   value,
   onChange,
   maxLength,
   minLength,
   pattern,
-  isIcon,
-  isPassword,
-  passwordIcon,
-  handleClickIcon,
 }) => {
   const methods = useFormContext();
   const { register, errors } = methods;
@@ -26,7 +20,6 @@ const Input = ({
   return (
     <div className={styles.item}>
       <div className={styles.inputContainer}>
-        {isIcon ? <IconSVG className={styles.inputIcon} src={icon} /> : ""}
         <input
           name={name}
           type={type}
@@ -41,15 +34,7 @@ const Input = ({
           })}
           onChange={onChange}
         />
-        {isPassword ? (
-          <IconSVG
-            className={styles.inputIcon}
-            src={passwordIcon}
-            handleClickIcon={handleClickIcon}
-          />
-        ) : (
-          ""
-        )}
+        
       </div>
       <ErrorMessage
         errors={errors}
