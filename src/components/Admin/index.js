@@ -1,59 +1,58 @@
 import React,{useState, useEffect} from 'react'
-import { useSelector, useDispatch } from "react-redux";
-import {getHeroes} from '../../store/thunks'
 import styles from './styles.module.css'
-import Button from '../shared/Button'
+import {useDispatch, useSelector} from 'react-redux'
+import {userHero, setPublishCards,deleteCard } from "../../store/thunks";
+import Button from '../shared/Button';
+
+
 export default function Admin() {
+    const [items, setItems]= useState([])
+    const { usersHeroes } = useSelector((state) => state.dashboardHero);
+
     const dispatch = useDispatch()
-    const {heroes} = useSelector((state) => state.dashboardHero);
     useEffect(()=>{
-        dispatch(getHeroes())
-    },[dispatch])
+       dispatch(userHero())
 
+    },[])
+
+    useEffect(()=>{
+        if(usersHeroes.length>0){
+            setItems(usersHeroes)
+        }
+    },[usersHeroes])
+ 
     return (
-        <div>
-            <div className={styles.dashboard}>
-            <div className={styles.dashboardContainer}>
-                <div className={styles.dashboardContent}>
-                    <h1>НОВЫЕ ГЕРОИ</h1>
-                    <div className={styles.dashboardItems}>
-                        {heroes.map((i, index)=>{
-                            return(
-                                <div className={styles.content}>
-                                <div className={styles.item} key={index}>
-                                    <div className={styles.border}>
-                                    <p className={styles.cred}>ФИО:</p>
-                                    <p className={styles.name}>{i.firstName}  {i.thirdName}</p>
-
-
-                                 </div>
-                                    <div className={styles.border}>
-                                    <p className={styles.cred}>Годы жизни:</p>
-                                    <p className={styles.name}> {i.dateBirth}</p>
-
-
-                                 </div>
-                                    <div className={styles.border}>
-                                    <p className={styles.cred}>Описание:</p>
-                                    <p className={styles.name}> {i.text}</p>
-
-                                 </div>
-                                 <div className={styles.border}>
-                                    <p className={styles.cred}>Добавил:</p>
-                                    <p className={styles.name}> olivia.akhmaeva@gmail.com</p>
-
-                                 </div>
-                                
-                                </div>
-                                <Button buttonSize='btn-pub'>Опубликовать</Button>
-                                </div>
-                            )
-                        })}
-                       
-                    </div>
-                </div>
+        <div className={styles.dashboard}>
+         <div className={styles.dashboardContainer}>
+             <p className={styles.title}>Пользовательские открытки </p>
+             <div className={styles.dashboardContent}>
+             {items.map((u)=>{
+                    return(
+                        <div className={styles.dashboardItem}>
+                            <div className={styles.itemContext}>         
+                            <p className={styles.name}>{u.firstName}</p>
+                            <p className={styles.date}>{u.dateBirth}</p>
+                            <p className={styles.text}>{u.text}</p>
+                            </div>
+                            <div className={styles.buttonAdmin}>
+                            <>
+                            {!u.isShow ? <Button  buttonColor='primary-btn1' onClick={() =>
+                          dispatch(setPublishCards({ id: u._id, isShow: !u.isShow }))}>
+                              Опубликовать</Button>:<></>}
+                              </>
+                              <Button buttonColor='primary-btn1' onClick={() =>
+                          dispatch(deleteCard({id:u._id}))}>
+                              Удалить</Button>
+                            </div>
+                            
+                            
+                        </div>
+                    )
+                })}
+             </div>
+         
+                
             </div>
-        </div>            
         </div>
     )
 }
