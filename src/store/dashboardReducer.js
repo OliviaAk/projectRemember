@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { getHeroes, getHero,getHeroByName, getHistory, getHistoryByDate, createNewHero  } from "./thunks";
-import {setDay, setHero} from './actions'
+import {  createNewHero , userHero, setPublishCards, deleteCard } from "./thunks";
+import {setDay, setHero, showCurrentHero} from './actions'
 
 export const initialState = {
   heroes: [],
@@ -11,20 +11,34 @@ export const initialState = {
   loading: false,
   newHero:null,
   error: null,
+  usersHeroes:[],
+  userCard:null,
+ 
 };
 const dashboardHero = createReducer(initialState, {
-  [getHeroes.fulfilled]: (state, { payload }) => {
-    state.heroes = payload;
+  [setPublishCards.fulfilled]: (state, { payload }) => {
+    const index = state.usersHeroes.findIndex((e) => e._id === payload._id);
+    state.usersHeroes[index] = payload;
+  },
+  [deleteCard.fulfilled]: (state, { payload }) => {
+
+    state.usersHeroes = state.usersHeroes.filter(us => us._id !== payload);
+
+    },
+  [userHero.fulfilled]: (state, { payload }) => {
+    state.usersHeroes = payload;
   },
   [createNewHero.fulfilled]: (state, { payload }) => {
     state.newHero = payload;
   },
+  
   [setHero.type]: (state,{payload})=>{
     state.current = payload;
   },
-  [getHeroByName.fulfilled]: (state,{payload})=>{
-    state.currentSearch = payload;
+  [showCurrentHero.type]: (state,{payload})=>{
+    state.userCard = payload;
   },
+ 
   [setDay.type]: (state, { payload }) => {
     state.history = payload;
   },
