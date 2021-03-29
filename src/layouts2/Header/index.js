@@ -24,7 +24,9 @@ export default function Header({ user }) {
         >
           
       <div className={styles.user}>
+        <Button buttonSize='primary-btn1'>Архив</Button>
         <Button buttonSize='primary-btn1'>Авторизация</Button>
+
        </div>
         </div>
       </div>

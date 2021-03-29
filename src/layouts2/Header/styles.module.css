@@ -13,8 +13,8 @@
     width: 100%;
     display: grid;
     align-items: center;
-    grid-template-columns: 250px auto 250px;
-    text-align: center;
+    grid-template-columns: 250px auto 400px;
+    text-align: center
 
 }
 
@@ -26,12 +26,8 @@
 
 .userBlock{
     position: relative;
-    align-items: center;
-    text-align: center;
-    display: flex;
     padding: 0 30px;
     border-left: 2px solid #117a0e;
-    width: 180px;
 }
 
 
@@ -43,6 +39,8 @@
     letter-spacing: 0;
     line-height: 17px;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
   
 }
 .user span{
