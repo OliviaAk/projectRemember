@@ -1,0 +1,36 @@
+.splitItems{
+
+    color: #9CA9B3;
+    font-size: 1rem;
+    align-items: center;
+    justify-self: center;
+    max-width: 900px;
+    margin: auto;
+    font-weight: 400
+}
+.splitItem{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+}
+.itemImg{
+    width: 400px;
+}
+.splitItemContent{
+    width: 500px;
+    flex-shrink: 0;
+    width: 396px;
+    margin-bottom: 0;
+    margin-right: 84px;
+}
+.splitItemContentReserve{
+    width: 500px;
+    flex-shrink: 0;
+    width: 396px;
+    margin-bottom: 0;
+    margin-left: 84px;
+}

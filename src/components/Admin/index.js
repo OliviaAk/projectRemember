@@ -6,6 +6,7 @@ import Button from '../shared/Button';
 
 
 export default function Admin() {
+    
     const [items, setItems]= useState([])
     const { usersHeroes } = useSelector((state) => state.dashboardHero);
 
@@ -37,21 +38,17 @@ export default function Admin() {
                             <div className={styles.buttonAdmin}>
                             <>
                             {!u.isShow ? <Button  buttonColor='primary-btn1' onClick={() =>
-                          dispatch(setPublishCards({ id: u._id, isShow: !u.isShow }))}>
+                              dispatch(setPublishCards({ id: u._id, isShow: !u.isShow }))}>
                               Опубликовать</Button>:<></>}
                               </>
                               <Button buttonColor='primary-btn1' onClick={() =>
-                          dispatch(deleteCard({id:u._id}))}>
+                              dispatch(deleteCard({id:u._id}))}>
                               Удалить</Button>
                             </div>
-                            
-                            
                         </div>
                     )
                 })}
-             </div>
-         
-                
+              </div> 
             </div>
         </div>
     )

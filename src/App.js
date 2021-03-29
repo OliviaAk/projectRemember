@@ -13,11 +13,11 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path='/heroes' component={DashboardPage}/>
+        {/* <Route path='/heroes' component={DashboardPage}/>
         <Route path='/person' component={HeroPage}/>
         <Route path='/add' component={CardPage}/>
         <Route path='/userCard' component={CardPresent}/>
-        <Route path='/admin' component={AdminPage}/>
+        <Route path='/admin' component={AdminPage}/> */}
       </Switch>
     </Router>
   );

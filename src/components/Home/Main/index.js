@@ -7,7 +7,6 @@ import LogoType from '../../../assets/images/logotype.jpg';
 import styles from './styles.module.css';
 import {mainData} from '../../../mocks/mainData';
 import Button from '../../shared/Button';
-import Arrow from '../../../assets/images/arrow.png'
 import Solders from '../../../assets/images/solders.jpg'
 import Image1 from '../../../assets/images/i1.png'
 import Logo from '../../../assets/images/logo.png'
@@ -81,12 +80,12 @@ export default function Home({}) {
                                 <IconSVG className={styles.createIcon} src={Start}/>
                                 <p>Добавьте текст на открытку</p>
                             </div>
-                            <div className={styles.line}><IconSVG src={Arrow}/></div>
+                            <div className={styles.line}></div>
                             <div className={styles.createItem}>
                                 <IconSVG className={styles.createIcon} src={Update}/>
                                 <p>Сгенерируйте открытку с вашим героем</p>
                             </div>
-                            <div className={styles.line}><IconSVG src={Arrow}/></div>
+                            <div className={styles.line}></div>
                             <div className={styles.createItem}>
                                 <IconSVG className={styles.createIcon} src={End}/>
                                 <p>Сохраните и поделитесь в социальных сетях</p>
