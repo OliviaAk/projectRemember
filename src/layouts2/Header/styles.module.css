@@ -1,12 +1,12 @@
 .header{
-    background-color: transparent;
     display: flex;
     justify-content:space-around;
-    box-shadow: 0 2px 0 0 #117a0e;
     position: fixed;
-    height: 60px;
+    height: 50px;
     width: calc(100%);
     z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-color: transparent;
 }
 
 .container{
@@ -27,7 +27,6 @@
 .userBlock{
     position: relative;
     padding: 0 30px;
-    border-left: 2px solid #117a0e;
 }
 
 
@@ -52,5 +51,5 @@
 
 
 .logo{
-    width: 100px;
+    width: 80px;
 }

@@ -1,12 +1,19 @@
 import React from "react";
-import Home from "../../components2/Home";
+import Info from "../../components2/Home/Info";
+import Items from "../../components2/Home/Items";
+import Description from "../../components2/Home/Description";
+
+
 import Layout from "../../layouts2";
 export default function HomePage() {
 
   return (
     <>
     <Layout>
-      <Home /> 
+      <Info /> 
+      <Items /> 
+      <Description /> 
+
     </Layout>
     </>
   );

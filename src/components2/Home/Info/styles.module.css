@@ -1,0 +1,59 @@
+.home{
+}
+.homeContainer{
+    margin: 0 auto;
+    padding: 120px 0 0 0px;
+
+
+}
+.homeMain{
+    align-items: center;
+    text-align: center;
+    color: #fff;
+
+}
+.homeMainTitle{
+    color: #fff;
+    font-size: 4rem;
+}
+.homeCarusel{
+    height: 60px;
+    width: 100%;
+}
+.homeTop{
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 3px solid #40db3b;
+}
+.textAfter{
+    margin:30px 0;
+}
+.social{
+  margin: 30px 0;
+}
+.readBtn{
+    margin: 30px 0;
+
+}
+.fullText{
+    width: 500px;
+    text-align: center;
+    font-size: 18px;
+    margin-right: 50px;
+    color: #fff;
+}
+.text  {
+    text-align: justify;
+    text-indent: 50px;
+}
+.video {
+    margin: 10px 0;
+   
+}
+.videoIcon{
+    width: 100%;
+    height: 80%;
+
+}

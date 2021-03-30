@@ -1,8 +1,8 @@
-import React,{useState, useEffect} from 'react'
+import React from 'react'
 import styles from './styles.module.css'
 import {  useHistory } from "react-router-dom";
 import Button from '../../shared/Button';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setHero } from "../../../store/actions";
 import {dashboardInfo} from '../../../mocks/dashboard'
 
@@ -25,7 +25,6 @@ export default function Dashboard() {
                             return(
                                 <div key={index} className={styles.dashboardItem}>
                                 <div className={styles.itemImage}>
-                                    
                                     <img className={styles.portrait} src={item.img} alt=''/>
                                 </div>
                                 <div className={styles.itemInfo}>

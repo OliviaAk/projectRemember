@@ -14,7 +14,6 @@ export default function Header({ user }) {
       
       <div className={styles.container}>
         <div>
-          <IconSVG className={styles.logo} src={LogoType}/>
         </div>
         <div>
           <span></span>
@@ -24,8 +23,7 @@ export default function Header({ user }) {
         >
           
       <div className={styles.user}>
-        <Button buttonSize='primary-btn1'>Архив</Button>
-        <Button buttonSize='primary-btn1'>Авторизация</Button>
+      
 
        </div>
         </div>

@@ -8,7 +8,10 @@ import Logo from '../../../assets/images/logo.png'
 export default function Items() {
     return (
         <div className={styles.splitItems}>
+          
             <div className={styles.splitItem}>
+            <IconSVG className={styles.itemImg} src={Image1}/>
+
               <div className={styles.splitItemContent}>
                 <h3 className="mt-0 mb-12">
                 23 ДНЯ МУЖЕСТВА                  </h3>
@@ -20,14 +23,11 @@ export default function Items() {
                 </p>
               </div>
               <div >
-                <IconSVG className={styles.itemImg} src={Image1}/>
               </div>
             </div>
 
             <div className={styles.splitItem}>
-            <div  >
               <IconSVG className={styles.itemImg} src={Solders}/>
-              </div>
             <div className={styles.splitItemContentReserve}>
                 
                 <h3 className="mt-0 mb-12">
@@ -44,6 +44,8 @@ export default function Items() {
             </div>
 
             <div className={styles.splitItem}>
+            <IconSVG className={styles.itemImg} src={Logo}/>
+
             <div className={styles.splitItemContent}>
                
                 <h3 className="mt-0 mb-12">
@@ -53,10 +55,7 @@ export default function Items() {
 о родных — участниках Великой Отечественной войны, создайте видеооткрытку о героях своей семьи! Гордость за их подвиги должна жить вечно!
                   </p>
               </div>
-              <div >
-                <IconSVG className={styles.itemImg} src={Logo}/>
-
-              </div>
+             
             </div>
             </div>
     )

@@ -1,6 +1,6 @@
-import Pic1 from '../assets/images/aner.jpg'
-import Pic2 from '../assets/images/i3.jpg'
-import Pic3 from '../assets/images/i4.jpg'
+import Pic1 from '../assets/images/pic1.jpg'
+import Pic2 from '../assets/images/pic2.jpg'
+import Pic3 from '../assets/images/pic3.jpg'
 
 
 
