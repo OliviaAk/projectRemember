@@ -16,9 +16,9 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
          <Route path='/dashboard' component={DashboardPage}/>
-       {/* <Route path='/person' component={HeroPage}/>
-        <Route path='/add' component={CardPage}/>
-        <Route path='/userCard' component={CardPresent}/>
+        <Route path='/hero' component={HeroPage}/>
+        <Route path='/card' component={CardPage}/>
+        {/*<Route path='/userCard' component={CardPresent}/>
         <Route path='/admin' component={AdminPage}/> */}
       </Switch>
     </Router>

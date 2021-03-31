@@ -7,6 +7,7 @@
 .container{
     margin: 0  auto;
     max-width: 1200px;
+    
 }
 .footerHeader{
     padding-bottom: 40px;
@@ -25,7 +26,7 @@
 }
 .footerItems{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .footerItem{
@@ -34,16 +35,45 @@
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    margin: 0 15px;
     margin-bottom: 40px;
-    width: 320px;
+    width: 300px;
     min-height: 200px;
+    color: #fff;
+
 }
 
+.footerItem h3 {
+    color:  rgb(42, 228, 129);;
+}
+
+.social{
+
+} 
 
 
-
-
-
+.socialLink {
+    color: #fff;
+    background-color: rgb(57, 171, 111);
+    border: 2px solid rgb(57, 171, 111);
+    width: 100%;
+    height: 30px;
+    max-width: 200px;
+    list-style: none;
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 5px;
+    text-align: center;
+    
+    }
+    
+    .socialLink:hover {
+    border: 2px solid rgb(57, 171, 111);
+    text-decoration: none;
+    color: #fff;
+    background-color: transparent;
+    }
+    
 
 
 

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import IconSVG from '../../components/shared/Icons'
 import Port from '../../assets/heroes/i1.jpeg';
+import {dashboardInfo} from '../../mocks/dashboard'
 
 
 export default function Dashboard() {
@@ -9,33 +10,24 @@ export default function Dashboard() {
     <div className={styles.dashboard}>
         <div className={styles.dashboardContainer}>
             <div className={styles.dashboardContent}>
-              <div className={styles.dashboardItem}>
+            {dashboardInfo.map((item,index)=>{
+                            return(
+            <div className={styles.dashboardItem}>
                   <div className={styles.portrait}>
-                      <IconSVG className={styles.portraitIcon} src={Port}/>
+                      <IconSVG className={styles.portraitIcon} src={item.img}/>
                   </div>
                   <div className={styles.text}>
-                      <h4>Федор Алексеевич</h4>
-                      <p>02.03.1898 — 22.01.1984</p>
+                      <h4>{item.lastName} {item.name}</h4>
+                      <p>{item.date}</p>
                   </div>
               </div>
-              <div className={styles.dashboardItem}>
-                 <div className={styles.portrait}>
-                      <IconSVG className={styles.portraitIcon} src={Port}/>
-                  </div>
-                  <div className={styles.text}>
-                    <h4>Федор Алексеевич</h4>
-                    <p>02.03.1898 — 22.01.1984</p>
-                  </div>
-              </div>
-              <div className={styles.dashboardItem}>
-                  <div className={styles.portrait}>
-                      <IconSVG className={styles.portraitIcon} src={Port}/>
-                  </div>
-                  <div className={styles.text}>
-                    <h4>Федор Алексеевич</h4>
-                    <p>02.03.1898 — 22.01.1984</p>
-                  </div>
-              </div>
+                            )
+                        })}
+
+           
+
+
+              
             </div>
         </div>
     </div>

@@ -39,3 +39,21 @@
     background-color: transparent;
     }
     
+
+    .btn--card{
+      color: #c6c9d8;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #b1b4c1;
+    padding: 15px 40px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 500;
+    -webkit-transition: .3s;
+    transition: .3s;
+    }
+    .btn--card:hover{
+      background-color: #c23759;
+    
+    }

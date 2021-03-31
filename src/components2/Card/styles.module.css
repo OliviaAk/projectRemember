@@ -1,0 +1,44 @@
+.card{
+        background-color: #fff;
+        height: 100vh;
+        padding: 120px 0;
+
+    
+}
+.cardContainer{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
+.photo{
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 25px 65px rgb(0 0 0 / 10%);
+}
+.textContainer{
+    margin-top: 100px;
+    margin-left: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: block;
+}
+.description{
+   
+    display: block;
+}
+.textareaItemFirst{
+    height:  210px;
+    width: 450px;
+    border-radius:8px ;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 20px 20px;   
+    outline: none;
+    resize: none;
+}
+.sendBtn{
+    margin: 20px 150px;  
+    display: flex;
+    justify-self: center;
+
+}

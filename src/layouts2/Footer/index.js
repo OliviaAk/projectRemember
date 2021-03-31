@@ -17,46 +17,36 @@ const Footer = ({}) => {
         </div>
         <div className={styles.footerItems}>
           <div className={styles.footerItem}>
-          <h3>We Are Social</h3>
+          <h3>Мы в социальных сетях</h3>
             <p>
             Aliquam tempus ante placerat,
             consectetur tellus nec, porttitor nulla.
             </p>
-            <div class="social-below">
-            <a href="#" class="btn button-custom btn-custom-two" > Facebook</a>
-            <a href="#" class="btn button-custom btn-custom-two" > Twitter</a>
-            <a href="#" class="btn button-custom btn-custom-two" > Google +</a>
+            <div className={styles.social}>
+            <a href="#"  className={styles.socialLink} > Facebook</a>
+            <a href="#"  className={styles.socialLink} > Twitter</a>
+            <a href="#"  className={styles.socialLink} > Google +</a>
             </div>
 
           </div>
           <div className={styles.footerItem}>
           <div class="contact-wrapper">
-            <h3>Quick Contact</h3>
-            <h4><strong>Email : </strong> info@yuordomain.com </h4>
-            <h4><strong>Call : </strong> +09-88-99-77-55 </h4>
-            <h4><strong>Skype : </strong> Yujhaeu78 </h4>
+            <h3>Связаться с нами</h3>
+            <h4><strong>Почта : </strong> info@yuordomain.com </h4>
+            <h4><strong>Телефон : </strong> +09-88-99-77-55 </h4>
+            <h4><strong>Почтовый индекс : </strong> 212001 </h4>
             </div>
           </div>
           <div className={styles.footerItem}>
           <div class="contact-wrapper">
-            <h3>Address : </h3>
-            <h4>230/45 , New way Lane , </h4>
-            <h4>United States</h4>
+            <h3>Адрес : </h3>
+            <h4>Ул. Карла Маркса, 2 </h4>
+            <h4>Могилев, Беларусь</h4>
             <div class="footer-div" >
-            &copy; 2015 YourDomain | <a href="http://www.designbootstrap.com/" target="_blank" >by DesignBootstrp</a>
-            </div>
+            &copy; 2021 YourDomain |             </div>
             </div>
           </div>
         </div>
-        {/* <div className={styles.siteFooterInner} >
-          <div className={styles.footerTop}>
-            <FooterSocial className={styles.footerSocial}/>
-          </div>
-          <div className={styles.footerBottom}>
-          <div className={styles.footerCopyright}>All right reserved</div>
-          <FooterNav className={styles.footerNav} />
-          </div>
-        </div> */}
       </div>
     </footer>
   );

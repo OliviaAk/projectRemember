@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "../../components/Card";
-import Layout from "../../layouts";
+import Card from "../../components2/Card";
+import Layout from "../../layouts2";
 
 export default function CardPage() {
   return (
