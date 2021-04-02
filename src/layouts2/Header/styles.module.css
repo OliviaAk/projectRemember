@@ -11,22 +11,34 @@
 
 .container{
     width: 100%;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 250px auto 400px;
-    text-align: center
-
-}
-
-.headerNotify{
-    padding: 10px 10px;
     display: flex;
-    align-self: center;
+    justify-content: space-around;
+    align-items: center;
+    /* grid-template-columns: 50%  50%;  */
+    text-align: center;
+    color: antiquewhite;
+
 }
+
+
 
 .userBlock{
     position: relative;
     padding: 0 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.mainLinks{
+    color: aliceblue;
+    text-decoration: none;
+    width: 120px
+
+}
+.navItems {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
 }
 
 
