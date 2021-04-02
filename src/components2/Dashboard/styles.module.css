@@ -9,8 +9,6 @@
     width: 100%;
     /* background-color: rgb(154, 205, 236);
     border: 2px solid rgb(40, 141, 203); */
-    background-color: rgb(233, 240, 245);
-    border: 2px solid rgb(210, 230, 243);
     border-radius: 25px;
     display: flex;
     flex-wrap: wrap;
@@ -47,5 +45,11 @@
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     text-align: center;
-    height: 150px;
+    height: 100px;
+ }
+ .text a{
+
+    list-style: none;
+    text-decoration: none;
+    color: black;
  }

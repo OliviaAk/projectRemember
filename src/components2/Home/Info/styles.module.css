@@ -1,15 +1,28 @@
 .home{
+    display: table;
+    width: 100%;
+    padding: 0;
+    background: url(../../../assets/images/pic2.jpg) center center no-repeat;
+    background-color: #e5e5e5;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+.homeOverlay{
+    background-color: rgba(0, 0, 0, 0.4);
+
 }
 .homeContainer{
-    margin: 0 auto;
-    padding: 120px 0 0 0px;
-
+    max-width: 1200px;
+    margin: 0px auto;
 
 }
 .homeMain{
-    align-items: center;
-    text-align: center;
     color: #fff;
+    padding-top: 350px;
+    padding-bottom: 200px;
+    text-align: center;
+
 
 }
 .homeMainTitle{

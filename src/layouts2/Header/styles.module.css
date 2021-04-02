@@ -1,39 +1,65 @@
 .header{
-    display: flex;
-    justify-content:space-around;
     position: fixed;
-    height: 50px;
+    
+    z-index: 1030;
+    background-color: #fff;
+    border-color: rgba(231, 231, 231, 0);
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
     width: calc(100%);
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-color: transparent;
+    height: 81px;
+    transition: all 0.8s;
+    border-width: 0 0 1px;
+
+
 }
 
 .container{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+    max-width: 1200px;
+
+    margin: 20px auto;
     align-items: center;
-    /* grid-template-columns: 50%  50%;  */
+    display: flex;
+    justify-content: space-between;
     text-align: center;
-    color: antiquewhite;
 
 }
 
-
+.logoContent{
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+}
 
 .userBlock{
     position: relative;
-    padding: 0 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-left: 20px;
 }
 .mainLinks{
-    color: aliceblue;
     text-decoration: none;
-    width: 120px
+    text-transform: uppercase;
+    color: #555;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 8px 2px;
+    border-radius: 0;
+    position: relative;
+    width: 150px;
 
+}
+.mainLinks::after{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+    content: "";
+    transition: width 0.2s;
 }
 .navItems {
     display: flex;
@@ -54,9 +80,7 @@
     justify-content: space-around;
   
 }
-.user span{
-    padding: 0 2px;
-}
+
 
 
 

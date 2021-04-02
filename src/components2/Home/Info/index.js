@@ -34,38 +34,20 @@ export default function Info() {
       }, []);
     return (
      <div className={styles.home}>
+            <div className={styles.homeOverlay}>
         <div className={styles.homeContainer}>
          <div className={styles.homeMain}>
              <p className={styles.homeMainTitle}>Виртуальная стена памяти города Могилева</p>
              <div className={styles.homeCarusel}>
              <Slide image={slides[currentSlide]}/>          
                </div>
-             <p className={styles.textAfter}>This line is fixed so you can write anything</p>
          <div className={styles.social}>
          </div>
-         <Button className={styles.readBtn} buttonColor='btn-custom'>Архив</Button>
+         <Button className={styles.readBtn} >Архив</Button>
          </div>
 
-         <div className={styles.homeTop}>
-
-            <div className={styles.fullText}>
-                <h3>Никто не забыт, ничто не забыто!</h3>
-                    <p className={styles.text}>
-                Виртуальная стена памяти обороны Могилева представлена по случаю славной и памятной даты в исто­рии Отечества — 80-й
-                годовщины начала обороны Могилева от немецко-фашистских захватчиков.
-            23 дня героического противостояния врагу на Днепровском рубеже вошли легендарной страницей 
-            в летопись Великой Отечественной войны. Битва за Могилев вселила в сердца миллионов людей надежду и веру 
-            в неотвратимый разгром оккупантов. А Буйничское поле стало таким же символом мужества и стойкости. 
-            Подвиг защитников Могилева всегда будет жить в сердцах белорусов.
-            Гордитесь родным Могилевом - городом белорусской ратной славы, неустанно трудитесь ради его счастья и процветания!
-                            </p>
+         
             </div>
-            <div className={styles.video}>
-                <IconSVG className={styles.videoIcon} src={Pic}/>
-            </div>
-        </div>
-            
-
         </div>
         </div>
     )

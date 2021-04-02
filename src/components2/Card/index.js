@@ -3,7 +3,7 @@ import IconSVG from '../../components/shared/Icons'
 import { useForm, FormProvider } from "react-hook-form";
 
 import styles from './styles.module.css'
-import Ex from '../../assets/images/ex.jpg'
+import Example from '../../assets/images/example.jpg'
 import Input from '../../components/shared/Input'
 import Button from '../../components/shared/Button'
 
@@ -20,7 +20,7 @@ export default function Card() {
      <FormProvider {...methods}>
         <div className={styles.card}>
             <div className={styles.cardContainer}>
-                <IconSVG className={styles.photo} src={Ex}/>
+                <IconSVG className={styles.photo} src={Example}/>
                 <div className={styles.textContainer}>
                 <div className={styles.description}>
                 <Input
