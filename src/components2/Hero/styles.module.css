@@ -10,18 +10,7 @@
     padding: 100px 0 100px 0px;
 }
 
-.palette{
-    background-color: #bf404c;
-    height: 107px;
-    width: 100%;
-    position: relative;
-   display: inline-block;
-  overflow: hidden;
-  margin-top:  120px;
-
-}
 .heroContent{
-    position: relative; 
     margin: 50px 0;
     height: 50vh;
     width: 100%;
@@ -29,8 +18,7 @@
 }
 
 .heroMain{
-    position: absolute;
-     left: 0; top:0;
+    left: 0; top:0;
     display: inline-block;
     vertical-align: top;
 }
@@ -51,7 +39,7 @@
     width: 380px;
     height: 477px;
     top:80px;
-     border:3px solid #bf404c;
+     border:5px solid #bf404c;
     z-index: 5;
 
 }

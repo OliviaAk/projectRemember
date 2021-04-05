@@ -6,6 +6,7 @@ import IconSVG from '../../../components/shared/Icons'
 import Start from '../../../assets/images/photo.png'
 import Update from '../../../assets/images/update.png'
 import End from '../../../assets/images/star.png'
+import CurvedArrow from "react-curved-arrow";
 
 export default function Home() {
     return (
@@ -13,7 +14,7 @@ export default function Home() {
         <div className={styles.homeContainer}>
          <div className={styles.homeInfo} >
             <div className={styles.createContent}>
-              <p>СОЗДАЙТЕ ОТКРЫТКУ</p>
+              <p>КАК СОЗДАЙТЬ СВОЮ ОТКРЫТКУ</p>
             </div>
                         <div className={styles.createInfo}>
                             <div className={styles.createItem}>
@@ -22,6 +23,7 @@ export default function Home() {
                                 </div>
                                 <div className={styles.createText}>Добавьте текст на открытку</div>
                             </div>
+                           
                             <div className={styles.createItem}>
                             <div className={styles.createIcon}>
                                 <IconSVG className={styles.icon} src={Update}/>
@@ -35,6 +37,11 @@ export default function Home() {
                              <div className={styles.createText}>Добавьте текст на открытку</div>
                             </div>
                         </div>
+                        <div className={styles.arrows}>
+                        <CurvedArrow fromSelector=".createItem" toSelector=".createItem" middleY={40} />
+
+                    
+                       </div>
           </div>
 
         </div>

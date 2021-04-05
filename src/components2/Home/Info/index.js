@@ -5,6 +5,11 @@ import Video from '../../../assets/images/download.png'
 import {Slide} from '../../shared/Slide'
 import Button from '../../../components/shared/Button'
 import Pic from '../../../assets/images/pic3.jpg'
+import Pic1 from '../../../assets/images/pic2.jpg'
+import Pic2 from '../../../assets/images/pic1.jpg'
+import Pic3 from '../../../assets/images/pic3.jpg'
+
+import BackgroundSlider from 'react-background-slider'
 
 export default function Info() {
     const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -33,18 +38,24 @@ export default function Info() {
         };
       }, []);
     return (
-     <div className={styles.home}>
+      <div className={styles.home}>
+      <BackgroundSlider
+          images={[ Pic1, Pic2,Pic3]}
+          duration={8}
+          transition={0.5}
+        />
             <div className={styles.homeOverlay}>
         <div className={styles.homeContainer}>
          <div className={styles.homeMain}>
              <p className={styles.homeMainTitle}>Виртуальная стена памяти города Могилева</p>
-             <div className={styles.homeCarusel}>
-             <Slide image={slides[currentSlide]}/>          
-               </div>
-         <div className={styles.social}>
-         </div>
-         <Button className={styles.readBtn} >Архив</Button>
-         </div>
+          <div className={styles.homeCarusel}>
+           <Slide image={slides[currentSlide]}/>          
+          </div>
+        
+            <div className={styles.readBtn}>
+            <Button buttonColor='primary-btn2'>Архив</Button>
+            </div>
+            </div>
 
          
             </div>

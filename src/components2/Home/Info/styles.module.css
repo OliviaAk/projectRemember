@@ -2,14 +2,14 @@
     display: table;
     width: 100%;
     padding: 0;
-    background: url(../../../assets/images/pic2.jpg) center center no-repeat;
-    background-color: #e5e5e5;
+    background: transparent;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
 }
 .homeOverlay{
     background-color: rgba(0, 0, 0, 0.4);
+    height: 100vh;
 
 }
 .homeContainer{
@@ -22,6 +22,11 @@
     padding-top: 350px;
     padding-bottom: 200px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    position: relative;
+
 
 
 }
@@ -47,7 +52,8 @@
   margin: 30px 0;
 }
 .readBtn{
-    margin: 30px 0;
+    margin: auto;
+
 
 }
 .fullText{

@@ -17,9 +17,6 @@ export default function Hero() {
                    <p>{hero.date}</p> 
                 </div>
                 <div className={styles.heroContent}>
-                     <div className={styles.palette}>
-
-                    </div> 
                     <div className={styles.heroMain}>
 
                     <div className={styles.imageBlock}>

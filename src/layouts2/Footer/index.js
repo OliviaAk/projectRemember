@@ -33,17 +33,17 @@ const Footer = ({}) => {
           <div class="contact-wrapper">
             <h3>Связаться с нами</h3>
             <h4><strong>Почта : </strong> info@yuordomain.com </h4>
-            <h4><strong>Телефон : </strong> +09-88-99-77-55 </h4>
-            <h4><strong>Почтовый индекс : </strong> 212001 </h4>
+            <h4><strong>Телефон : </strong> 74-00-32 </h4>
+            <h4><strong>Почтовый индекс : </strong> 212030 </h4>
             </div>
           </div>
           <div className={styles.footerItem}>
           <div class="contact-wrapper">
             <h3>Адрес : </h3>
-            <h4>Ул. Карла Маркса, 2 </h4>
+            <h4>ул. Первомайская, 30 </h4>
             <h4>Могилев, Беларусь</h4>
             <div class="footer-div" >
-            &copy; 2021 YourDomain |             </div>
+            &copy; 2021  Официальный сайт УК «Централизованная система государственных публичных библиотек г. Могилёва». </div>
             </div>
           </div>
         </div>
