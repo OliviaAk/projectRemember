@@ -47,6 +47,28 @@
     color: #fff;
     text-transform: uppercase;
   }
+  .primary-btn3{
+    display: inline-block;
+    padding: 8px 18px 10px;
+    border: 1px solid;
+    color: #FFF;
+    display: block;
+    height: 35px;
+    width: 150px;
+    background-color: #FBAB45;
+    border-color: #FBAB45;
+  }
+  .primary-btn3:hover{
+    display: inline-block;
+    padding: 8px 18px 10px;
+    border: 1px solid;
+    color: #000;
+    display: block;
+    height: 35px;
+    width: 150px;
+    background-color: transparent;
+    border-color: #000;
+  }
   .btn-custom {
     color: #fff;
     background-color: rgb(57, 171, 111);

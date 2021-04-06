@@ -6,6 +6,7 @@ import {dashboardInfo} from '../../mocks/dashboard'
 import {  useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setHero } from "../../store2/actions";
+import Button from '../../components/shared/Button';
 
 
 export default function Dashboard() {
@@ -28,20 +29,19 @@ export default function Dashboard() {
             <div className={styles.dashboardContent}>
             {dashboardInfo.map((item,index)=>{
             return(
-                    <div className={styles.dashboardItem} onClick={()=>openInfoAboutHero(item)}>
-                        <div className={styles.portrait}>
+                    <div className={styles.dashboardItem}>
                             <IconSVG className={styles.portraitIcon} src={item.img}/>
-                        </div>
-                        <div className={styles.text}>
+                          <div className={styles.text}>
                             <div onClick={(e) => {
                                 e.stopPropagation();
                                 openMap(item.url);
-                                }}>
-                               <h4>{item.lastName} {item.name}</h4>
+                                }} className={styles.textContainer}>
+                               <p>{item.lastName} {item.name}</p>
+                               <p>{item.date}</p>
                             </div>
-                            <p>{item.date}</p>
+                            <Button buttonColor='primary-btn3'  onClick={()=>openInfoAboutHero(item)}>Подробнее</Button>
                         </div>
-                      </div>
+                    </div>
                     )
                 })}
             </div>

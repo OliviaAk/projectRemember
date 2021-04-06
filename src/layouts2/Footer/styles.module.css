@@ -1,6 +1,5 @@
 .footer{
-    padding-top: 0px;
-    padding-bottom: 40px;
+    padding: 40px 0;
     background-color: transparent;
 }
 
@@ -31,8 +30,11 @@
 }
 
 .footerItem{
-    background-color: #f6f6f6;
+    background-image: url(../../assets/images/hom.jpg);
     padding: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -48,9 +50,7 @@
     color: #000;
 }
 
-.social{
 
-} 
 
 
 .socialLink {

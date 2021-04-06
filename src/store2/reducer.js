@@ -1,22 +1,17 @@
 import { createReducer } from "@reduxjs/toolkit";
-import {setHero} from './actions'
+import {setHero,setUser} from './actions'
 
 export const initialState = {
-  heroes: [],
   hero: null,
-  currentSearch : null,
-  histories : [],
-  history: null,
-  loading: false,
-  newHero:null,
-  error: null,
-  usersHeroes:[],
-  userCard:null,
+  user: null,
  
 };
 const reducer = createReducer(initialState, {
   [setHero.type]: (state,{payload})=>{
     state.hero = payload;
+  },
+  [setUser.type]: (state,{payload})=>{
+    state.user = payload;
   },
 });
 

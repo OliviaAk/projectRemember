@@ -49,6 +49,8 @@
     position: relative;
     width: 150px;
 
+    transition: all 2s;
+
 }
 
 .navItems {
@@ -71,11 +73,47 @@
   
 }
 
-
-
-
-
-
-.logo{
-    width: 80px;
+.userInfo{
+    border: 2px solid  #5ca9fb ;
+    width: 100%;
+    height: 25px;
+    min-width: 150px;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
 }
+
+.mainLinks:after,
+.mainLinks:before {
+    transition: all 0.5s;
+    opacity: 0;
+ 
+
+}
+.mainLinks::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #5ca9fb ;
+    height: 1px;
+}
+
+.mainLinks:hover{
+    color: black;
+}
+.mainLinks:hover:after {
+    width: 100%;
+  }
+.mainLinks:hover:after {
+    z-index: -10;
+    animation: fill 0.51s forwards;
+    -webkit-animation: fill 0.51s forwards;
+    -moz-animation: fill 0.51s forwards;
+    opacity: 1;
+  }

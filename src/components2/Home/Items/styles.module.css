@@ -21,6 +21,15 @@
     transition: all 0.5s ease-in-out;
   
 }
+.splitItemContent{
+  list-style: none;
+  text-decoration: none;
+  color: #000;
+}
+.title{
+text-align: center;
+margin-top: 5px;
+}
 .iconItem{
     overflow: hidden;
     position: relative;
@@ -50,39 +59,30 @@
   position: relative;
 
 }
-.iconItem h2 {
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    font-size: 17px;
-    padding: 10px;
-    /*background: rgba(0, 0, 0, 0.8);*/
-    margin: 20px 0 0 0
-  }
+
   
-  .iconItem p {
-    font-style: italic;
-    font-size: 20px;
-    position: relative;
-    color: #fff;
-    padding: 0px 20px 0px;
-    text-align: center
-  }
+  
   .mask{
     opacity: 0;
-    background-color: rgba(23, 84, 141, 0.44);
-    transition: all 0.4s ease-in-out;
+    color: #fff;
+    background: linear-gradient(to right, rgba(99,114,255,0.8) 0%, rgba(92,169,251,0.8) 100%);    transition: all 0.4s ease-in-out;
     width: 100%;
   }
   .content{
+    font-style: italic;
+    font-size: 25px;
+    color: #fff;
+    position: relative;
     transform: translateY(-100px);
     opacity: 0;
     transition: all 0.2s ease-in-out;
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
   }
   
 .iconItem:hover img {
-    transform: scale(2);
+    transform: scale(1.5);
   }
   
   .iconItem:hover .mask {
@@ -91,9 +91,7 @@
   
   .iconItem:hover .content{
     opacity: 1;
-    text-align: center;
-    margin-top: 100px;
-    transform: translateY(0px);
+    transform: translateY(80px);
 
   }
   
@@ -106,25 +104,29 @@
 
 .text{
     text-align: justify;
+    text-indent: 25px;
 }
 
 .icon{
-    color: #18c1ff;
     width: 15px;
-    right:40px;
-    animation-name:arrow;
     position: absolute;
-    top:10%;
-    animation-duration:1s;
+    animation-name:arrow;
+    animation-duration:0.7s;
     animation-timing-function:linear;
     animation-delay:0s;
     animation-iteration-count:infinite;
     animation-direction:normal;
     animation-play-state:running;
+    margin-top: 35px;
+    right: -30px;
 
+}
+.iconContainer{
+  position: relative;
+  margin: 0 10px;
 }
 @keyframes arrow
   {
-  0%   {right:40px;}
-  100% {right:20px;}
+  0%   {right:-30px;}
+  100% {right:-15px;}
   }

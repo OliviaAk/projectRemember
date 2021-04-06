@@ -1,0 +1,14 @@
+
+.tape{
+    background-image: url(../../assets/images/tape.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 60vh;
+}
+.tapeContainer{
+    max-width: 1200px;
+    margin: 0px auto;
+
+
+}

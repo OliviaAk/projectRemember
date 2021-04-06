@@ -19,7 +19,7 @@
     display: flex;
     justify-content: space-around;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 150px;
     
 }
 .createItem{
@@ -30,27 +30,22 @@
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
     margin-bottom: 30px;
+    width: 200px;
 }
 .createIcon{
-    padding: 15px 0 10px;
-    border-top: 1px solid rgb(90, 85, 85);
-    border-right: 1px solid  rgb(90, 85, 85);;
-    border-left: 1px solid  rgb(90, 85, 85);;
-    border-radius: 10px 10px 0px 0px;
+    padding: 15px 0 0px;
    
 }
 .icon{
-    width: 200px;
-    height: 150px;
+    width: 73px;
+    height: 70px;
 }
 .createText{
     padding: 30px 20px 20px;
     text-align: center;
-    border-bottom: 1px solid  rgb(90, 85, 85);;
-    border-right: 1px solid  rgb(90, 85, 85);;
-    border-left: 1px solid  rgb(90, 85, 85);;
-    color: black;
-    font-size: 20px
+    color: rgb(61, 37, 37);
+    font-size: 16px;
+    height: 70px;
    
 }
 
