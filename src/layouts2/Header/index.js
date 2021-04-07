@@ -14,7 +14,7 @@ export default function Header() {
   const [isOpen, setIsOpen]= useState(false);
   const [isLogout, setIsLogout] = useState(false);
 
-  const { user } = useSelector((state) => state.reducer);
+  const { user } = useSelector((state) => state.dashboard);
 
   return (
     <>

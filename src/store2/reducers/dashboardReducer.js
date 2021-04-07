@@ -1,12 +1,12 @@
 import { createReducer } from "@reduxjs/toolkit";
-import {setHero,setUser} from './actions'
+import {setHero,setUser} from '../actions'
 
 export const initialState = {
   hero: null,
   user: null,
  
 };
-const reducer = createReducer(initialState, {
+const dashboard = createReducer(initialState, {
   [setHero.type]: (state,{payload})=>{
     state.hero = payload;
   },
@@ -15,4 +15,4 @@ const reducer = createReducer(initialState, {
   },
 });
 
-export default reducer;
+export default dashboard;

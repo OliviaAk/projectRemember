@@ -2,12 +2,10 @@
   border-radius: 0px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  margin: 25px 5px 5px 0px;
-  margin: 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s  ease-in-out;
+  -o-transition: all 0.3s  ease-in-out;
+  transition: all 0.3s  ease-in-out;
   outline: none;
   cursor: pointer;
 }
@@ -48,14 +46,13 @@
     text-transform: uppercase;
   }
   .primary-btn3{
-    display: inline-block;
     padding: 8px 18px 10px;
     border: 1px solid;
     color: #FFF;
     display: block;
-    height: 35px;
-    width: 150px;
-    background-color: #FBAB45;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #ffc06e;
     border-color: #FBAB45;
   }
   .primary-btn3:hover{
@@ -65,9 +62,10 @@
     color: #000;
     display: block;
     height: 35px;
-    width: 150px;
-    background-color: transparent;
-    border-color: #000;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #FBAB45;
+    border-color: #FBAB45;
   }
   .btn-custom {
     color: #fff;

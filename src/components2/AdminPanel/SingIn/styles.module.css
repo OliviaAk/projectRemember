@@ -1,0 +1,37 @@
+
+.loginContainer{
+    background: none!important;
+    max-width: 260px;
+    padding: 20px!important;
+    height: 90vh;
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+}
+.loginImage{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-height: 85%;
+}
+.loginContainer{
+    padding: 0 30px 23px;
+    margin-left:50px ;
+}
+.loginContainer p {
+    font-size: 20px;
+    color: #5f5e5e;
+    margin-bottom: 20px;
+}
+.loginForm{
+    margin-top: 1rem;
+}
+.loginHeader h3{
+    font-size: 40px;
+}
+.loginButton{
+    padding: 5px 15px;
+    height: 60px;
+
+
+}

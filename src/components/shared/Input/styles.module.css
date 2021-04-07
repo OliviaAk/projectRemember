@@ -1,24 +1,19 @@
 .item{
-    margin: 30px 0;   
+    margin: 10px 0;   
     height: 60px;
 }
 .inputContainer{
     height: 40px;
     font-size: 14px;
     line-height: 14px;
-    padding: 5px 20px 0 20px;
     display: flex;
 }
-.inputIcon{
-    width: 15px;
-    border: none;
 
-}
 .input{
     outline: none;
     padding: 5px 15px;
     width: 100%;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgba(50,50,50,.2);
     border-radius: 8px;
 }
 .inputErrors{

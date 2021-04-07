@@ -2,11 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FooterNav from '../partials/FooterNav';
 import FooterSocial from '../partials/FooterSocial';
+import Button from '../../components/shared/Button'
 import styles from './styles.module.css'
+import {  useHistory } from "react-router-dom";
+
 
 const Footer = ({}) => {
-
  
+  const history = useHistory();
+
+  const openAdmin = ()=>{
+    history.push('/singIn')
+  }
 
   return (
     <footer className={styles.footer}>
@@ -27,6 +34,7 @@ const Footer = ({}) => {
             <a href="#"  className={styles.socialLink} > Twitter</a>
             <a href="#"  className={styles.socialLink} > Google +</a>
             </div>
+            <Button onClick={openAdmin}>Админ</Button>
 
           </div>
           <div className={styles.footerItem}>

@@ -6,8 +6,8 @@ import HomePage from "./pages/Main";
 import DashboardPage from './pages/Dashboard'
 import HeroPage from './pages/Hero'
 import CardPage from './pages/Card'
-import CardPresent from './components/ModalCard/'
 import AdminPage from "./pages/Admin";
+import LoginPage from './pages/SingIn'
 function App() {
   return (
     <div className='App'>
@@ -18,8 +18,8 @@ function App() {
          <Route path='/dashboard' component={DashboardPage}/>
         <Route path='/hero' component={HeroPage}/>
         <Route path='/card' component={CardPage}/>
-        {/*<Route path='/userCard' component={CardPresent}/>
-        <Route path='/admin' component={AdminPage}/> */}
+        <Route path='/admin' component={AdminPage}/> 
+        <Route path='/singIn' component={LoginPage}/>
       </Switch>
     </Router>
     </div>
