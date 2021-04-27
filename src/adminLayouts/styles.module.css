@@ -1,0 +1,18 @@
+.top{
+    display: flex;
+}
+.mainContext{
+    width: calc(100% - 230px);
+
+}
+@media screen and (max-width: 991px) {
+    .mainContext{
+        width: 100%;
+        background-color: #f7f7f7;
+      
+       
+    }
+    .mainContext::-webkit-scrollbar{
+        width:0;
+    }
+}

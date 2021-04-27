@@ -1,0 +1,26 @@
+.wrapper{
+    margin: 20px ;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 300px;
+    border-radius: 15px;
+    background: #fff ;
+}
+.name{
+    font-size: 16px;
+    text-align: center;
+    margin-left: 5px;
+}
+.infoBlock{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+.openBtn{
+    text-align: center;
+    margin: 5px 0;
+
+}

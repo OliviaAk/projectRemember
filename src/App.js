@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, {useEffect} from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/Main";
@@ -8,7 +8,18 @@ import HeroPage from './pages/Hero'
 import CardPage from './pages/Card'
 import AdminPage from "./pages/Admin";
 import LoginPage from './pages/SingIn'
+import FacebookSignIn from "./pages/FacebookSignIn";
+import { getUser } from "./store2/thunks";
+import { useDispatch, useSelector } from "react-redux";
+
 function App() {
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch(getUser());
+    }
+  }, [dispatch]);
   return (
     <div className='App'>
       <div className='App-cover'>
@@ -20,6 +31,7 @@ function App() {
         <Route path='/card' component={CardPage}/>
         <Route path='/admin' component={AdminPage}/> 
         <Route path='/singIn' component={LoginPage}/>
+        <Route  component={FacebookSignIn} path="/facebook-oauth" exact />
       </Switch>
     </Router>
     </div>

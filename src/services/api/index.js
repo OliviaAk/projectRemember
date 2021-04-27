@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosApiInstance = axios.create({
-  baseURL: `http://localhost:8000`,
+  baseURL: `http://localhost:3001`,
 });
 
 const get = async (url) => {

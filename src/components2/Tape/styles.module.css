@@ -4,11 +4,16 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    height: 60vh;
+    height: 100%;
 }
 .tapeContainer{
     max-width: 1200px;
-    margin: 0px auto;
+    margin: 0px 40px;
+    display: flex;
+    
 
 
+}
+.arrow{
+    width: 15px;
 }

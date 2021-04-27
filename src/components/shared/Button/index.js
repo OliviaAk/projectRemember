@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Button.css";
 
-const Button = ({ children, onClick, buttonSize, buttonColor }) => {
+const Button = ({ children, onClick, buttonSize, buttonColor, type }) => {
   return (
-    <button className={`btn ${buttonColor} ${buttonSize}`} onClick={onClick}>
+    <button className={`btn ${buttonColor} ${buttonSize}`} onClick={onClick} type={type}>
       {children}
     </button>
   );
@@ -14,6 +14,7 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   buttonSize: PropTypes.string,
   buttonColor: PropTypes.string,
+  type: PropTypes.string
 };
 
 Button.defaultProps = {

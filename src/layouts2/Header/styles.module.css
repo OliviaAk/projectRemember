@@ -15,7 +15,6 @@
 
 .container{
     max-width: 1200px;
-
     margin: 20px auto;
     align-items: center;
     display: flex;
@@ -25,8 +24,9 @@
 }
 
 .logoContent{
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: italic;
     color: #333;
     text-transform: uppercase;
 }

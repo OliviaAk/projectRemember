@@ -1,27 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import PropTypes from "prop-types";
-import {useSelector} from 'react-redux'
-
+import {useSelector, useDispatch} from 'react-redux'
 import { Link , useHistory} from "react-router-dom";
 import Button from "../../components/shared/Button";
-import IconSVG from "../../components/shared/Icons";
 import SignInModal from '../../components2/shared/SingInModal'
-import LogoType from '../../assets/images/logotype.jpg';
+import {logout} from '../../store2/actions'
+import { getUsers } from '../../store2/thunks';
 
 
 export default function Header() {
   const [isOpen, setIsOpen]= useState(false);
   const [isLogout, setIsLogout] = useState(false);
+  const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.dashboard);
+  const { user } = useSelector((state) => state.authentication);
+  const signOut = ()=>{
+    dispatch(logout())
+  }
+  useEffect(()=>{
+    dispatch(getUsers())
+},[])
 
   return (
     <>
     <div className={styles.header}>
       
       <div className={styles.container}>
-        <div className={styles.logoContent}>TEXT TEXT Logo         </div>
+        <div className={styles.logoContent}>К 80-летию обороны Могилева</div>
         <div className={styles.userBlock}>
           <div className={styles.navItems}>
           <Link to='/' className={styles.mainLinks}>Главная</Link>
@@ -35,10 +41,10 @@ export default function Header() {
               onMouseOut={() => setIsLogout(false)}
              onMouseOver={() => setIsLogout(true)}>
                {isLogout ? (
-                        <div className={styles.userInfo}>Выйти</div>
+                        <div className={styles.userInfo} onClick={signOut}>Выйти</div>
 
           ) : (
-            <div className={styles.userInfo}>{user.name}</div>
+            <div className={styles.userInfo}>{user.firstName} {user.lastName}</div>
 
           )}
              </div>:

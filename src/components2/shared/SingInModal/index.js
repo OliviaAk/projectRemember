@@ -16,6 +16,9 @@ const SignInModal = ({ show, closeModal }) => {
     dispatch(setUser({name:'Olivia Ahmaeva'}))
 
   }
+  const handleLoginWithFacebookClick = () => {
+    window.open(process.env.REACT_APP_API_URI + "/auth/facebook", "_self");
+  };
 
   return (
     <div className={` ${styles.modal} ${show ? styles.modalActive : styles.modalHide}`}>
@@ -29,7 +32,7 @@ const SignInModal = ({ show, closeModal }) => {
             <div className={styles.socialContainer}>
             <IconSVG className={styles.socialIcon} src={Google} handleClickIcon={signIn}/>
             <IconSVG className={styles.socialIcon} src={Vk}  handleClickIcon={signIn}/>
-            <IconSVG className={styles.socialIcon} src={Facebook}  handleClickIcon={signIn}/>
+            <IconSVG className={styles.socialIcon} src={Facebook}  handleClickIcon={handleLoginWithFacebookClick}/>
             <IconSVG className={styles.socialIcon} src={Ok}  handleClickIcon={signIn}/>
             </div>
            

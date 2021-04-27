@@ -19,9 +19,14 @@
     text-align: center;
    
 }
+.adminIcon{
+    margin-top: 25px;
+    width: 25px;
+}
 .footerHeader hr{
     width: 100px;
     height: 0px;
+    background-color: #000;
     border: 2px solid #000;
 }
 .footerItems{

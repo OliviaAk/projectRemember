@@ -51,6 +51,7 @@
     color: #FFF;
     display: block;
     width: 100%;
+    height: 35px;
     border-radius: 8px;
     background-color: #ffc06e;
     border-color: #FBAB45;
@@ -100,4 +101,35 @@
     .btn--card:hover{
       background-color: #c23759;
     
+    }
+    .btn--tape{
+      color: #9caaf0;
+    font-size: 16px;
+    border: 2px solid #939fd6;
+    padding: 2 10px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    height: 30px;
+    align-items: center;
+    -webkit-transition: .3s;
+    transition: .3s;
+    width: 50%;
+
+
+    }
+    .btn--tape:hover{
+      color: #5266cc;
+      width: 50%;
+    font-size: 16px;
+    border: 2px solid #939fd6;
+    padding: 2 10px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    height: 30px;
+    align-items: center;
+    -webkit-transition: .3s;
+    transition: .3s;
+
     }

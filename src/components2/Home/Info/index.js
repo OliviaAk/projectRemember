@@ -52,9 +52,9 @@ export default function Info() {
            <Slide image={slides[currentSlide]}/>          
           </div>
         
-            <div className={styles.readBtn}>
+            {/* <div className={styles.readBtn}>
             <Button buttonColor='primary-btn2'>Архив</Button>
-            </div>
+            </div> */}
             </div>
 
          

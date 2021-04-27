@@ -2,12 +2,11 @@
     background: url(../../assets/images/tape.png);
 }
 .dashboardContainer{
-    padding: 120px 0 0 0px;
+    padding: 50px 0 0 0px;
     max-width: 1200px;
-    margin: 0 auto;
-
-
+    margin: 0 120px;
 }
+
 .dashboardContent{
     width: 100%;
     /* background-color: rgb(154, 205, 236);
@@ -19,10 +18,10 @@
 
 }
 .dashboardItem{
-    width: 300px;
-    height: 450px;
+    width: 230px;
+    height: 400px;
     background: #FFFFFF;
-    box-shadow: 0 2px 48px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 2px 48px 0 rgb(0 0 0 0.5);
     border-radius: 20px;
     margin-bottom: 30px;
     margin-top: 20px;
@@ -30,7 +29,7 @@
 }
 
 .portraitIcon{
-    width: 265px;
+    width: 230px;
     height: 270px;
 }
 .dashboardItem:hover{
@@ -40,14 +39,21 @@
     transition: all 0.3s ease 0.1s;
   
  }
+ .textContainer p{
+     margin: 3px 0 0;
+     text-align: center;
+ }
  .textContainer{
+     margin: 5px 0 0;
      height: 80px;
-     width: 280px;
-
  }
  .text a{
 
     list-style: none;
     text-decoration: none;
     color: black;
+ }
+
+ @media (max-width:1500px){
+
  }

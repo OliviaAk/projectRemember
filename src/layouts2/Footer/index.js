@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FooterNav from '../partials/FooterNav';
 import FooterSocial from '../partials/FooterSocial';
-import Button from '../../components/shared/Button'
+import IconSVG from '../../components/shared/Icons'
 import styles from './styles.module.css'
 import {  useHistory } from "react-router-dom";
-
+import Admin from '../../assets/icons/user-lock-solid.svg'
 
 const Footer = ({}) => {
  
@@ -26,15 +26,14 @@ const Footer = ({}) => {
           <div className={styles.footerItem}>
           <h3>Мы в социальных сетях</h3>
             <p>
-            Aliquam tempus ante placerat,
-            consectetur tellus nec, porttitor nulla.
+            Подпишись и узнавай больше новостей о городе Могилеве от нас!
             </p>
             <div className={styles.social}>
             <a href="#"  className={styles.socialLink} > Facebook</a>
             <a href="#"  className={styles.socialLink} > Twitter</a>
             <a href="#"  className={styles.socialLink} > Google +</a>
             </div>
-            <Button onClick={openAdmin}>Админ</Button>
+            <IconSVG src={Admin} handleClickIcon={openAdmin} className={styles.adminIcon}/>
 
           </div>
           <div className={styles.footerItem}>

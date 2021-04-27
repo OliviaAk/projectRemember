@@ -36,7 +36,8 @@ export default function Dashboard() {
                                 e.stopPropagation();
                                 openMap(item.url);
                                 }} className={styles.textContainer}>
-                               <p>{item.lastName} {item.name}</p>
+                               <p>{item.lastName}</p>
+                               <p>{item.name}</p>
                                <p>{item.date}</p>
                             </div>
                             <Button buttonColor='primary-btn3'  onClick={()=>openInfoAboutHero(item)}>Подробнее</Button>
