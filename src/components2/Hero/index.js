@@ -8,7 +8,7 @@ import Port from '../../assets/heroes/i1.jpeg';
 import { useSelector } from "react-redux";
 
 export default function Hero() {
-    const { hero} = useSelector((state) => state.reducer);
+    const { hero} = useSelector((state) => state.dashboard);
     return (
         <div className={styles.hero}>
             <div className={styles.heroContainer}>
