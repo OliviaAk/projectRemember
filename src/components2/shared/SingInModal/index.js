@@ -13,7 +13,7 @@ import {setUser} from '../../../store2/actions'
 const SignInModal = ({ show, closeModal }) => {
    const dispatch = useDispatch();
   const signIn = ()=>{
-    dispatch(setUser({name:'Olivia Ahmaeva'}))
+    dispatch(setUser({name:'Оливия Ахмаева'}))
 
   }
   const handleLoginWithFacebookClick = () => {

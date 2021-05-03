@@ -4,9 +4,10 @@ import {useDispatch} from 'react-redux'
 import styles from './styles.module.css'
 import Example from '../../assets/images/defaultCard.png'
 import UploadImg from '../../assets/icons/cloud-upload-alt-solid.svg'
+import {useSelector} from 'react-redux'
 import Button from '../../components/shared/Button'
 import {createCard} from '../../store2/thunks'
-
+import PopUp from '../shared/PopUp'
 
 export default function Upload() {
   const [fileInputState, setFileInputState] = useState('');
@@ -19,12 +20,27 @@ export default function Upload() {
   const [data, setData]= useState({})
   const [isSend, setSend]= useState(false);
   const dispatch = useDispatch();
+  const [noUser, setNoUser] = useState(false)
+  const { isAuthenticated , user} = useSelector((state) => state.authentication);
+
+  useEffect(()=>{
+    if(!isAuthenticated)
+    {
+      setNoUser(true)
+    }
+  },[])
 
   const handleFileInputChange = (e) => {
+    if(!isAuthenticated){
+      setNoUser(true)
+    }
+    else{
       const file = e.target.files[0];
       previewFile(file);
       setSelectedFile(file);
       setFileInputState(e.target.value);
+    }
+      
   };
 
   const previewFile = (file) => {
@@ -36,6 +52,7 @@ export default function Upload() {
   };
 
   const handleSubmitFile = (e) => {
+   
       e.preventDefault();
       if (!selectedFile) return;
       const reader = new FileReader();
@@ -43,6 +60,7 @@ export default function Upload() {
       reader.onloadend = () => {
           uploadImage(reader.result);
       };
+    
   };
   const uploadImage = async (base64EncodedImage) => {
       try {
@@ -50,12 +68,11 @@ export default function Upload() {
               method: 'POST',
               body: JSON.stringify({ data: base64EncodedImage }),
               headers: { 'Content-Type': 'application/json' },
-          }) .then(response => response.json())
+          }).then(response => response.json())
           .then(data => { setImage(data.imageId)})
           setFileInputState('');
           setPreviewSource('');
       } catch (err) {
-          console.error(err);
       }
   };
 
@@ -76,9 +93,9 @@ export default function Upload() {
       }, 3000);
     }
   },[isSend])
-
-  console.log(isSend)
+ console.log(noUser)
   return (
+    <>
       <div className={styles.card}>
           <form onSubmit={handleSubmitFile} className={styles.cardContainer}>
             <div className={styles.wrapperImage}>
@@ -123,5 +140,7 @@ export default function Upload() {
           </div>
         </form>  
       </div>
+      <PopUp show={noUser} closeModal={()=>setNoUser(false)} title='Невозможно создать открытку, пожалуйста авторизуйтесь!'/>
+      </>
   );
 }
