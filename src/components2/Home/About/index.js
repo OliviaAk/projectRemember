@@ -1,7 +1,7 @@
 import React from 'react'
 import IconSVG from '../../../components/shared/Icons'
 import styles from './styles.module.css'
-import Video from '../../../assets/images/download.png'
+import Video from '../../../assets/images/download.jpg'
 
 export default function About() {
     return (
