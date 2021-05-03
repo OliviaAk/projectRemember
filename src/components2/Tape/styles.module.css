@@ -7,9 +7,10 @@
     height: 100%;
 }
 .tapeContainer{
-    max-width: 1200px;
-    margin: 0px 40px;
     display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 40px auto;
     
 
 
