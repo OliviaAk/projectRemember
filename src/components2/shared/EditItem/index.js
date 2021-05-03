@@ -3,25 +3,18 @@ import { Image } from 'cloudinary-react';
 import {useSelector, useDispatch} from 'react-redux'
 import Button from '../../../components/shared/Button'
 import styles from './styles.module.css'
-export default function Item({item, image, name, user, btn}) {
+
+export default function EditItem({item, image, name, user,description, markAsFavorite}) {
 
     const [userEmail, setUserEmail] = useState('');
     const { users } = useSelector((state) => state.authentication);
+    const publishCard = (id)=>{
 
-  
-    useEffect(()=>{
-        if(users.length>0){
-            users.map((i) =>{
-                if(i._id === user){
-                    setUserEmail(i.email)
-                }
-            })
-        }
-    },[user, users])
+    }
 
-  
     return (
         <div className={styles.wrapper}>
+            <div className={styles.wrapperContent}>
             <Image
                 key={item}
                 cloudName='belarus-remember'
@@ -32,9 +25,17 @@ export default function Item({item, image, name, user, btn}) {
              />
              <span className={styles.name}>{name}</span> 
              <div className={styles.infoBlock}>
-                 <span>Автор:{userEmail}</span>
-                 <Button buttonColor='btn--tape' className={styles.openBtn}>{btn}</Button>
-            </div>           
+                 <Button buttonColor='btn--tape' className={styles.openBtn}  onClick={(e) => {
+              e.stopPropagation();
+              markAsFavorite();
+            }}>Опубликовать</Button>
+                 <Button buttonColor='btn--tape' className={styles.openBtn}>Удалить</Button>
+
+            </div>
+            </div>   
+            <div className={styles.wrapperDescription}>
+                {description}
+            </div>
         </div>
     )
 }

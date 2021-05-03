@@ -93,7 +93,6 @@ export default function Upload() {
       }, 3000);
     }
   },[isSend])
- console.log(noUser)
   return (
     <>
       <div className={styles.card}>

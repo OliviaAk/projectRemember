@@ -9,6 +9,7 @@ import CardPage from './pages/Card'
 import AdminPage from "./pages/Admin";
 import LoginPage from './pages/SingIn'
 import FacebookSignIn from "./pages/FacebookSignIn";
+import EditCardsPage from './pages/AdminCards'
 import { getUser } from "./store2/thunks";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='/admin' component={AdminPage}/> 
         <Route path='/singIn' component={LoginPage}/>
         <Route  component={FacebookSignIn} path="/facebook-oauth" exact />
+        <Route component={EditCardsPage} path='/editCards' />
       </Switch>
     </Router>
     </div>

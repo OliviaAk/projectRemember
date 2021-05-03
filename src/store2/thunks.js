@@ -10,6 +10,10 @@ export const getCards = createAsyncThunk(`cards`, async () => {
   const {data} = await apiServer.get(`cards/info`);
   return data;
 });
+export const getPublishCards = createAsyncThunk(`cards publish`, async () => {
+  const {data} = await apiServer.get(`cards/publish`);
+  return data;
+});
 
 export const createCard = createAsyncThunk(`create card`, async(card)=>{
   const {data} = await apiServer.post(`cards/info`,card)
@@ -26,3 +30,8 @@ export const getUsers = createAsyncThunk("users all", async () => {
   return data;
 });
 
+
+export const setPublishCard = createAsyncThunk("favoriteCards", async ({ id, isPublish }) => {
+  const { data } = await apiServer.patch(`cards/info/${id}`, { isPublish });
+  return data;
+});
