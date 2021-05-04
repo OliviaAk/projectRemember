@@ -1,36 +1,47 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { apiServer } from '../services/api';
 
-
-export const getHero = createAsyncThunk("hero", async ({id}) => {
-  const { data } = await axios.get(`https://mogilev-library-remember.azurewebsites.net/heroes/hero/?id=${id}`);
+export const loginAdmin = createAsyncThunk('auth/login', async (userCredentials) => {
+  const { data } = await apiServer.post(`admin/`, userCredentials);
   return data;
 });
 
-
-export const getHistory = createAsyncThunk("history", async () => {
-  const { data } = await axios.get(`https://mogilev-library-remember.azurewebsites.net/history`);
+export const getCards = createAsyncThunk(`cards`, async () => {
+  const { data } = await apiServer.get(`cards/info`);
   return data;
 });
-export const getHistoryByDate = createAsyncThunk("historyBy", async ({id}) => {
-  const { data } = await axios.get(`https://mogilev-library-remember.azurewebsites.net/history?id=${id}`);
+export const getHeroes = createAsyncThunk(`heroes`, async () => {
+  const { data } = await apiServer.get(`dashboard`);
   return data;
 });
-export const createNewHero = createAsyncThunk('heroUser', async (hero)=>{
-  const {data} = await axios.post('https://mogilev-library-remember.azurewebsites.net/add',hero)
-  return data
-})
-export const userHero = createAsyncThunk('heroUserGet',async()=>{
-  const {data}= await axios.get(`https://mogilev-library-remember.azurewebsites.net/add`)
-  return data
-})
-
-export const setPublishCards = createAsyncThunk("publish", async ({ id, isShow }) => {
-  const { data } = await axios.patch(`https://mogilev-library-remember.azurewebsites.net/add/${id}`, { isShow });
+export const getPublishCards = createAsyncThunk(`cards publish`, async () => {
+  const { data } = await apiServer.get(`cards/publish`);
   return data;
 });
 
-export const deleteCard = createAsyncThunk("delete", async ( {id} ) => {
-  const { data } = await axios.delete(`https://mogilev-library-remember.azurewebsites.net/add/${id}`);
+export const createCard = createAsyncThunk(`create card`, async (card) => {
+  const { data } = await apiServer.post(`cards/info`, card);
   return data;
 });
+export const createHero = createAsyncThunk(`create hero`, async (hero) => {
+  const { data } = await apiServer.post(`dashboard/info`, hero);
+  return data;
+});
+
+export const getUser = createAsyncThunk('user', async () => {
+  const { data } = await apiServer.get(`user/`);
+  return data;
+});
+
+export const getUsers = createAsyncThunk('users all', async () => {
+  const { data } = await apiServer.get(`user/all`);
+  return data;
+});
+
+export const setPublishCard = createAsyncThunk(
+  'favoriteCards',
+  async ({ id, isPublish }) => {
+    const { data } = await apiServer.patch(`cards/info/${id}`, { isPublish });
+    return data;
+  }
+);

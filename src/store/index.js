@@ -1,16 +1,20 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
-import { getDefaultMiddleware } from "@reduxjs/toolkit";
-import dashboardHero from "./dashboardReducer";
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import dashboard from './reducers/dashboardReducer';
+import authentication from './reducers/authReducer';
+import cardsTape from './reducers/cardsReducer';
+import Interceptor from '../services/api/interceptor';
 
-/*
-const customizedMiddleware = getDefaultMiddleware({
-  serializableCheck: false,
-});*/
-export default configureStore({
-  reducer: combineReducers({
-    dashboardHero: dashboardHero,
- 
-  }),
-  //middleware: customizedMiddleware,
-});
+const getStore = () => {
+  const store = configureStore({
+    reducer: combineReducers({
+      dashboard,
+      authentication,
+      cardsTape,
+    }),
+  });
+  return store;
+};
+const store = getStore();
+Interceptor.setInterceptors(store);
+export default store;
