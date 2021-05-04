@@ -1,0 +1,79 @@
+.wrapper{
+    margin: 0 50px;
+    margin-top: 60px;
+}
+.title{
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 600;
+    text-align: center;
+    padding: 30px 0;
+}
+.wrapperContainer{
+    display: flex;
+    margin: 40px auto;
+    border: 1px dotted saddlebrown;
+    padding: 20px 20px 0;
+
+
+}
+.imgInput {
+    display: none;
+    height: 350px;
+    width: 300px;
+}
+.photo{
+    height: 300px;
+    width: 250px;
+}
+.customUpload {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin:  10px;
+}
+.uploadIcon{
+    width: 20px;
+    margin: 0px 5px 0px;
+}
+.wrapperImage{
+    
+    border: 1px solid #522607;
+    border-radius: 15px;
+    padding:10px 20px;
+    height: 350px;
+    
+}
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 0 40px;
+    padding: 10px 0;
+
+    width: 75%;
+}
+.textContainer >*{
+    margin-bottom: 15px;
+    outline: none;
+
+}
+.text{
+    height: 200px;
+    outline: none;
+    resize: none;
+    border: 1px solid #522607;
+    border-radius: 3px;
+    padding: 5px 15px;
+
+}
+.sendBtn{
+    text-align: center;
+}
+.inputItem{
+    height: 20px;
+    outline: none;
+    padding: 5px 15px;
+    border: 1px solid #522607;
+    border-radius: 3px;
+}

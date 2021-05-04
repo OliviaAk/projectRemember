@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import Header from "./Header";
-import NavBar from "./NavBar";
-import styles from "./styles.module.css";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Header from './Header';
+import NavBar from './NavBar';
+import styles from './styles.module.css';
 
-
-function Layout(props) {
- 
-
+function Layout({ children }) {
   return (
-    <div className={props.class}>
+    <div>
       <div className={styles.top}>
         <NavBar />
         <div className={styles.mainContext}>
-         
-            <Header  />
-         
-        {props.children}
+          <Header />
+
+          {children}
         </div>
       </div>
     </div>
@@ -25,6 +21,8 @@ function Layout(props) {
 export default Layout;
 
 Layout.propTypes = {
-  children: PropTypes.any,
-  class: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  children: PropTypes.element,
+};
+Layout.defaultProps = {
+  children: React.element,
 };
