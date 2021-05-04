@@ -1,0 +1,66 @@
+.hero{
+    background-color: #fff;
+    height: 100%;
+}
+.heroContainer{
+    display: block;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 100px 0 100px 0px;
+}
+.header{
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+.heroContent{
+    margin: 50px 0;
+    height: 50vh;
+    width: 100%;
+
+}
+
+.heroMain{
+    left: 0; top:0;
+    display: inline-block;
+    vertical-align: top;
+}
+.imageBlock img{
+    position: relative;
+}
+
+.imgOne{
+    width: 405px;
+    height: 370px;
+    z-index: 2;
+    left: 50px;
+    top:-80px
+   
+}
+.imgTwo{
+   
+    width: 380px;
+    height: 477px;
+    top:80px;
+     border:5px solid #bf404c;
+    z-index: 5;
+
+}
+.imgTree{
+    width: 400px;
+    height: 387px;
+    top:-100px;
+    right: 50px; z-index: 3; 
+
+    
+}
+.textBlock{
+
+    margin: 180px;
+    text-indent: 20px;
+
+}
+.textBlock p{
+  text-align: justify;
+}

@@ -1,12 +1,21 @@
-import React from "react";
-import Footer from "./Footer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Footer from './Footer';
+import Header from './Header';
 
-function Layout(props) {
+function Layout({ children }) {
   return (
-    <div >
-          {props.children}
+    <>
+      <Header />
+      {children}
       <Footer />
-    </div>
+    </>
   );
 }
 export default Layout;
+Layout.propTypes = {
+  children: PropTypes.element,
+};
+Layout.defaultProps = {
+  children: React.element,
+};

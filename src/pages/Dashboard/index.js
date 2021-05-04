@@ -1,11 +1,11 @@
-import React from "react";
-import Dashboard from "../../components2/Dashboard";
-import Layout from "../../layouts2";
+import React from 'react';
+import Dashboard from '../../components/Dashboard';
+import Layout from '../../layouts';
 
 export default function DashboardPage() {
   return (
     <Layout>
-      <Dashboard/>
+      <Dashboard />
     </Layout>
   );
 }

@@ -1,0 +1,132 @@
+.splitItems{
+
+    color: #777;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 40px auto;
+    font-weight: 400
+}
+.splitItem{
+    padding: 20px;
+    margin: 0 20px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  
+}
+.splitItemContent{
+  list-style: none;
+  text-decoration: none;
+  color: #000;
+}
+.title{
+text-align: center;
+margin-top: 5px;
+}
+.iconItem{
+    overflow: hidden;
+    position: relative;
+    margin: 10px;
+  float: left;
+  text-align: center;
+  box-shadow: 1px 1px 2px #e6e6e6;
+  cursor: default;
+    
+}
+.iconItem .mask,
+.iconItem .content {
+    width: 350px;
+    height: 250px;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0
+}
+.itemImg {
+    width: 350px;
+    height: 250px;
+    transition: all 0.2s linear;
+    display: block;
+  position: relative;
+
+}
+
+  
+  
+  .mask{
+    opacity: 0;
+    color: #fff;
+    background: linear-gradient(to right, rgba(99,114,255,0.8) 0%, rgba(92,169,251,0.8) 100%);    transition: all 0.4s ease-in-out;
+    width: 100%;
+  }
+  .content{
+    font-style: italic;
+    font-size: 25px;
+    color: #fff;
+    position: relative;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+.iconItem:hover img {
+    transform: scale(1.5);
+  }
+  
+  .iconItem:hover .mask {
+    opacity: 1;
+  }
+  
+  .iconItem:hover .content{
+    opacity: 1;
+    transform: translateY(80px);
+
+  }
+  
+  .iconItem:hover p {
+    transition-delay: 0.1s;
+  }
+  
+
+  
+
+.text{
+    text-align: justify;
+    text-indent: 25px;
+}
+
+.icon{
+    width: 15px;
+    position: absolute;
+    animation-name:arrow;
+    animation-duration:0.7s;
+    animation-timing-function:linear;
+    animation-delay:0s;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-play-state:running;
+    margin-top: 35px;
+    right: -30px;
+
+}
+.iconContainer{
+  position: relative;
+  margin: 0 10px;
+}
+@keyframes arrow
+  {
+  0%   {right:-30px;}
+  100% {right:-15px;}
+  }

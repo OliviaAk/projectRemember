@@ -1,9 +1,6 @@
-import React from "react";
-import SingIn from "../../components2/AdminPanel/SingIn";
+import React from 'react';
+import SingIn from '../../components/AdminPanel/SingIn';
 
 export default function LoginPage() {
-
-  return (
-      <SingIn /> 
-  );
+  return <SingIn />;
 }

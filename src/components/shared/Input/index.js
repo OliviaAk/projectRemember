@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./styles.module.css";
-import { useFormContext } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useFormContext } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
+import styles from './styles.module.css';
 
 const Input = ({
   name,
@@ -27,14 +27,13 @@ const Input = ({
           className={styles.input}
           value={value}
           ref={register({
-            required: { value: true, message: "Поле обязательно для заполнения" },
-            maxLength: maxLength,
-            minLength: minLength,
-            pattern: pattern,
+            required: { value: true, message: 'Поле обязательно для заполнения' },
+            maxLength,
+            minLength,
+            pattern,
           })}
           onChange={onChange}
         />
-        
       </div>
       <ErrorMessage
         errors={errors}
@@ -51,7 +50,7 @@ Input.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  type: PropTypes.oneOf(["text", "number", "password"]),
+  type: PropTypes.oneOf(['text', 'number', 'password']),
   value: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   passwordIcon: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -66,6 +65,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  type: "text",
-  className: "",
+  type: 'text',
+  className: '',
 };

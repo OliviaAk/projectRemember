@@ -1,96 +1,152 @@
-import React,{useState, useEffect} from 'react'
-import { useForm, FormProvider } from "react-hook-form";
-import styles from './styles.module.css'
-import Input from '../shared/Input'
-import {useDispatch } from "react-redux";
-import { createNewHero } from "../../store/thunks";
-import Button from '../shared/Button'
-import Modal from '../shared/Modal'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import IconSVG from '../shared/Icons';
+import styles from './styles.module.css';
+import Example from '../../assets/images/defaultCard.png';
+import { Upload } from '../../assets/icons';
+import { Button, PopUp } from '../shared';
+import { createCard } from '../../store/thunks';
 
-
-
-export default function AddHero() {
+export default function Card() {
+  const [fileInputState, setFileInputState] = useState('');
+  const [previewSource, setPreviewSource] = useState('');
+  const [selectedFile, setSelectedFile] = useState();
+  const [name, setName] = useState('');
+  const [dateBirth, setDate] = useState('');
+  const [description, setDescription] = useState('');
+  const [image, setImage] = useState(null);
+  const [data, setData] = useState({});
+  const [isSend, setSend] = useState(false);
   const dispatch = useDispatch();
- const [open, setOpen ]= useState(false)
-    const methods = useForm({ mode: "onBlur" });
+  const [noUser, setNoUser] = useState(false);
+  const { isAuthenticated, user } = useSelector((state) => state.authentication);
 
-    const {
-      register,
-      handleSubmit,
-      reset,
-      formState: { isSubmitSuccessful },
-    } = methods;
-
-
-    const handleClickForm = (data)=>{
-      dispatch(createNewHero(data))
-      setOpen(!open)
-
-
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setNoUser(true);
     }
-   
-    const closeModal = ( )=>{
-      setOpen(!open)
-      
-
+  }, []);
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
+  };
+  const handleFileInputChange = (e) => {
+    if (!isAuthenticated) {
+      setNoUser(true);
+    } else {
+      const file = e.target.files[0];
+      previewFile(file);
+      setSelectedFile(file);
+      setFileInputState(e.target.value);
     }
-    
-    useEffect(()=>{
-      if(isSubmitSuccessful){
-        reset('firstName',' ');
-        reset('dateBirth',' ');      
-        reset('text','')
-      }
-    },[isSubmitSuccessful])
-    return (
-        <FormProvider {...methods}>
-        <div className={styles.dashboard}>
-         <div className={styles.dashboardContainer}>
-         <Modal show={open} closeModal={()=>closeModal()}/>
+  };
+  const uploadImage = async (base64EncodedImage) => {
+    try {
+      fetch(`${process.env.REACT_APP_API_URI}/cards/`, {
+        method: 'POST',
+        body: JSON.stringify({ data: base64EncodedImage }),
+        headers: { 'Content-Type': 'application/json' },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setImage(data.imageId);
+        });
+      setFileInputState('');
+      setPreviewSource('');
+    } catch (err) {}
+  };
+  const handleSubmitFile = (e) => {
+    e.preventDefault();
+    if (!selectedFile) return;
+    const reader = new FileReader();
+    reader.readAsDataURL(selectedFile);
+    reader.onloadend = () => {
+      uploadImage(reader.result);
+    };
+  };
 
-           <div className={styles.dashboardContent}>
-              <form className={styles.addForm} >
-                 <div className={styles.formContent}>
-               
-               
-                    <div className={styles.image}>    
-                   {/* <Upload/>                  */}
-                </div>
-                 <div className={styles.text}>
-                  <Input
-                  placeholder="Имя героя"
-                  type="text"
-                  name="firstName"
-                  maxLength={{ value: 40, message: "Максимальное количество символов" }}
-                />
-                <Input
-                  placeholder="Годы жизни"
-                  type="text"
-                  name="dateBirth"
-                  maxLength={{ value: 20, message: "Максимальное количество символов" }}
-                />
-                <div>
-                <textarea className={styles.textareaItemFirst}
-                ref={register({required: { value: true, message: "Поле обязательно для заполнения" }, maxLength:{value:285, message:'Превышено количество символов'}})} name='text'
-                  placeholder='Краткая биография героя'/>
+  useEffect(() => {
+    if (image !== null) {
+      setData({ name, dateBirth, description, image });
+      setSend(true);
+    }
+  }, [image]);
+
+  useEffect(() => {
+    if (isSend) {
+      setTimeout(() => {
+        dispatch(createCard(data));
+        setSend(false);
+      }, 3000);
+    }
+  }, [isSend]);
+  return (
+    <>
+      <div className={styles.card}>
+        <form onSubmit={handleSubmitFile} className={styles.cardContainer}>
+          <div className={styles.wrapperImage}>
+            {previewSource ? (
+              <IconSVG className={styles.photo} src={previewSource} alt="chosen" />
+            ) : (
+              <IconSVG className={styles.photo} src={Example} />
+            )}
+            <>
+              <div className={styles.formGroup}>
+                <label className={styles.customUpload}>
+                  <input
+                    id="fileInput"
+                    type="file"
+                    name="image"
+                    onChange={handleFileInputChange}
+                    value={fileInputState}
+                    className={styles.imgInput}
+                  />
+                  <IconSVG src={Upload} className={styles.uploadIcon} />
+                  <span className={styles.uploadText}>Загрузить фото </span>
+                </label>
               </div>
-            
-            </div> 
-            </div> 
-            <div className={styles.btnForm}>
-            <Button
-            buttonSize='primary-btn3' 
-            onClick={handleSubmit(handleClickForm)}>Опубликовать</Button>
+            </>
+          </div>
+          <div className={styles.textContainer}>
+            <input
+              placeholder="Фамилия,имя,отчество героя"
+              type="text"
+              name="name"
+              value={name}
+              className={styles.inputItem}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              placeholder="Годы жизни"
+              type="text"
+              name="dateBirth"
+              value={dateBirth}
+              className={styles.inputItem}
+              onChange={(e) => setDate(e.target.value)}
+            />
+            <textarea
+              placeholder="Краткая биография"
+              name="description"
+              value={description}
+              className={styles.text}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <div className={styles.sendBtn}>
+              <Button buttonColor="btn--card" type="submit">
+                Отправить
+              </Button>
             </div>
-            </form>
-                  
-            
-                    
-                </div>
-                
-                
-            </div>
-        </div>
-    </FormProvider>
-    )
+          </div>
+        </form>
+      </div>
+      <PopUp
+        show={noUser}
+        closeModal={() => setNoUser(false)}
+        title="Невозможно создать открытку, пожалуйста авторизуйтесь!"
+      />
+    </>
+  );
 }

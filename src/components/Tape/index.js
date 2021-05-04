@@ -1,73 +1,31 @@
-import React,{useState, useEffect, useRef} from 'react'
-import Button from '../shared/Button';
-import {userHero } from "../../store/thunks";
-import { showCurrentHero } from "../../store/actions";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 import styles from './styles.module.css';
-import {useHistory} from 'react-router-dom'
-import { useSelector, useDispatch } from "react-redux";
-import Next from '../../assets/icons/chevron-right-solid.svg'
-import Prev from '../../assets/icons/chevron-left-solid.svg'
-import IconSVG from '../shared/Icons';
-import Logo from '../../assets/images/unnamed.png'
+import { getPublishCards } from '../../store/thunks';
+import Item from './Item';
+import { rightArrow, leftArrow } from '../../assets/icons';
+import { IconSVG } from '../shared';
 
 export default function Tape() {
-    const [selectedItem, setSelectedItem]= useState([]);
-    const { usersHeroes } = useSelector((state) => state.dashboardHero);
+  const dispatch = useDispatch();
+  const { publishCards } = useSelector((state) => state.cardsTape);
 
-    const dispatch = useDispatch();
-    const history= useHistory()
-    const ref = useRef()
-    useEffect(()=>{
-        dispatch(userHero())
-       },[])
+  useEffect(() => {
+    dispatch(getPublishCards());
+  }, []);
 
- useEffect(()=>{
-     if(usersHeroes.length>0){
-         const newMass = usersHeroes.filter((i)=>i.isShow===true)
-         setSelectedItem(newMass)
-     }
- },[usersHeroes])
- 
-    const scroll = (scrollOffset) => {
-        ref.current.scrollLeft += scrollOffset;
-      };
-
-    const openModal= (item)=>{
-        dispatch(showCurrentHero(item))
-        history.push('/userCard')
-
-    }
-    return (
-        <div className={styles.tapeMain}>
-        <div className={styles.tape}>
-                <IconSVG src={Prev} handleClickIcon={()=>scroll(-100)} className={styles.btnIcon}/>
-            <div className={styles.dashboard} ref={ref}>
-                {selectedItem.map((u)=>{
-                    return(
-                        <>
-                        <div className={styles.dashboardItem}>
-                            <div className={styles.dashboardContent}>
-                                <IconSVG className={styles.logo} src={Logo}/> 
-                                <div className={styles.itemContext}>    
-                                                    
-                            <p className={styles.text}>{u.firstName}</p>
-                            <p className={styles.text}>{u.dateBirth}</p>
-                            </div>
-                            </div>
-                            <Button onClick={()=>openModal(u)}  buttonSize='btn-nav'>Открыть</Button>
-                        </div>
-                        </>
-                    )
-                })}
-                
-            </div>
-                <IconSVG className={styles.btnIcon} handleClickIcon={()=>scroll(100)} src={Next}/>
-
-            
-        </div>
-        <div className={styles.static}>Открыток на сайте {selectedItem.length}</div>
-       
-       
-        </div>
-    )
+  return (
+    <div className={styles.tape}>
+      <div className={styles.tapeContainer}>
+        <ScrollMenu
+          arrowLeft={<IconSVG src={leftArrow} className={styles.arrow} />}
+          arrowRight={<IconSVG src={rightArrow} className={styles.arrow} />}
+          data={publishCards.map((card, index) => (
+            <Item name={card.name} image={card.image} user={card.userId} btn="Открыть" />
+          ))}
+        />
+      </div>
+    </div>
+  );
 }

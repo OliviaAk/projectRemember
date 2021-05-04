@@ -102,6 +102,41 @@
       background-color: #c23759;
     
     }
+    .btn--hero{
+      color: #fe5000;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #b1b4c1;
+    padding: 15px 40px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 500;
+    -webkit-transition: .3s;
+    transition: .3s;
+    }
+    .btn--hero:hover{
+      background-color: #fe5000;
+      color: #fff;
+    
+    }
+    .btn--edit{
+      color: #fe5000;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border: 2px solid #b1b4c1;
+    padding: 15px 20px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 500;
+    -webkit-transition: .3s;
+    transition: .3s;
+    }
+    .btn--edit:hover{
+      background-color: #fe5000;
+      color: #fff;
+    
+    }
     .btn--tape{
       color: #9caaf0;
     font-size: 16px;

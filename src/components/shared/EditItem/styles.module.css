@@ -1,0 +1,39 @@
+.wrapper{
+    margin: 20px ;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    height: 450px;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 15px;
+    background: #fff ;
+}
+.wrapperContent{
+    display: flex;
+    flex-direction: column;
+}
+.name, .dateBirth{
+    font-size: 16px;
+}
+.infoBlock{
+    font-size: 15px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 20px;
+}
+.openBtn{
+    text-align: center;
+    margin: 5px 0;
+    font-size: 15px;
+
+}
+.wrapperContext{
+    padding: 30px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+}
+.wrapperBlock{
+    flex-direction: column;
+}

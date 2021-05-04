@@ -1,0 +1,100 @@
+
+.home{
+}
+.homeContainer{
+    max-width: 1200px;
+    margin: 130px auto;
+    color: #000;
+
+
+}
+.createContent{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 32px;
+
+}
+
+.createInfo{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 150px;
+    
+}
+.createItem{
+    overflow-x: hidden;
+    position: relative;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    margin-bottom: 30px;
+    width: 200px;
+}
+.createIcon{
+    padding: 15px 0 0px;
+   
+}
+.icon{
+    width: 73px;
+    height: 70px;
+}
+.createText{
+    padding: 30px 20px 20px;
+    text-align: center;
+    color: rgb(61, 37, 37);
+    font-size: 16px;
+    height: 70px;
+   
+}
+
+
+
+.arrow {
+	position: relative;
+    margin: 0 auto;
+    width: 80px;
+}
+
+.arrow .curve {
+	border: 2px solid #2ea142;
+	border-color: transparent transparent transparent #2ea142;;
+	height: 360px;
+	width: 250px;
+	border-radius: 230px 0 0 150px;
+}
+
+.arrow .point {
+	position: absolute;
+	left: 40px;
+	top: 315px;
+}
+
+.arrow .point:before, .arrow .point:after {
+	border: 1px solid #2ea142;
+	height: 25px;
+	content: "";
+	position: absolute;
+}
+
+.arrow .point:before {
+	top: -11px;
+	left: -11px;
+	transform:rotate(-74deg);
+	-webkit-transform:rotate(-74deg);
+  -moz-transform:rotate(-74deg);
+  -ms-transform: rotate(-74deg);
+}
+
+.arrow .point:after {
+  top: -20px;
+	left: 5px;
+	transform:rotate(12deg);
+	-webkit-transform: rotate(12deg);
+  -moz-transform:rotate(12deg);
+  -ms-transform: rotate(12deg);
+}
+.arrows{
+    display: flex;
+}

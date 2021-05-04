@@ -1,129 +1,20 @@
+
 .tape{
-    display: grid;
-    margin-bottom: 10px;
-    grid-template-columns: 90px 1000px 90px;
-    text-align: center;
-    align-items: center;
+    background-image: url(../../assets/images/tape.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
 }
-
-.dashboard{
-    display: flex;
-    margin: 20px 30px;
-    overflow-x: auto;
-
-}
-
-.dashboard::-webkit-scrollbar {
-    display: none;
-  }
-  .logo{
-      width: 80px;
-  }
-.btnIcon{
-    width: 15px;
-    margin-top: 10px;
-    outline: none;
-}
-.dashboardItem{
-    border: 1px solid rgb(54, 13, 13);
-    margin: 10px 10px;
-    border-radius: 15px;
-    text-align: center;
-    min-width: 380px;
-    min-height: 100px;
-    padding: 25px;
+.tapeContainer{
     display: flex;
     justify-content: space-around;
-    align-items: center;
-
-}
-.dashboardItem:hover{
-    transform: scale(1.05); 
-    transition: 0.5s;
-
-}
-.dashboardContent{
-    display: flex;
-    align-items: center;
-    min-height: 80px;
+    max-width: 1200px;
+    margin: 40px auto;
     
-}
-
-.itemContext{
-    display: block;
-    padding: 0;
-    margin: 0 15px;
-}
-.static{
-   
-    margin-top: 40px;
-    color:#7fbe41;
-    font-size: 30px;
-    font-style: italic;
-    font-weight: bold;
-    margin-top: 40px;
-    text-align: center;
-}
-@media (max-width:1276px){
-    .tape{
-    display: grid;
-    margin-bottom: 10px;
-    grid-template-columns: 90px auto 90px;
-    
-    }
-}
-
-@media (max-width:800px){
-    .tape{
-    display: block;
-    margin-bottom: 10px;
-    
-    }
-}
 
 
-
-@media (max-width:500px){
-    
-.dashboardItem{
-   
-    min-width: 250px;
-    min-height: 70px;
-    padding: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
 }
-.dashboardItem:hover{
-    transform: scale(1.05); 
-    transition: 0.5s;
-
+.arrow{
+    width: 15px;
 }
-.dashboardContent{
-    display: flex;
-    align-items: center;
-    min-height: 60px;
-    
-}
-
-.itemContext{
-    display: block;
-    padding: 0;
-    margin: 0 15px;
-}
-.static{
-   
-    margin-top: 40px;
-    color:#7fbe41;
-    font-size: 22px;
-    font-style: italic;
-    font-weight: bold;
-    margin-top: 40px;
-    text-align: center;
-}
-    .text{
-        font-size: 10px;
-    }
-}
-

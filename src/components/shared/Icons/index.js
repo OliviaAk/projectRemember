@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const IconSVG = ({ src, className, handleClickIcon }) => (
   <span onClick={handleClickIcon}>
@@ -14,6 +14,6 @@ IconSVG.propTypes = {
 };
 IconSVG.defaultProps = {
   handleClick: () => null,
-  src: "",
+  src: '',
 };
 export default IconSVG;

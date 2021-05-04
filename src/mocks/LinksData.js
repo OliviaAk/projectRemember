@@ -1,22 +1,18 @@
 export const navLinks = [
   {
-    title: "Главная",
-    path: "/admin",
-    
+    title: 'Главная',
+    path: '/admin',
   },
   {
-    title: "Доска героев",
-    path: "/editDashboard",
-    
+    title: 'Доска героев',
+    path: '/editDashboard',
   },
   {
-    title: "Герои пользователей",
-    path: "/editCards",
-   
+    title: 'Герои пользователей',
+    path: '/editCards',
   },
   {
-    title: "Пользователи",
-    path: "/editCards",
-   
+    title: 'Пользователи',
+    path: '/editCards',
   },
 ];

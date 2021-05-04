@@ -1,11 +1,11 @@
-import React from "react";
-import Hero from "../../components2/Hero";
-import Layout from "../../layouts2";
+import React from 'react';
+import Hero from '../../components/Hero';
+import Layout from '../../layouts';
 
 export default function HeroPage() {
   return (
     <Layout>
-      <Hero/>
+      <Hero />
     </Layout>
   );
 }

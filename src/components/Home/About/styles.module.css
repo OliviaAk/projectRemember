@@ -1,0 +1,45 @@
+.homeTop{
+    padding: 100px 0;
+}
+.homeContainer{
+    max-width: 1200px;
+    margin: 0px auto;
+    display: flex;
+
+}
+.video{
+    width: 520px;
+    margin-top: 10px;
+    background: #fff;
+    border-right: 0;
+    box-shadow: 0 0 50px rgb(0 0 0 / 6%);
+}
+.fullText{
+    margin-left:30px ;
+}
+.fullText h3{
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    font-weight: 800;
+    font-size: 30px;
+    color: #333;
+    text-align: center;
+    position: relative;
+
+}
+.fullText h3::after
+{
+    position: absolute;
+    content: "";
+    background: linear-gradient(to right, #5ca9fb 0%, #1c30e6 100%);
+    height: 4px;
+    width: 100%;
+    bottom: -10px;
+    left: 3px
+}
+.fullText p{
+    font-size: 17px;
+    text-align: justify;
+    text-indent: 25px;
+
+}
