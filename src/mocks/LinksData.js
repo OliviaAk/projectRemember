@@ -12,6 +12,10 @@ export const navLinks = [
     path: '/editCards',
   },
   {
+    title: 'Игры',
+    path: '/editGames',
+  },
+  {
     title: 'Пользователи',
     path: '/editCards',
   },

@@ -2,7 +2,7 @@
     background-color: #fff;
     display: flex;
     justify-content: flex-end;
-    box-shadow: 0 2px 0 0 #b33923;
+    box-shadow: 0 2px 0 0 #7ada3b;
     position: fixed;
     height: 58px;
     width: calc(100% - 230px);
@@ -25,12 +25,12 @@
     text-align: center;
     display: flex;
     padding: 0 30px;
-    border-left: 2px solid #b33923;
+    border-left: 2px solid #7ada3b;
     width: 180px;
     font-size: 16px;
 }
 .userBlock:hover{
-    background-color: #e9685f;
+    background-color: #7ada3b;
     color: #fff;
 
 }

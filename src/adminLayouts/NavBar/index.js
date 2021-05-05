@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <div className={styles.navBar}>
       <Link to="/" className={styles.navbarHeader}>
-        <img className={styles.navBarLogo} src={Logo} alt="logo" />
+        <img className={styles.navBarLogo} alt="logo" />
       </Link>
 
       <ul className={styles.navMenu}>
