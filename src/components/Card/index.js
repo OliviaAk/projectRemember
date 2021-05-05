@@ -15,17 +15,12 @@ export default function Card() {
   const [dateBirth, setDate] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
-  const [data, setData] = useState({});
+  const [newCard, setData] = useState({});
   const [isSend, setSend] = useState(false);
   const dispatch = useDispatch();
   const [noUser, setNoUser] = useState(false);
   const { isAuthenticated, user } = useSelector((state) => state.authentication);
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      setNoUser(true);
-    }
-  }, []);
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -56,7 +51,9 @@ export default function Card() {
         });
       setFileInputState('');
       setPreviewSource('');
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
   const handleSubmitFile = (e) => {
     e.preventDefault();
@@ -78,7 +75,7 @@ export default function Card() {
   useEffect(() => {
     if (isSend) {
       setTimeout(() => {
-        dispatch(createCard(data));
+        dispatch(createCard(newCard));
         setSend(false);
       }, 3000);
     }

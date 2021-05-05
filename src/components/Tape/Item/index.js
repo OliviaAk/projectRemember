@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Image } from 'cloudinary-react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Button } from '../../shared';
 import styles from './styles.module.css';
 
@@ -38,3 +39,10 @@ export default function Item({ item, image, name, user, btn }) {
     </div>
   );
 }
+Item.propTypes = {
+  item: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  btn: PropTypes.string.isRequired,
+};

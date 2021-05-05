@@ -15,20 +15,24 @@
 
 .container{
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 5px auto;
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
 
 }
 
 .logoContent{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     font-style: italic;
     color: #333;
     text-transform: uppercase;
+}
+.logotype{
+    width: 150px;
+    height: 75px;
 }
 
 .userBlock{

@@ -3,21 +3,20 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Image } from 'cloudinary-react';
 import styles from './styles.module.css';
-import { setHero } from '../../store/actions';
 import { Button } from '../shared';
-import { getHeroes } from '../../store/thunks';
+import { getHeroes, getHero } from '../../store/thunks';
 
 export default function Dashboard() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { heroes } = useSelector((state) => state.dashboard);
-
+  const { heroes, hero } = useSelector((state) => state.dashboard);
   useEffect(() => {
     dispatch(getHeroes());
   }, []);
-  const openInfoAboutHero = (id) => {
+
+  const openInfoAboutHero = (heroId) => {
+    dispatch(getHero(heroId));
     history.push('/hero');
-    dispatch(setHero(id));
   };
   const openMap = (item) => {
     window.open(item);
@@ -27,7 +26,7 @@ export default function Dashboard() {
       <div className={styles.dashboardContainer}>
         <div className={styles.dashboardContent}>
           {heroes.map((item, index) => (
-            <div className={styles.dashboardItem}>
+            <div className={styles.dashboardItem} key={item._id}>
               <Image
                 cloudName="belarus-remember"
                 publicId={item.image}
@@ -49,7 +48,7 @@ export default function Dashboard() {
                 </div>
                 <Button
                   buttonColor="primary-btn3"
-                  onClick={() => openInfoAboutHero(item)}
+                  onClick={() => openInfoAboutHero(item._id)}
                 >
                   Подробнее
                 </Button>

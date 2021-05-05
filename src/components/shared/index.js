@@ -8,6 +8,7 @@ import ModalCard from './ModalCard';
 import PopUp from './PopUp';
 import SingInModal from './SingInModal';
 import Slide from './Slide';
+import Spinner from './Spinner';
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   ModalCard,
   SingInModal,
   Slide,
+  Spinner,
 };

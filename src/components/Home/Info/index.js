@@ -33,7 +33,7 @@ export default function Info() {
   }, []);
   return (
     <div className={styles.home}>
-      <BackgroundSlider images={[Pic1, Pic2, Pic3]} duration={8} transition={0.5} />
+      <BackgroundSlider images={[Pic1, Pic2, Pic3]} duration={3.5} transition={0.5} />
       <div className={styles.homeOverlay}>
         <div className={styles.homeContainer}>
           <div className={styles.homeMain}>

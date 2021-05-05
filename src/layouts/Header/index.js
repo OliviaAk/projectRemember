@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { Button, SingInModal } from 'components/shared';
+import { Button, SingInModal, IconSVG } from 'components/shared';
+import Belarus from 'assets/images/belarus.jpg';
 import styles from './styles.module.css';
 import { logout } from '../../store/actions';
 import { getUsers } from '../../store/thunks';
@@ -24,7 +25,10 @@ export default function Header() {
     <>
       <div className={styles.header}>
         <div className={styles.container}>
-          <div className={styles.logoContent}>К 80-летию обороны Могилева</div>
+          <div className={styles.logoContent}>
+            <IconSVG src={Belarus} className={styles.logotype} />
+            <span />
+          </div>
           <div className={styles.userBlock}>
             <div className={styles.navItems}>
               <Link to="/" className={styles.mainLinks}>
@@ -36,8 +40,8 @@ export default function Header() {
               <Link to="/card" className={styles.mainLinks}>
                 Создание героя
               </Link>
-              <Link to="/hero" className={styles.mainLinks}>
-                Акции города
+              <Link to="/game" className={styles.mainLinks}>
+                Узнай больше
               </Link>
             </div>
             <div className={styles.user}>

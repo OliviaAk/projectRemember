@@ -4,7 +4,7 @@
 .dashboardContainer{
     padding: 50px 0 0 0px;
     max-width: 1200px;
-    margin: 0 120px;
+    margin: 0 auto;
 }
 
 .dashboardContent{
@@ -37,6 +37,7 @@
 }
  .text{
     transition: all 0.3s ease 0.1s;
+    cursor: pointer;
   
  }
  .textContainer p{

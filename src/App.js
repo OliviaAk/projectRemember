@@ -9,6 +9,7 @@ import CardPage from './pages/Card';
 import AdminPage from './pages/Admin';
 import LoginPage from './pages/SingIn';
 import FacebookSignIn from './pages/FacebookSignIn';
+import GoogleSignIn from './pages/GoogleSignIn';
 import EditCardsPage from './pages/AdminCards';
 import EditDashPage from './pages/AdminDashboard';
 import { getUser } from './store/thunks';
@@ -32,6 +33,8 @@ function App() {
             <Route path="/admin" component={AdminPage} />
             <Route path="/singIn" component={LoginPage} />
             <Route component={FacebookSignIn} path="/facebook-oauth" exact />
+            <Route component={GoogleSignIn} path="/google-oauth" exact />
+
             <Route component={EditCardsPage} path="/editCards" />
             <Route component={EditDashPage} path="/editDashboard" />
           </Switch>

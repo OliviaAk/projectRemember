@@ -6,6 +6,8 @@ export const initialState = {
   publishCards: [],
   newCard: null,
 };
+/* eslint no-param-reassign: ["error", { "props": false }] */
+
 const cardsTape = createReducer(initialState, {
   [getCards.fulfilled]: (state, { payload }) => {
     state.cards = payload;

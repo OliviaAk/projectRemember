@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { loginAdmin, getUser, getUsers } from '../thunks';
-import { setOAuthToken, logout, logoutAdmin } from '../actions';
+import { setOAuthToken, logout, logoutAdmin, setOAuthTokenGoogle } from '../actions';
 
 export const initialState = {
   admin: null,
@@ -11,6 +11,8 @@ export const initialState = {
   isAuthenticated: false,
   isLogout: false,
 };
+/* eslint no-param-reassign: ["error", { "props": false }] */
+
 const authentication = createReducer(initialState, {
   [loginAdmin.fulfilled]: (state, { payload }) => {
     state.admin = payload;
@@ -23,6 +25,11 @@ const authentication = createReducer(initialState, {
   },
   [setOAuthToken.type]: (state, { payload }) => {
     localStorage.setItem('token', payload);
+    state.isAuthenticated = true;
+  },
+  [setOAuthTokenGoogle.type]: (state, { payload }) => {
+    localStorage.setItem('token', payload);
+    console.log('pay', payload);
     state.isAuthenticated = true;
   },
   [getUser.fulfilled]: (state, { payload }) => {
