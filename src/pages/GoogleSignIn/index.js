@@ -2,18 +2,18 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Cookies from 'js-cookie';
-import { setOAuthToken } from '../../store/actions';
+import { setOAuthTokenGoogle } from '../../store/actions';
 
-export default function FacebookSignIn() {
+export default function GoogleSignIn() {
   const history = useHistory();
   const dispatch = useDispatch();
   const token = Cookies.get('token');
 
   useEffect(() => {
     if (!token) {
-      history.push('/lol');
+      history.push('/');
     } else {
-      dispatch(setOAuthToken(token));
+      dispatch(setOAuthTokenGoogle(token));
       history.push('/');
       Cookies.remove('token');
     }
