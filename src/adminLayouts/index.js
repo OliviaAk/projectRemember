@@ -8,12 +8,10 @@ function Layout({ children }) {
   return (
     <div>
       <div className={styles.top}>
+        <Header />
         <NavBar />
-        <div className={styles.mainContext}>
-          <Header />
 
-          {children}
-        </div>
+        <div className={styles.mainContext}>{children}</div>
       </div>
     </div>
   );
