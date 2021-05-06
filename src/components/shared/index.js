@@ -10,7 +10,7 @@ import SingInModal from './SingInModal';
 import Slide from './Slide';
 import Spinner from './Spinner';
 import Selector from './Selector';
-import EditableText from './EditText';
+import EditText from './EditText';
 import TextField from './TextField';
 
 export {
@@ -26,6 +26,6 @@ export {
   Slide,
   Spinner,
   Selector,
-  EditableText,
+  EditText,
   TextField,
 };

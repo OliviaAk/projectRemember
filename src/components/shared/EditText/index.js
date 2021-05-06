@@ -1,21 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
 
-export default function EditableText({ value, handleInput }) {
+export default function EditText({ chore, onChange, onClick , isEditing,  setIsEditing}) {
+
+  const handleClick = () => {
+    setIsEditing();
+  };
+
+  const handleKeyPress = e => {
+    if (e.key === "Enter") {
+      setIsEditing();
+    }
+  };
+
   return (
-    <div>
-      <input
-        type="text"
-        value={value}
-        onChange={() => {
-          handleInput(value);
-        }}
-        style={{ width: '400px' }}
-      />
-    </div>
+    <>
+      {isEditing ? (
+        <input
+          autoFocus
+          value={chore}
+          onChange={onChange}
+          onKeyPress={handleKeyPress}
+          type="text"
+          style={{width:'400px'}}
+        />
+      ) : (
+        <span onClick={handleClick}>{chore}</span>
+      )}
+    </>
   );
 }
-EditableText.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleInput: PropTypes.func.isRequired,
-};

@@ -10,7 +10,7 @@ import {
   Users,
   Dice,
   Start,
-  Pencil,
+  Card
 } from 'assets/icons';
 import styles from './styles.module.css';
 
@@ -72,7 +72,7 @@ export default function NavBar() {
         <div className={styles.navLinks}>
           <div className={styles.linkMain}>
             <div className={styles.navText}>
-              <IconSVG src={Pencil} className={styles.icon} />
+              <IconSVG src={Card} className={styles.icon} />
               <li className={styles.navItem}>Открытки</li>
             </div>
             <div
