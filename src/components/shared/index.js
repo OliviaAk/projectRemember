@@ -9,6 +9,7 @@ import PopUp from './PopUp';
 import SingInModal from './SingInModal';
 import Slide from './Slide';
 import Spinner from './Spinner';
+import Selector from './Selector';
 
 export {
   Button,
@@ -22,4 +23,5 @@ export {
   SingInModal,
   Slide,
   Spinner,
+  Selector,
 };

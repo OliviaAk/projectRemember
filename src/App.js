@@ -2,17 +2,18 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import HomePage from './pages/Main';
-import DashboardPage from './pages/Dashboard';
-import HeroPage from './pages/Hero';
-import CardPage from './pages/Card';
-import AdminPage from './pages/Admin';
-import LoginPage from './pages/SingIn';
-import FacebookSignIn from './pages/FacebookSignIn';
-import GoogleSignIn from './pages/GoogleSignIn';
-import EditCardsPage from './pages/AdminCards';
-import EditDashPage from './pages/AdminDashboard';
-import { getUser } from './store/thunks';
+import ViewDashPage from 'pages/DashboardView';
+import HomePage from 'pages/Main';
+import DashboardPage from 'pages/Dashboard';
+import HeroPage from 'pages/Hero';
+import CardPage from 'pages/Card';
+import AdminPage from 'pages/Admin';
+import LoginPage from 'pages/SingIn';
+import FacebookSignIn from 'pages/FacebookSignIn';
+import GoogleSignIn from 'pages/GoogleSignIn';
+import EditCardsPage from 'pages/AdminCards';
+import EditDashPage from 'pages/DashboardEdit';
+import { getUser } from 'store/thunks';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function App() {
 
             <Route component={EditCardsPage} path="/editCards" />
             <Route component={EditDashPage} path="/editDashboard" />
+            <Route component={ViewDashPage} path="/viewDashboard" />
           </Switch>
         </Router>
       </div>

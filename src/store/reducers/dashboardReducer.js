@@ -6,6 +6,7 @@ export const initialState = {
   heroes: [],
   user: null,
   isSelected: false,
+  loadingHero: false,
 };
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
@@ -22,6 +23,10 @@ const dashboard = createReducer(initialState, {
   },
   [createHero.fulfilled]: (state, { payload }) => {
     state.hero = payload;
+    state.loadingHero = false;
+  },
+  [createHero.pending]: (state, { payload }) => {
+    state.loadingHero = true;
   },
 });
 

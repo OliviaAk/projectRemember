@@ -1,79 +1,142 @@
 .wrapper{
-    margin: 0 50px;
-    margin-top: 60px;
+   padding:  2.25rem 2.25rem 0;
+
 }
-.title{
-    font-size: 22px;
-    line-height: 22px;
-    font-weight: 600;
-    text-align: center;
-    padding: 30px 0;
-}
+
 .wrapperContainer{
     display: flex;
-    margin: 40px auto;
-    border: 1px dotted saddlebrown;
-    padding: 20px 20px 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 40px;
+}
+.wrapperImage, .textContainer{
+    display: flex;
+    background-color: #ffffff;
+    border: 0 solid transparent;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+    color: #222b45;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    margin-bottom: 1.875rem;
+    flex-direction: column;
+
+}
 
 
+.textContainer{
+    padding: 20px;
+    width: 100%;
+}
+
+
+.wrapperImage{
+    height: 100%;
+    margin-right: 40px;
 }
 .imgInput {
     display: none;
-    height: 350px;
-    width: 300px;
 }
 .photo{
-    height: 300px;
-    width: 250px;
+    width: 230px;
+    height: 250px;
 }
-.customUpload {
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    margin:  10px;
+.customUpload{
+    height: 100%;
 }
-.uploadIcon{
-    width: 20px;
-    margin: 0px 5px 0px;
-}
-.wrapperImage{
-    
-    border: 1px solid #522607;
-    border-radius: 15px;
-    padding:10px 20px;
-    height: 350px;
-    
-}
-.textContainer{
-    display: flex;
-    flex-direction: column;
-    margin: 0 40px;
-    padding: 10px 0;
 
-    width: 75%;
-}
+
+
+
+
+
 .textContainer >*{
-    margin-bottom: 15px;
     outline: none;
 
 }
 .text{
-    height: 200px;
     outline: none;
     resize: none;
-    border: 1px solid #522607;
-    border-radius: 3px;
-    padding: 5px 15px;
+    margin-bottom: 10px;
+    width: 468px;
+    height: 250px;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-appearance: none;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+    -webkit-transition-property: border,background-color,color,box-shadow;
+    transition-property: border,background-color,color,box-shadow;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    width: 97%;
+    background-color: #f7f9fc;
+    border-color: #e4e9f2;
+    color: #222b45;
+    border-radius: 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: 0.4375rem 1.125rem;
+  
 
 }
 .sendBtn{
     text-align: center;
 }
+.submit{
+    text-align: center;
+    letter-spacing: 0.4px;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    border-radius: 0.25rem;
+    border-style: solid;
+    border-width: 0.0625rem;
+    text-transform: uppercase;
+    padding: 0.6875rem 1.125rem;
+    background-color: rgba(51,102,255,0.08);
+    border-color: #3366ff;
+    color: #3366ff;
+}
+.submit:hover{
+    background-color: rgba(51,102,255,0.2);
+
+}
 .inputItem{
-    height: 20px;
-    outline: none;
-    padding: 5px 15px;
-    border: 1px solid #522607;
-    border-radius: 3px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -webkit-transition-property: border,background-color,color,box-shadow;
+  transition-property: border,background-color,color,box-shadow;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  width: 97%;
+  background-color: #f7f9fc;
+  border-color: #e4e9f2;
+  color: #222b45;
+  border-radius: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0.1875rem 1.125rem;
 }

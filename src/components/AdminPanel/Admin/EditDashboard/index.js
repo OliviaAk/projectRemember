@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Upload } from 'assets/icons';
+import { IconSVG, Selector, Spinner, Modal } from 'components/shared';
+import { getHeroes, createHero } from 'store/thunks';
+import Person from 'assets/images/person1.png';
 import styles from './styles.module.css';
-import { EditItem, Button, IconSVG } from '../../../shared';
-import { getHeroes, createHero } from '../../../../store/thunks';
-import Person from '../../../../assets/images/person.png';
-import { Upload } from '../../../../assets/icons';
 
+const options = [
+  { value: true, label: 'Опубликовать на сайте' },
+  { value: false, label: 'Добавить в хранилище' },
+];
 export default function EditDashboard() {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
@@ -17,12 +21,18 @@ export default function EditDashboard() {
   const [image, setImage] = useState(null);
   const [newHero, setData] = useState({});
   const [isSend, setSend] = useState(false);
+  const [isLoad, setLoad] = useState(false);
+  const [isOpenModal, setOpenModal] = useState(false);
+  const [isPublish, setStatus] = useState(false);
   const dispatch = useDispatch();
-  const { heroes } = useSelector((state) => state.dashboard);
+  const { heroes, loadingHero, hero } = useSelector((state) => state.dashboard);
 
   useEffect(() => {
-    dispatch(getHeroes());
-  }, []);
+    if (!loadingHero && hero !== null) {
+      setOpenModal(true);
+    }
+  }, [loadingHero, hero]);
+
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -47,8 +57,6 @@ export default function EditDashboard() {
         .then((data) => {
           setImage(data.imageId);
         });
-      setFileInputState('');
-      setPreviewSource('');
     } catch (err) {
       console.log(err);
     }
@@ -61,11 +69,12 @@ export default function EditDashboard() {
     reader.onloadend = () => {
       uploadImage(reader.result);
     };
+    setLoad(true);
   };
 
   useEffect(() => {
     if (image !== null) {
-      setData({ name, dateBirth, text, image, url });
+      setData({ name, dateBirth, text, image, url, isPublish });
       setSend(true);
     }
   }, [image]);
@@ -75,36 +84,38 @@ export default function EditDashboard() {
       setTimeout(() => {
         dispatch(createHero(newHero));
         setSend(false);
-      }, 3000);
+        setLoad(false);
+        setFileInputState('');
+        setPreviewSource('');
+        setImage(null);
+        setName('');
+        setDate('');
+        setText('');
+        setUrl('');
+      }, 500);
     }
   }, [isSend]);
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.title}>Доска памяти</div>
-      <span>Создать нового героя:</span>
+      {(loadingHero || isLoad) && <Spinner loading={loadingHero} />}
       <form onSubmit={handleSubmitFile} className={styles.wrapperContainer}>
         <div className={styles.wrapperImage}>
-          {previewSource ? (
-            <IconSVG className={styles.photo} src={previewSource} alt="chosen" />
-          ) : (
-            <IconSVG className={styles.photo} src={Person} />
-          )}
-          <>
-            <div className={styles.formGroup}>
-              <label className={styles.customUpload}>
-                <input
-                  id="fileInput"
-                  type="file"
-                  name="image"
-                  onChange={handleFileInputChange}
-                  value={fileInputState}
-                  className={styles.imgInput}
-                />
-                <IconSVG className={styles.uploadIcon} src={Upload} />
-              </label>
-            </div>
-          </>
+          <label className={styles.customUpload}>
+            <input
+              id="fileInput"
+              type="file"
+              name="image"
+              onChange={handleFileInputChange}
+              value={fileInputState}
+              className={styles.imgInput}
+            />
+            {previewSource ? (
+              <IconSVG className={styles.photo} src={previewSource} alt="chosen" />
+            ) : (
+              <IconSVG className={styles.photo} src={Person} />
+            )}
+          </label>
         </div>
         <div className={styles.textContainer}>
           <input
@@ -139,26 +150,30 @@ export default function EditDashboard() {
             className={styles.text}
             onChange={(e) => setText(e.target.value)}
           />
+          <Selector
+            options={options}
+            value={options.find((el) => el.value === isPublish)}
+            onChange={({ value }) => {
+              setStatus(value);
+            }}
+          />
 
           <div className={styles.sendBtn}>
-            <Button buttonColor="btn--hero" type="submit">
+            <button type="submit" className={styles.submit}>
               Добавить
-            </Button>
+            </button>
           </div>
         </div>
       </form>
-
-      {heroes.map((hero) => (
-        <EditItem
-          name={hero.name}
-          image={hero.image}
-          user={hero.userId}
-          description={hero.description}
-          dateBirth={hero.dateBirth}
-          text={hero.text}
-          url={hero.url}
-        />
-      ))}
+      <Modal
+        show={isOpenModal}
+        closeModal={() => setOpenModal(false)}
+        text={`Герой успешно добавлен в базу.  ${
+          isPublish
+            ? 'Также опубликован на сайте в разделе "Доска памяти".'
+            : 'Еще не опубликован, в разделе "Редактирование доски" можно опубликовать!'
+        } `}
+      />
     </div>
   );
 }
