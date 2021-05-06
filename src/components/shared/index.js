@@ -10,6 +10,8 @@ import SingInModal from './SingInModal';
 import Slide from './Slide';
 import Spinner from './Spinner';
 import Selector from './Selector';
+import EditableText from './EditText';
+import TextField from './TextField';
 
 export {
   Button,
@@ -24,4 +26,6 @@ export {
   Slide,
   Spinner,
   Selector,
+  EditableText,
+  TextField,
 };
