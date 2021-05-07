@@ -14,7 +14,10 @@ export const getHeroes = createAsyncThunk(`heroes`, async () => {
   const { data } = await apiServer.get(`dashboard`);
   return data;
 });
-
+export const getPublishHeroes = createAsyncThunk(`published heroes`, async () => {
+  const { data } = await apiServer.get(`dashboard/published`);
+  return data;
+});
 export const getHero = createAsyncThunk('selected hero', async (heroId) => {
   const { data } = await apiServer.get(`dashboard/${heroId}`);
   return data;
@@ -46,7 +49,54 @@ export const getUsers = createAsyncThunk('users all', async () => {
 export const setPublishCard = createAsyncThunk(
   'favoriteCards',
   async ({ id, isPublish }) => {
-    const { data } = await apiServer.patch(`cards/info/${id}`, { isPublish });
+    const { data } = await apiServer.patch(`cards/${id}`, { isPublish });
+    return data;
+  }
+);
+
+export const editCard = createAsyncThunk(
+  'edit card',
+  async ({ _id, description, name, dateBirth, image, isPublish }) => {
+    const { data } = await apiServer.patch(`cards/info/${_id}`, {
+      description,
+      name,
+      dateBirth,
+      image,
+      isPublish,
+    });
+    return { data };
+  }
+);
+
+export const editHero = createAsyncThunk(
+  'edit hero',
+  async ({ _id, url, text, name, dateBirth, image, isPublish }) => {
+    const { data } = await apiServer.patch(`dashboard/info/${_id}`, {
+      url,
+      text,
+      name,
+      dateBirth,
+      image,
+      isPublish,
+    });
+    return { data };
+  }
+);
+
+export const deleteHero = createAsyncThunk('deleted hero', async (_id) => {
+  const { data } = await apiServer.remove(`dashboard/info/${_id}`);
+  return { data };
+});
+
+export const deleteCard = createAsyncThunk('deleted card', async (_id) => {
+  const { data } = await apiServer.remove(`cards/info/${_id}`);
+  return { data };
+});
+
+export const setPublishHero = createAsyncThunk(
+  'published hero',
+  async ({ id, isPublish }) => {
+    const { data } = await apiServer.patch(`dashboard/${id}`, { isPublish });
     return data;
   }
 );

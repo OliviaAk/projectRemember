@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Image } from 'cloudinary-react';
 import styles from './styles.module.css';
 import { Button } from '../shared';
-import { getHeroes, getHero } from '../../store/thunks';
+import { getHero, getPublishHeroes } from '../../store/thunks';
 
 export default function Dashboard() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { heroes, hero } = useSelector((state) => state.dashboard);
+  const { publishedHeroes, hero } = useSelector((state) => state.dashboard);
   useEffect(() => {
-    dispatch(getHeroes());
+    dispatch(getPublishHeroes());
   }, []);
 
   const openInfoAboutHero = (heroId) => {
@@ -25,7 +25,7 @@ export default function Dashboard() {
     <div className={styles.dashboard}>
       <div className={styles.dashboardContainer}>
         <div className={styles.dashboardContent}>
-          {heroes.map((item, index) => (
+          {publishedHeroes.map((item, index) => (
             <div className={styles.dashboardItem} key={item._id}>
               <Image
                 cloudName="belarus-remember"

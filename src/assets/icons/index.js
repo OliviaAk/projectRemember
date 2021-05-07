@@ -18,8 +18,9 @@ import Users from './user-friends-solid.svg';
 import Dice from './dice-solid.svg';
 import Start from './star-solid.svg';
 import Pencil from './pencil-alt-solid.svg';
-import Card from './portrait-solid.svg';
+import Card from './address-card-regular.svg';
 import Saved from './check-square-solid.svg';
+import Email from './envelope-solid.svg';
 
 export {
   Admin,
@@ -44,4 +45,5 @@ export {
   Pencil,
   Card,
   Saved,
+  Email,
 };

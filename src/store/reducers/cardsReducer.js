@@ -1,5 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { getCards, createCard, getPublishCards, setPublishCard } from '../thunks';
+import {
+  getCards,
+  createCard,
+  getPublishCards,
+  setPublishCard,
+  editCard,
+  deleteCard,
+} from '../thunks';
 
 export const initialState = {
   cards: [],
@@ -21,6 +28,13 @@ const cardsTape = createReducer(initialState, {
   [setPublishCard.fulfilled]: (state, { payload }) => {
     const index = state.cards.findIndex((e) => e._id === payload._id);
     state.cards[index] = payload;
+  },
+  [editCard.fulfilled]: (state, { payload }) => {
+    const index = state.cards.findIndex((e) => e._id === payload.data._id);
+    state.cards[index] = payload.data;
+  },
+  [deleteCard.fulfilled]: (state, { payload }) => {
+    state.cards = state.cards.filter((item) => item._id !== payload.data);
   },
 });
 

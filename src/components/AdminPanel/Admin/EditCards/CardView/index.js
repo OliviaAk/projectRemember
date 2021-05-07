@@ -1,30 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'cloudinary-react';
 import { IconSVG } from 'components/shared';
-import { Pencil, Saved } from 'assets/icons';
-import { editHero, deleteHero, setPublishHero } from 'store/thunks';
-import { useDispatch } from 'react-redux';
+import { Pencil, Saved, Email } from 'assets/icons';
+import { editCard, deleteCard } from 'store/thunks';
+import { useDispatch, useSelector } from 'react-redux';
+import * as emailjs from 'emailjs-com';
+import { init } from 'emailjs-com';
 import styles from './styles.module.css';
 
-export default function ViewItem({
+init('user_qnYBzXzbTnUo4Umjz0KQ8');
+export default function CardView({
   image,
   name,
   dateBirth,
-  text,
-  url,
-  heroCurrent,
+  description,
+  cardCurrent,
   id,
   isPublish,
   markAsPublish,
+  user,
 }) {
   const [edit, setEdit] = useState(false);
-  const [state, setState] = useState({});
-  const dispatch = useDispatch();
+  const [stateCard, setState] = useState({});
+  const [userName, setUserName] = useState({});
+  const emailConfig = {
+    email: userName.email,
+    message: ` ${userName.firstName}, спасибо за участие. Ваша открыка одобрена и опубликована на сайте, можете поделится ей с друзьями! `,
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, message } = emailConfig;
+    const templateParams = {
+      from_name: 'service_fv9vcli',
+      to_name: 'Hello  ',
+      message,
+    };
+    console.log(templateParams);
 
+    emailjs.send('service_fv9vcli', 'template_9doekh9', templateParams);
+  };
+  const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.authentication);
+
+  useEffect(() => {
+    const findName = users.find((u) => u._id === user);
+    setUserName(findName);
+  }, [user, users]);
   const saveEdition = () => {
     setEdit(false);
-    dispatch(editHero(state));
+    dispatch(editCard(stateCard));
   };
 
   const editItem = (hero) => {
@@ -33,7 +58,7 @@ export default function ViewItem({
   };
   const handleChange = (e) => {
     setState({
-      ...state,
+      ...stateCard,
       [e.target.name]: e.target.value,
     });
   };
@@ -71,13 +96,10 @@ export default function ViewItem({
               Опубликовать
             </button>
           )}
-          {/* <button type="submit" className={styles.submit}>
-          Опубликовать
-        </button> */}
           <button
             type="button"
             className={styles.deleteButton}
-            onClick={() => dispatch(deleteHero(id))}
+            onClick={() => dispatch(deleteCard(id))}
           >
             Удалить с базы
           </button>
@@ -90,7 +112,7 @@ export default function ViewItem({
               name="name"
               type="text"
               onChange={handleChange}
-              value={state.name}
+              value={stateCard.name}
               className={styles.input}
             />
           ) : (
@@ -103,7 +125,7 @@ export default function ViewItem({
             <IconSVG
               src={Pencil}
               handleClickIcon={() => {
-                editItem(heroCurrent);
+                editItem(cardCurrent);
               }}
             />
           )}
@@ -115,63 +137,58 @@ export default function ViewItem({
                 name="dateBirth"
                 type="text"
                 onChange={handleChange}
-                value={state.dateBirth}
+                value={stateCard.dateBirth}
                 className={styles.input}
               />
             ) : (
-              <span>{dateBirth}</span>
+              <span className={styles.simpleTextInput}>{dateBirth}</span>
             )}
           </div>
         )}
-        <div className={styles.itemInfo}>
-          {edit ? (
-            <input
-              name="url"
-              type="text"
-              onChange={handleChange}
-              value={state.url}
-              className={styles.inputMap}
-            />
-          ) : (
-            <span>
-              <strong>Карта </strong>
-              <a className={styles.mapLink} href={url}>
-                {url}
-              </a>
-            </span>
-          )}
-        </div>
-        <div className={edit ? styles.itemEdit : styles.itemInfo}>
+
+        <div className={edit ? styles.itemEdit : styles.itemInfoText}>
           <>
             <span>
-              <strong>Сведения: </strong>
+              <strong>Биография: </strong>
             </span>
           </>
           {edit ? (
             <textarea
-              name="text"
-              type="text"
-              value={state.text}
+              name="description"
+              value={stateCard.description}
               className={styles.text}
               onChange={handleChange}
             />
           ) : (
-            <span>{text}</span>
+            <span className={styles.simpleText}>{description}</span>
           )}
+        </div>
+        <div className={styles.itemInfo}>
+          <span>
+            <strong>Автор: </strong>
+          </span>
+          <span>
+            {userName.firstName} {userName.lastName}
+          </span>
+          <IconSVG
+            src={Email}
+            className={styles.emailIcon}
+            handleClickIcon={handleSubmit}
+          />
         </div>
       </div>
     </div>
   );
 }
 
-ViewItem.propTypes = {
+CardView.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  dateBirth: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  heroCurrent: PropTypes.object.isRequired,
+  description: PropTypes.string.isRequired,
+  cardCurrent: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
   isPublish: PropTypes.bool.isRequired,
   markAsPublish: PropTypes.func.isRequired,
+  dateBirth: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
 };

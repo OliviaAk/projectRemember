@@ -19,4 +19,9 @@ const patch = async (url, data) => {
   return response;
 };
 
-export const apiServer = { get, patch, post };
+const remove = async (url) => {
+  const response = await axiosApiInstance.delete(`${url}`);
+  return response;
+};
+
+export const apiServer = { get, patch, post, remove };

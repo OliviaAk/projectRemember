@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button, IconSVG } from 'components/shared';
 import {
@@ -10,11 +11,17 @@ import {
   Users,
   Dice,
   Start,
-  Card
+  Card,
 } from 'assets/icons';
+import { getUsers } from 'store/thunks';
+
 import styles from './styles.module.css';
 
 export default function NavBar() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUsers());
+  }, []);
   const [openDropDown, setOpenDropDown] = useState(false);
   const [openDropDownDash, setOpenDropDownDash] = useState(false);
   const [openDropDownCard, setOpenDropDownCard] = useState(false);
@@ -72,34 +79,6 @@ export default function NavBar() {
         <div className={styles.navLinks}>
           <div className={styles.linkMain}>
             <div className={styles.navText}>
-              <IconSVG src={Card} className={styles.icon} />
-              <li className={styles.navItem}>Открытки</li>
-            </div>
-            <div
-              onClick={() => setOpenDropDownCard(!openDropDownCard)}
-              style={{ cursor: 'pointer' }}
-            >
-              {openDropDown || openDropDownCard ? (
-                <img src={bottomArrow} alt="drop" height="15" width="15" />
-              ) : (
-                <img src={leftArrow} alt="drop" height="15" width="15" />
-              )}
-            </div>
-          </div>
-          {(openDropDown || openDropDownCard) && (
-            <ul className={styles.dropDown}>
-              <Link to="/viewCards" className={styles.dropItem}>
-                Просмотреть открытки
-              </Link>
-              <Link to="/editCards" className={styles.dropItem}>
-                Опубликовать открытку
-              </Link>
-            </ul>
-          )}
-        </div>
-        <div className={styles.navLinks}>
-          <div className={styles.linkMain}>
-            <div className={styles.navText}>
               <IconSVG src={Dice} className={styles.icon} />
 
               <li className={styles.navItem}>Игры</li>
@@ -126,6 +105,14 @@ export default function NavBar() {
             </ul>
           )}
         </div>
+        <Link to="/editCards" className={styles.navLinks}>
+          <div className={styles.linkMainWithout}>
+            <div className={styles.navText}>
+              <IconSVG src={Card} className={styles.icon} />
+              <li className={styles.navItem}>Открытки</li>
+            </div>
+          </div>
+        </Link>
         <Link to="/editUsers" className={styles.navLinks}>
           <div className={styles.linkMainWithout}>
             <div className={styles.navText}>

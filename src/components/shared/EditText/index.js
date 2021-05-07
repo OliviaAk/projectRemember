@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-export default function EditText({ chore, onChange, onClick , isEditing,  setIsEditing}) {
-
+export default function EditText({ chore, onChange, onClick, isEditing, setIsEditing }) {
   const handleClick = () => {
     setIsEditing();
   };
 
-  const handleKeyPress = e => {
-    if (e.key === "Enter") {
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
       setIsEditing();
     }
   };
@@ -21,7 +20,7 @@ export default function EditText({ chore, onChange, onClick , isEditing,  setIsE
           onChange={onChange}
           onKeyPress={handleKeyPress}
           type="text"
-          style={{width:'400px'}}
+          style={{ width: '400px' }}
         />
       ) : (
         <span onClick={handleClick}>{chore}</span>
