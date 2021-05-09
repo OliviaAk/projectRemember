@@ -1,26 +1,69 @@
 .wrapper{
     margin: 20px ;
-    padding: 10px;
+    padding: 10px 0;
+    justify-content: center;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    height: 450px;
-    width: 300px;
-    border-radius: 15px;
-    background: #fff ;
+    cursor: pointer;
+
 }
 .name{
-    font-size: 16px;
     text-align: center;
-    margin-left: 5px;
+    line-height: 1.5;
+    width: 190px;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 .infoBlock{
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-}
-.openBtn{
     text-align: center;
-    margin: 5px 0;
+    color: #4f86f9;
+    display: block;
+    font-weight: 500;
+    font-size: 17px;
+    margin-top: 10px;
+}
+.imageContainer{
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.imageContainer img{
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 10px solid #f8f9fa;
+    z-index: 2;
 
+
+}
+.textContainer{
+    position: relative;
+    background: #fff;
+    padding: 110px 30px 30px 30px;
+    border-radius: 4px;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: -100px;
+    z-index: 1;
+    height: 220px;
+    width: 200px;
+    cursor: pointer;
+}
+.textContainer:hover{
+    background-color: #4f86f9;
+   
+
+}
+.textContainer:hover .name, .textContainer:hover .infoBlock{
+    color: #fff;
 }

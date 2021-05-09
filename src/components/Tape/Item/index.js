@@ -6,14 +6,14 @@ import { Button } from '../../shared';
 import styles from './styles.module.css';
 
 export default function Item({ item, image, name, user, btn }) {
-  const [userEmail, setUserEmail] = useState('');
+  const [userEmail, setUserEmail] = useState({});
   const { users } = useSelector((state) => state.authentication);
 
   useEffect(() => {
     if (users.length > 0) {
       users.map((i) => {
         if (i._id === user) {
-          setUserEmail(i.email);
+          setUserEmail({firstName: i.firstName, lastName: i.lastName});
         }
       });
     }
@@ -21,20 +21,21 @@ export default function Item({ item, image, name, user, btn }) {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.imageContainer}>
       <Image
         key={item}
         cloudName="belarus-remember"
         publicId={image}
-        width="300"
-        height="350"
+        width="200"
+        height="200"
         crop="scale"
       />
-      <span className={styles.name}>{name}</span>
+      </div>
+      <div className={styles.textContainer}>
+      <h3 className={styles.name}>{name}</h3>
       <div className={styles.infoBlock}>
-        <span>Автор:{userEmail}</span>
-        <Button buttonColor="btn--tape" className={styles.openBtn}>
-          {btn}
-        </Button>
+        <span>{userEmail.firstName} {userEmail.lastName} помнит...</span>
+      </div>
       </div>
     </div>
   );

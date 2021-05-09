@@ -17,6 +17,9 @@
     margin: 0px auto;
 
 }
+.homeMainTitle{
+    margin: 50px 0;
+}
 .homeMain{
     color: #fff;
     padding-top: 350px;
@@ -26,6 +29,8 @@
     align-items: center;
     display: block;
     position: relative;
+    font-family: 'Futura Heavy';
+
 
 
 
