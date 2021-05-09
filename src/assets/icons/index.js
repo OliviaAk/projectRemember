@@ -21,6 +21,12 @@ import Pencil from './pencil-alt-solid.svg';
 import Card from './address-card-regular.svg';
 import Saved from './check-square-solid.svg';
 import Email from './envelope-solid.svg';
+import User from './user-solid.svg';
+import Image from './images-solid.svg';
+import Puzzle from './puzzle-piece-solid.svg';
+import Medal from './medal-solid.svg';
+import Exit from './door-closed-solid.svg';
+import Logout from './door-open-solid.svg';
 
 export {
   Admin,
@@ -46,4 +52,10 @@ export {
   Card,
   Saved,
   Email,
+  User,
+  Image,
+  Puzzle,
+  Medal,
+  Exit,
+  Logout
 };
