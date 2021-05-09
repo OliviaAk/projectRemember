@@ -26,18 +26,18 @@ export default function CardView({
   const [userName, setUserName] = useState({});
   const emailConfig = {
     email: userName.email,
+    firstName: userName.firstName,
     message: ` ${userName.firstName}, спасибо за участие. Ваша открыка одобрена и опубликована на сайте, можете поделится ей с друзьями! `,
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { email, message } = emailConfig;
+    const { email, message, firstName } = emailConfig;
     const templateParams = {
-      from_name: 'service_fv9vcli',
-      to_name: 'Hello  ',
+      from_name: 'Библиотека',
+      to_name: firstName,
+      to_email: email,
       message,
     };
-    console.log(templateParams);
-
     emailjs.send('service_fv9vcli', 'template_9doekh9', templateParams);
   };
   const dispatch = useDispatch();

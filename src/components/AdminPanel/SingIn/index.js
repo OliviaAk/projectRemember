@@ -53,8 +53,8 @@ export default function SingIn() {
               placeholder="Пароль"
               type="password"
               name="password"
-              maxLength={{ value: 15, message: 'Password requires a valid password' }}
-              minLength={{ value: 4, message: 'Password requires a valid password' }}
+              maxLength={{ value: 15, message: '' }}
+              minLength={{ value: 4, message: '' }}
             />
             <Button className={styles.loginButton} buttonColor="primary-btn3">
               Войти
