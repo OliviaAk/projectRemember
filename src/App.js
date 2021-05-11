@@ -14,6 +14,7 @@ import GoogleSignIn from 'pages/GoogleSignIn';
 import EditCardsPage from 'pages/AdminCards';
 import EditDashPage from 'pages/DashboardEdit';
 import EditUserPage from 'pages/UsersEdit'
+import EditGamePage from 'pages/GameEdit'
 import { getUser } from 'store/thunks';
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
             <Route component={EditDashPage} path="/editDashboard" />
             <Route component={ViewDashPage} path="/viewDashboard" />
             <Route component={EditUserPage} path="/editUsers" />
+            <Route component={EditGamePage} path="/editGames" />
+
 
           </Switch>
         </Router>

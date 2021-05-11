@@ -4,6 +4,7 @@ import dashboard from './reducers/dashboardReducer';
 import authentication from './reducers/authReducer';
 import cardsTape from './reducers/cardsReducer';
 import Interceptor from '../services/api/interceptor';
+import quiz from './reducers/quizReducer';
 
 const getStore = () => {
   const store = configureStore({
@@ -11,6 +12,7 @@ const getStore = () => {
       dashboard,
       authentication,
       cardsTape,
+      quiz,
     }),
   });
   return store;

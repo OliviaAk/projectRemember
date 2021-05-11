@@ -1,0 +1,84 @@
+.wrapper{
+    padding:  2.25rem  2.25rem   0;
+
+}
+
+.wrapperContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+.wrapperContainer >*{
+    margin-right: 30px;
+}
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    width: 95%;
+
+}
+.textContainer >*{
+    margin: 15px ;
+}
+
+.inputItem{
+    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+    -webkit-transition-property: border,background-color,color,box-shadow;
+    transition-property: border,background-color,color,box-shadow;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    outline: none;
+    background-color: #f7f9fc;
+    border-color: #e4e9f2;
+    color: #222b45;
+    height: 30px;
+    border-radius: 0.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: 0 20px;
+    margin-left: 10px;
+  }
+  .wrapperQuestion{
+    display: flex;
+    background-color: #ffffff;
+    border: 0 solid transparent;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+    color: #222b45;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    margin-bottom: 1.875rem;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 80px;
+    height: 60vh;
+  }
+  .title{
+      align-items: center;
+      text-align: center;
+      font-size: 22px;
+      color: #222b45;
+      font-weight: 700;
+      line-height: 19px;
+      font-family: 'Future Heavy';
+      padding: 10px 0;
+      border-bottom: 1px solid #222b45;
+  }
+  .textItem{
+      width: 100%;
+
+  }
+  .text{
+      font-family: 'Future Book';
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 18px;
+  }
