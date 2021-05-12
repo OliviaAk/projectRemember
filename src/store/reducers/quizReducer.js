@@ -1,6 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
-  createQuiz,getQuiz, createQuestion,getQuestions
+  createQuiz,
+  getQuiz,
+  createQuestion,
+  getQuestions,
+  deleteQuiz,
+  editQuiz,
+  deleteQuestion,
 } from '../thunks';
 
 export const initialState = {
@@ -8,8 +14,6 @@ export const initialState = {
   currentQuiz: null,
   question: null,
   questions: [],
-
- 
 };
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
@@ -25,6 +29,17 @@ const quiz = createReducer(initialState, {
   },
   [getQuestions.fulfilled]: (state, { payload }) => {
     state.questions = payload;
+  },
+  [editQuiz.fulfilled]: (state, { payload }) => {
+    const index = state.quizes.findIndex((e) => e._id === payload.data._id);
+
+    state.quizes[index] = payload.data;
+  },
+  [deleteQuiz.fulfilled]: (state, { payload }) => {
+    state.quizes = state.quizes.filter((item) => item._id !== payload.data);
+  },
+  [deleteQuestion.fulfilled]: (state, { payload }) => {
+    state.questions = state.questions.filter((item) => item._id !== payload.data);
   },
 });
 

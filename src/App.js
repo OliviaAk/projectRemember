@@ -13,8 +13,9 @@ import FacebookSignIn from 'pages/FacebookSignIn';
 import GoogleSignIn from 'pages/GoogleSignIn';
 import EditCardsPage from 'pages/AdminCards';
 import EditDashPage from 'pages/DashboardEdit';
-import EditUserPage from 'pages/UsersEdit'
-import EditGamePage from 'pages/GameEdit'
+import EditUserPage from 'pages/UsersEdit';
+import EditGamePage from 'pages/GameEdit';
+import ViewGamePage from 'pages/GamesView';
 import { getUser } from 'store/thunks';
 
 function App() {
@@ -43,8 +44,7 @@ function App() {
             <Route component={ViewDashPage} path="/viewDashboard" />
             <Route component={EditUserPage} path="/editUsers" />
             <Route component={EditGamePage} path="/editGames" />
-
-
+            <Route component={ViewGamePage} path="/viewGames" />
           </Switch>
         </Router>
       </div>

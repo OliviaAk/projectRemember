@@ -1,0 +1,134 @@
+.wrapperItem{
+    display: flex;
+    background-color: #ffffff;
+    border: 0 solid transparent;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 30%);
+    color: #222b45;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    margin-bottom: 1.875rem;
+    padding: 20px;
+    text-align: justify;
+    flex-direction: column;
+
+}
+.wrapperContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.blockInfo{
+    display: flex;
+    text-align: center;
+    width: 50%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    font-family: 'Future Book';
+    color: #222b45;
+    justify-content: center;
+    
+
+}
+.titleIcons{
+    margin-left: 10px;
+}
+.titleIcons >*{
+    margin:  0 3px;
+}
+.titleBlock{
+    width: 90%;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 19px;
+    font-family: 'Future Heavy';
+    color: #222b45;
+    display: flex;
+}
+.wrapperQuestion{
+    margin-top: 30px;
+    border-top: 2px solid #222b45;
+    padding: 20px 0;
+}
+.btnBlock{
+    display: flex;
+}
+.btnBlock >*{
+ margin-right: 5px;
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+
+}
+.table td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    
+  }
+  .table th{
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 19px;
+      font-family: 'Future Heavy';
+      color: #222b45;
+  }
+  .table td{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    font-family: 'Future Book';
+    color: #222b45;
+    height: 70px;
+
+  }
+  .table .items{
+      display: flex;
+      flex-direction: column;
+      border: none;
+      border-bottom: 1px solid #dddddd;
+
+  
+  }
+  .table .question{
+      width: 600px;
+  }
+  .table .icons{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+  }
+  .table .icons >*{
+    width: 18px;
+    margin: 10px 0;
+
+  }
+  .input{
+    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+    -webkit-transition-property: border,background-color,color,box-shadow;
+    transition-property: border,background-color,color,box-shadow;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    width: 350px;
+    background-color: #f7f9fc;
+    border-color: #e4e9f2;
+    color: #222b45;
+    border-radius: 0.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: 0.1875rem 1.125rem;
+    outline: none;
+  }

@@ -27,6 +27,7 @@ import Puzzle from './puzzle-piece-solid.svg';
 import Medal from './medal-solid.svg';
 import Exit from './door-closed-solid.svg';
 import Logout from './door-open-solid.svg';
+import Delete from './trash-alt-solid.svg';
 
 export {
   Admin,
@@ -57,5 +58,6 @@ export {
   Puzzle,
   Medal,
   Exit,
-  Logout
+  Logout,
+  Delete,
 };
