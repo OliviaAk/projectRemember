@@ -18,15 +18,9 @@ export default function Tape() {
   return (
     <div className={styles.tape}>
       <div className={styles.tapeContainer}>
-        <ScrollMenu
-          menuStyle={{ width: '100%' }}
-          wrapperStyle={{ width: '100%' }}
-          arrowLeft={<IconSVG src={leftArrow} className={styles.arrow} />}
-          arrowRight={<IconSVG src={rightArrow} className={styles.arrow} />}
-          data={publishCards.map((card, index) => (
-            <Item name={card.name} image={card.image} user={card.userId} btn="Открыть" />
+        {publishCards.map((card, index) => (
+            <Item name={card.name} image={card.image} user={card.userId}/>
           ))}
-        />
       </div>
     </div>
   );

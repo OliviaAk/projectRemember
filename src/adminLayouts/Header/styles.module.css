@@ -25,6 +25,10 @@
     width: 25px;
     padding-right: 10px;
 }
+.adminIcon{
+    width: 35px;
+
+}
 
 .wrapperMenu {
     display: flex;

@@ -100,3 +100,21 @@ export const setPublishHero = createAsyncThunk(
     return data;
   }
 );
+
+export const createQuiz = createAsyncThunk(`create quiz`, async (quizName) => {
+  const { data } = await apiServer.post(`quiz/`, quizName);
+  return data;
+});
+
+export const createQuestion = createAsyncThunk(`create question`, async (question) => {
+  const { data } = await apiServer.post(`quiz/questions`, question);
+  return data;
+});
+export const getQuiz = createAsyncThunk(`quizies`, async () => {
+  const { data } = await apiServer.get(`quiz/`);
+  return data;
+});
+export const getQuestions = createAsyncThunk(`questions`, async () => {
+  const { data } = await apiServer.get(`quiz/questions`);
+  return data;
+});

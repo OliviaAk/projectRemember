@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button, IconSVG } from 'components/shared';
 import {
@@ -13,18 +12,12 @@ import {
   Start,
   Card,
 } from 'assets/icons';
-import { getUsers } from 'store/thunks';
-
 import styles from './styles.module.css';
 
 export default function NavBar() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUsers());
-  }, []);
+;
   const [openDropDown, setOpenDropDown] = useState(false);
   const [openDropDownDash, setOpenDropDownDash] = useState(false);
-  const [openDropDownCard, setOpenDropDownCard] = useState(false);
   const [openDropDownGame, setOpenDropDownGame] = useState(false);
 
   return (
@@ -48,14 +41,13 @@ export default function NavBar() {
             </div>
           </div>
         </Link>
-        <div className={styles.navLinks}>
+        <div className={styles.navLinks} onClick={() => setOpenDropDownDash(!openDropDownDash)}>
           <div className={styles.linkMain}>
             <div className={styles.navText}>
               <IconSVG src={Start} className={styles.icon} />
               <li className={styles.navItem}>Доска памяти</li>
             </div>
             <div
-              onClick={() => setOpenDropDownDash(!openDropDownDash)}
               style={{ cursor: 'pointer' }}
             >
               {openDropDown || openDropDownDash ? (
@@ -65,8 +57,8 @@ export default function NavBar() {
               )}
             </div>
           </div>
-          {(openDropDown || openDropDownDash) && (
-            <ul className={styles.dropDown}>
+        
+            <ul className={openDropDown || openDropDownDash ? styles.dropDown : styles.noDrop}>
               <Link to="/viewDashboard" className={styles.dropItem}>
                 Просмотреть героев
               </Link>
@@ -74,9 +66,9 @@ export default function NavBar() {
                 Добавить героя
               </Link>
             </ul>
-          )}
+          
         </div>
-        <div className={styles.navLinks}>
+        <div className={styles.navLinks}  onClick={() => setOpenDropDownGame(!openDropDownGame)}>
           <div className={styles.linkMain}>
             <div className={styles.navText}>
               <IconSVG src={Dice} className={styles.icon} />
@@ -84,7 +76,6 @@ export default function NavBar() {
               <li className={styles.navItem}>Игры</li>
             </div>
             <div
-              onClick={() => setOpenDropDownGame(!openDropDownGame)}
               style={{ cursor: 'pointer' }}
             >
               {openDropDown || openDropDownGame ? (

@@ -97,7 +97,12 @@
     list-style-type: none;
     color: #222b45;
     text-decoration: none;
-    transition: max-height 2s cubic-bezier(1,0.15,1,1);
+    transition: max-height .3s ease-in-out;
+    height: 80px;
+    max-height: 80px;
+}
+.noDrop{
+    display: none;
 }
 .dropItem{
     text-decoration: none;

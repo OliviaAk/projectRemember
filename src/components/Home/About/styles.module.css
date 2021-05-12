@@ -9,7 +9,6 @@
 }
 .video{
     width: 520px;
-    margin-top: 10px;
     background: #fff;
     border-right: 0;
     box-shadow: 0 0 50px rgb(0 0 0 / 6%);
@@ -25,6 +24,8 @@
     color: #333;
     text-align: center;
     position: relative;
+    font-family: 'Futura Heavy';
+
 
 }
 .fullText h3::after
@@ -38,8 +39,9 @@
     left: 3px
 }
 .fullText p{
-    font-size: 17px;
+    font-size: 19px;
     text-align: justify;
     text-indent: 25px;
+    font-family: 'Futura Book';
 
 }
