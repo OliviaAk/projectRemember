@@ -9,7 +9,7 @@
         "extensions": [".js", "jsx"]
       }
     ],
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     "max-len": ["warn", 200],
     "no-alert": "error",
     "import/no-extraneous-dependencies": 0,
