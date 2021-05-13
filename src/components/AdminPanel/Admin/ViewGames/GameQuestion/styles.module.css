@@ -50,3 +50,25 @@
     padding: 0.1875rem 1.125rem;
     outline: none;
   }
+  .text{
+    outline: none;
+    resize: none;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-appearance: none;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+    -webkit-transition-property: border,background-color,color,box-shadow;
+    transition-property: border,background-color,color,box-shadow;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    background-color: #f7f9fc;
+    border-color: #e4e9f2;
+    color: #222b45;
+    width: 95%;
+    height: 150px;
+    border-radius: 0.25rem;
+    padding: 0.4375rem 1.125rem;
+    text-align: justify;
+  }

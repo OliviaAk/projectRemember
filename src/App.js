@@ -17,6 +17,7 @@ import EditUserPage from 'pages/UsersEdit';
 import EditGamePage from 'pages/GameEdit';
 import ViewGamePage from 'pages/GamesView';
 import { getUser } from 'store/thunks';
+import GamePage from 'pages/Game';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ function App() {
             <Route path="/singIn" component={LoginPage} />
             <Route component={FacebookSignIn} path="/facebook-oauth" exact />
             <Route component={GoogleSignIn} path="/google-oauth" exact />
-
+            <Route component={GamePage} path="/game" />
             <Route component={EditCardsPage} path="/editCards" />
             <Route component={EditDashPage} path="/editDashboard" />
             <Route component={ViewDashPage} path="/viewDashboard" />

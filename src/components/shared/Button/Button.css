@@ -168,3 +168,23 @@
     transition: .3s;
 
     }
+
+    .submit{
+      user-select: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+      line-height: 1rem;
+      border-radius: 0.25rem;
+      border-style: solid;
+      border-width: 0.0625rem;
+      background-color: rgba(51,102,255,0.08);
+      border-color: #3366ff;
+      color: #3366ff;
+      width: 150px;
+      height: 40px;
+      
+  }
+  .submit:hover{
+      background-color: rgba(51,102,255,0.2);
+  
+  }

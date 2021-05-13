@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createQuiz, getQuiz, createQuestion, getQuestions } from 'store/thunks';
-import { Selector } from 'components/shared';
+import { Button, Selector } from 'components/shared';
 import styles from './styles.module.css';
 
 export default function EditGames() {
@@ -13,7 +13,7 @@ export default function EditGames() {
   const [answer2, setAnswer2] = useState('');
   const [answer3, setAnswer3] = useState('');
   const [answer4, setAnswer4] = useState('');
-
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const { quizes, currentQuiz } = useSelector((state) => state.quiz);
 
@@ -24,8 +24,13 @@ export default function EditGames() {
     dispatch(getQuestions());
   }, []);
   const createNewQuizName = () => {
-    dispatch(createQuiz({ quizName }));
-    setName('');
+    if (quizName === '') {
+      setError(true);
+    } else {
+      dispatch(createQuiz({ quizName }));
+      setName('');
+      setError(false);
+    }
   };
 
   const sendQuestion = () => {
@@ -45,12 +50,24 @@ export default function EditGames() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapperContainer}>
-        <>
-          <input name="quizName" onChange={(e) => setName(e.target.value)} />
-          <button onClick={createNewQuizName} type="submit">
+        <div className={styles.header}>
+          <div className={styles.inputError}>
+            <input
+              name="quizName"
+              placeholder="Введите название игры"
+              onChange={(e) => setName(e.target.value)}
+              className={styles.input}
+            />
+            {error ? (
+              <span className={styles.error}>Необходимо ввести название название!</span>
+            ) : (
+              <span />
+            )}
+          </div>
+          <Button onClick={createNewQuizName} buttonSize="submit">
             Добавить
-          </button>
-        </>
+          </Button>
+        </div>
         <div className={styles.wrapperQuestion}>
           {currentQuiz !== null && (
             <>
@@ -64,7 +81,7 @@ export default function EditGames() {
                     type="text"
                     value={question}
                     name="question"
-                    className={styles.inputItem}
+                    className={styles.inputItemQ}
                     onChange={(e) => {
                       setQuestion(e.target.value);
                     }}
@@ -117,17 +134,18 @@ export default function EditGames() {
                   <input
                     placeholder="Ответ"
                     type="text"
-                    className={styles.inputItem}
+                    className={styles.inputItemR}
                     value={correct}
                     onChange={(e) => {
                       setRight(e.target.value);
                     }}
                   />
                 </div>
-                <Selector />
-                <button type="submit" onClick={sendQuestion} className={styles.submit}>
+              </div>
+              <div className={styles.submit}>
+                <Button onClick={sendQuestion} buttonColor="submit">
                   Сохранить
-                </button>
+                </Button>
               </div>
             </>
           )}

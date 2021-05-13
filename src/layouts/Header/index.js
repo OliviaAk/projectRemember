@@ -43,6 +43,9 @@ export default function Header() {
               <Link to="/game" className={styles.mainLinks}>
                 Узнай больше
               </Link>
+              <Link to="/game" className={styles.mainLinks}>
+                Лента
+              </Link>
             </div>
             <div className={styles.user}>
               {user ? (

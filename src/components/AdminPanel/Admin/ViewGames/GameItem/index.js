@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { IconSVG, Selector } from 'components/shared';
 import { Delete, Pencil, Saved } from 'assets/icons';
-import { deleteQuiz, editQuiz, deleteQuestion,editQuestion  } from 'store/thunks';
+import { deleteQuiz, editQuiz, deleteQuestion, editQuestion } from 'store/thunks';
 import styles from './styles.module.css';
-import GameQuestion from '../GameQuestion'
+import GameQuestion from '../GameQuestion';
 
 export default function GameItem({ quizName, id, questions, quizItem }) {
   const [drop, setDropDown] = useState(false);
@@ -41,8 +41,6 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
     });
   };
 
-
-  
   return (
     <div className={styles.wrapperItem}>
       <div className={styles.wrapperContent}>
@@ -81,11 +79,19 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
         <div className={styles.btnBlock}>
           <Selector />
           {drop ? (
-            <button type="button" onClick={() => setDropDown(false)}>
+            <button
+              type="button"
+              onClick={() => setDropDown(false)}
+              className={styles.look}
+            >
               Свернуть
             </button>
           ) : (
-            <button type="button" onClick={() => setDropDown(true)}>
+            <button
+              type="button"
+              onClick={() => setDropDown(true)}
+              className={styles.look}
+            >
               Просмотреть
             </button>
           )}
@@ -94,16 +100,14 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
       {drop && (
         <div className={styles.wrapperQuestion}>
           <div className={styles.titleTable}>
-              <div>Вопрос</div>
-              <div>Варианты</div>
-              <div>Правильный</div>
-              <div/>
-            </div>
-          {currentQuestions.map((c) => 
-            (
-              <GameQuestion id={c._id} current={c}  />
-            )
-          )}
+            <div>Вопрос</div>
+            <div>Варианты</div>
+            <div>Правильный</div>
+            <div />
+          </div>
+          {currentQuestions.map((c) => (
+            <GameQuestion id={c._id} current={c} />
+          ))}
         </div>
       )}
     </div>

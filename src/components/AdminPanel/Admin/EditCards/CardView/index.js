@@ -76,7 +76,7 @@ export default function CardView({
           {isPublish ? (
             <button
               type="button"
-              className={styles.submit}
+              className={styles.hideBtn}
               onClick={(e) => {
                 e.stopPropagation();
                 markAsPublish();
@@ -87,7 +87,7 @@ export default function CardView({
           ) : (
             <button
               type="button"
-              className={styles.submit}
+              className={styles.hideBtn}
               onClick={(e) => {
                 e.stopPropagation();
                 markAsPublish();

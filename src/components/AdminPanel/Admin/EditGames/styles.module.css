@@ -23,7 +23,7 @@
     margin: 10px 0;
 }
 
-.inputItem{
+.inputItem, .inputItemQ, .inputItemR{
     margin-bottom: 10px;
     border-style: solid;
     border-width: 1px;
@@ -35,7 +35,7 @@
     transition-timing-function: ease-in;
     outline: none;
     background-color: #f7f9fc;
-    border-color: #e4e9f2;
+    border-color: #ffaa00;
     color: #222b45;
     height: 30px;
     border-radius: 0.25rem;
@@ -45,6 +45,16 @@
     padding: 0 20px;
     margin-top: 10px;
     width: 95%;
+  }
+  .inputItemQ{
+    background-color: #f7f9fc;
+    border-color: #0095ff;
+        color: #222b45;
+  }
+  .inputItemR{
+    background-color: #f7f9fc;
+    border-color: #00d68f;
+    color: #222b45;   
   }
   .wrapperQuestion{
     display: flex;
@@ -90,3 +100,59 @@
       height: 30px;
       margin: 20px 0;
   }
+  .input{
+    border-style: solid;
+    border-width: 1px;
+    -webkit-appearance: none;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+    -webkit-transition-property: border,background-color,color,box-shadow;
+    transition-property: border,background-color,color,box-shadow;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    width: 100%;
+    background-color: #f7f9fc;
+    border-color: #0095ff;
+    color: #222b45;
+    border-radius: 0.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: 0.4375rem 1.125rem;
+    outline: none;
+  }
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+.header >*{
+    margin-right: 50px;
+}
+.inputError{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100px;
+}
+.inputError >*:last-child{
+    margin-top: 10px;
+
+}
+.error{
+    color: red;
+    font-size: 15px;
+    margin-left: 15px;
+    font-weight: 300;
+    font-family: 'Future Book';
+    z-index: 10;
+}
+.submit{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto 30px ;
+}

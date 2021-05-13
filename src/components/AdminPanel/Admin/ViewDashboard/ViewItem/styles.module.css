@@ -53,7 +53,6 @@ text-align: center;
     border-color: #e4e9f2;
     color: #222b45;
     width: 95%;
-    max-width: 800px;
     height: 300px;
     border-radius: 0.25rem;
     padding: 0.4375rem 1.125rem;
@@ -100,4 +99,60 @@ text-align: center;
 .buttons >*{
     width: 200px;
     margin-bottom: 10px;
+}
+.submit{
+    letter-spacing: 0.4px;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    border-radius: 0.25rem;
+    text-shadow: 0 0.5rem 1rem 0 rgba(44,51,73,0.1);
+    text-transform: uppercase;
+    padding: 0.75rem 1.1875rem;
+    color: #ffffff;
+    background-image: linear-gradient(to right,#2ce69b,#00d68f);
+    border: none;
+    box-shadow: 0 0 0 0 #00b887, 0 0 0 0 #00997a, 0 0 transparent;
+}
+.deleteButton{
+    letter-spacing: 0.4px;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    border-radius: 0.25rem;
+    text-shadow: 0 0.5rem 1rem 0 rgba(44,51,73,0.1);
+    text-transform: uppercase;
+    padding: 0.75rem 1.1875rem;
+    color: #ffffff;
+    background-image: linear-gradient(to right,#ff708d,#ff3d71);
+    border: none;
+    box-shadow: 0 0 0 0 #db2c66, 0 0 0 0 #b81d5b, 0 0 transparent;
 }
