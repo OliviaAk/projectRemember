@@ -133,3 +133,9 @@ export const editQuiz = createAsyncThunk('edit quiz', async ({ _id, quizName }) 
   });
   return { data };
 });
+
+export const editQuestion = createAsyncThunk('edit question', async ({ _id, question, answers, correct  }) => {
+  const { data } = await apiServer.patch(`quiz/questions/${_id}`, {
+    question, answers, correct   });
+  return { data };
+});

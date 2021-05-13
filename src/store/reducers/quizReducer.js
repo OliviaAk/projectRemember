@@ -7,6 +7,7 @@ import {
   deleteQuiz,
   editQuiz,
   deleteQuestion,
+  editQuestion,
 } from '../thunks';
 
 export const initialState = {
@@ -34,6 +35,11 @@ const quiz = createReducer(initialState, {
     const index = state.quizes.findIndex((e) => e._id === payload.data._id);
 
     state.quizes[index] = payload.data;
+  },
+  [editQuestion.fulfilled]: (state, { payload }) => {
+    const index = state.questions.findIndex((e) => e._id === payload.data._id);
+
+    state.questions[index] = payload.data;
   },
   [deleteQuiz.fulfilled]: (state, { payload }) => {
     state.quizes = state.quizes.filter((item) => item._id !== payload.data);

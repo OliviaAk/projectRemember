@@ -59,58 +59,7 @@
 .btnBlock >*{
  margin-right: 5px;
 }
-.table{
-    width: 100%;
-    border-collapse: collapse;
 
-}
-.table td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    
-  }
-  .table th{
-      text-align: center;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 19px;
-      font-family: 'Future Heavy';
-      color: #222b45;
-  }
-  .table td{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 16px;
-    font-family: 'Future Book';
-    color: #222b45;
-    height: 70px;
-
-  }
-  .table .items{
-      display: flex;
-      flex-direction: column;
-      border: none;
-      border-bottom: 1px solid #dddddd;
-
-  
-  }
-  .table .question{
-      width: 600px;
-  }
-  .table .icons{
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-
-  }
-  .table .icons >*{
-    width: 18px;
-    margin: 10px 0;
-
-  }
   .input{
     margin-bottom: 10px;
     border-style: solid;
@@ -131,4 +80,31 @@
     line-height: 1.5rem;
     padding: 0.1875rem 1.125rem;
     outline: none;
+  }
+  .titleTable{
+      
+    display: flex;
+    justify-content: space-around;
+    font-size:19px ;
+    font-weight: 700;
+    font-family: 'Future Heavy';
+    line-height: 19px;
+    width: 100%;
+    border: 1px solid #dddddd;;
+
+  }
+  .titleTable >*{
+       width: 20%;
+      padding: 12px;
+      text-align: center;
+      border-left: 1px solid #dddddd;
+  }
+  .titleTable >*:last-child{
+      width: 5%;
+  }
+  .titleTable >*:first-child{
+      border: none;
+      width: 40%;
+
+
   }

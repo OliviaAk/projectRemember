@@ -3,17 +3,15 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { IconSVG, Selector } from 'components/shared';
 import { Delete, Pencil, Saved } from 'assets/icons';
-import { deleteQuiz, editQuiz, deleteQuestion } from 'store/thunks';
+import { deleteQuiz, editQuiz, deleteQuestion,editQuestion  } from 'store/thunks';
 import styles from './styles.module.css';
+import GameQuestion from '../GameQuestion'
 
 export default function GameItem({ quizName, id, questions, quizItem }) {
   const [drop, setDropDown] = useState(false);
   const [currentQuestions, setQuestions] = useState([]);
   const [edit, setEdit] = useState(false);
-  const [editQ, setEditQ] = useState(false);
-
   const [state, setState] = useState({});
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -43,6 +41,8 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
     });
   };
 
+
+  
   return (
     <div className={styles.wrapperItem}>
       <div className={styles.wrapperContent}>
@@ -93,31 +93,17 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
       </div>
       {drop && (
         <div className={styles.wrapperQuestion}>
-          <table className={styles.table}>
-            <tr>
-              <th>Вопрос</th>
-              <th>Варианты</th>
-              <th>Правильный</th>
-            </tr>
-            {currentQuestions.map((c) => (
-              <tr>
-                <td className={styles.question}>{c.question}</td>
-                <td className={styles.items}>
-                  {c.answers.map((a) => (
-                    <div>{a}</div>
-                  ))}
-                </td>
-                <td className={styles.correct}>{c.correct}</td>
-                <td className={styles.icons}>
-                  <IconSVG
-                    handleClickIcon={() => dispatch(deleteQuestion(c._id))}
-                    src={Delete}
-                  />
-                  <IconSVG src={edit ? Saved : Pencil} />
-                </td>
-              </tr>
-            ))}
-          </table>
+          <div className={styles.titleTable}>
+              <div>Вопрос</div>
+              <div>Варианты</div>
+              <div>Правильный</div>
+              <div/>
+            </div>
+          {currentQuestions.map((c) => 
+            (
+              <GameQuestion id={c._id} current={c}  />
+            )
+          )}
         </div>
       )}
     </div>

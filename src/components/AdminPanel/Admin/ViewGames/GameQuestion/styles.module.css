@@ -1,0 +1,52 @@
+.table{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size:16px ;
+    font-weight: 400;
+    font-family: 'Future Book';
+    line-height: 16px;
+    width: 100%;
+    border: 1px solid #dddddd;;
+}
+.table >*{
+    width: 20%;
+   padding: 12px;
+   text-align:justify;
+   border-left: 1px solid #dddddd;
+}
+.table >*:last-child{
+   width: 5%;
+}
+.table >*:first-child{
+   border: none;
+   width: 40%;
+}
+.icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.input{
+    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+    -webkit-transition-property: border,background-color,color,box-shadow;
+    transition-property: border,background-color,color,box-shadow;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    width:93%;
+    background-color: #f7f9fc;
+    border-color: #e4e9f2;
+    color: #222b45;
+    border-radius: 0.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: 0.1875rem 1.125rem;
+    outline: none;
+  }
