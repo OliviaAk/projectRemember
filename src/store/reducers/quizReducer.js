@@ -8,13 +8,17 @@ import {
   editQuiz,
   deleteQuestion,
   editQuestion,
+  getCurrentQuestions,
 } from '../thunks';
+import { setSelectedQuiz } from '../actions';
 
 export const initialState = {
   quizes: [],
   currentQuiz: null,
+  currentQuestions: [],
   question: null,
   questions: [],
+  selectedQuiz: null,
 };
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
@@ -25,8 +29,14 @@ const quiz = createReducer(initialState, {
   [createQuestion.fulfilled]: (state, { payload }) => {
     state.question = payload;
   },
+  [getCurrentQuestions.fulfilled]: (state, { payload }) => {
+    state.currentQuestions = payload;
+  },
   [getQuiz.fulfilled]: (state, { payload }) => {
     state.quizes = payload;
+  },
+  [setSelectedQuiz.type]: (state, { payload }) => {
+    state.selectedQuiz = payload;
   },
   [getQuestions.fulfilled]: (state, { payload }) => {
     state.questions = payload;

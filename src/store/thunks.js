@@ -118,6 +118,13 @@ export const getQuestions = createAsyncThunk(`questions`, async () => {
   const { data } = await apiServer.get(`quiz/questions`);
   return data;
 });
+export const getCurrentQuestions = createAsyncThunk(
+  `current questions`,
+  async (selectedQuiz) => {
+    const { data } = await apiServer.get(`quiz/questions/${selectedQuiz}`);
+    return data;
+  }
+);
 export const deleteQuiz = createAsyncThunk('deleted quiz', async (_id) => {
   const { data } = await apiServer.remove(`quiz/${_id}`);
   return { data };
@@ -134,8 +141,14 @@ export const editQuiz = createAsyncThunk('edit quiz', async ({ _id, quizName }) 
   return { data };
 });
 
-export const editQuestion = createAsyncThunk('edit question', async ({ _id, question, answers, correct  }) => {
-  const { data } = await apiServer.patch(`quiz/questions/${_id}`, {
-    question, answers, correct   });
-  return { data };
-});
+export const editQuestion = createAsyncThunk(
+  'edit question',
+  async ({ _id, question, answers, correct }) => {
+    const { data } = await apiServer.patch(`quiz/questions/${_id}`, {
+      question,
+      answers,
+      correct,
+    });
+    return { data };
+  }
+);
