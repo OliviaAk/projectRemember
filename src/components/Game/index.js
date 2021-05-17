@@ -34,6 +34,7 @@ export default function Game() {
 
   useEffect(() => {
     dispatch(getQuiz());
+    setQuestionNumber(1);
   }, []);
 
   const playGame = () => {

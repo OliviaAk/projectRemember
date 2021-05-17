@@ -1,0 +1,11 @@
+.comments{
+    background-color: #fff;
+    height: 100%;
+}
+.commentsContainer{
+    display: block;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 100px 0 100px 0px;
+}

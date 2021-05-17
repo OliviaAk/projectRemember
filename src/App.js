@@ -16,6 +16,7 @@ import EditDashPage from 'pages/DashboardEdit';
 import EditUserPage from 'pages/UsersEdit';
 import EditGamePage from 'pages/GameEdit';
 import ViewGamePage from 'pages/GamesView';
+import CommentsPage from 'pages/Comment';
 import { getUser } from 'store/thunks';
 import GamePage from 'pages/Game';
 
@@ -46,6 +47,8 @@ function App() {
             <Route component={EditUserPage} path="/editUsers" />
             <Route component={EditGamePage} path="/editGames" />
             <Route component={ViewGamePage} path="/viewGames" />
+            <Route component={CommentsPage} path="/comments" />
+
           </Switch>
         </Router>
       </div>

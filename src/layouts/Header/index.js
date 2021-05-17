@@ -43,7 +43,7 @@ export default function Header() {
               <Link to="/game" className={styles.mainLinks}>
                 Узнай больше
               </Link>
-              <Link to="/game" className={styles.mainLinks}>
+              <Link to="/comments" className={styles.mainLinks}>
                 Лента
               </Link>
             </div>

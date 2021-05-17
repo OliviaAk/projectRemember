@@ -1,0 +1,27 @@
+
+
+  .commentForm {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    padding: 1rem;  
+    border-radius: 10px;
+    border: 1px solid #404040;
+
+  }
+  .commentFields {
+    margin-bottom: 0.25rem;
+  }
+  .text {  
+        font-style: italic;
+  }
+   .commentFields input, .commentFields textarea {
+    border: none;
+    border-bottom: 1px solid #404040;
+    font-size: 0.85rem;
+    padding: 0.25rem 0;
+    width: 99%;
+    border-bottom-color: #0093C4;
+    outline: none;
+
+  }

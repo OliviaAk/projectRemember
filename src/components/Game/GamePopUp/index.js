@@ -9,9 +9,6 @@ import Trivia from '../Trivia';
 
 export default function GamePopUp({ quizes, selectedQuiz, playGame, notSelected }) {
   const dispatch = useDispatch();
-  const [quiz, setQuiz] = useState();
-  const [timeOut, setTimeOut] = useState(false);
-  const [questionNumber, setQuestionNumber] = useState(1);
 
   return (
     <div className={styles.game}>
