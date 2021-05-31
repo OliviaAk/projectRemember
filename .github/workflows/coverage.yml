@@ -15,4 +15,4 @@ jobs:
                   threshold: 80 # optional parameter
                steps:
           - run : npm install
-          - run : npm run test
+          - run : npm run test --silent --ci --coverage --coverageReporters=text --coverageReporters=text-summary
