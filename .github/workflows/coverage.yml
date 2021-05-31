@@ -14,5 +14,9 @@ jobs:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   threshold: 80 # optional parameter
                steps:
-          - run : npm install
-          - run : npm run test --silent --ci --coverage --coverageReporters=text --coverageReporters=text-summary
+            - name: Installing dependencies
+              run: npm install
+
+            - name: Building
+              run: npm run build
+          - run : npm run test:coverage 
