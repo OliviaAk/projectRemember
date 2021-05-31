@@ -21,6 +21,8 @@
     "husky": "^6.0.0",
     "js-cookie": "^2.2.1",
     "lint-staged": "^10.5.4",
+    "pigeon-maps": "^0.19.5",
+    "pigeon-marker": "^0.3.4",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-background-slider": "^2.0.0",
@@ -47,7 +49,9 @@
     "husky:pre-push": "npm run lint ",
     "start": " react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:coverage": "jest --silent --testLocationInResults --coverage --json --outputFile=\"report.json\"",
+    "test:watch": "jest --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -74,5 +78,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "devDependencies": {
+    "jest": "^27.0.3"
   }
 }

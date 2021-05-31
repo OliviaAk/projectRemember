@@ -11,7 +11,6 @@ export default function GameQuestion({ id, current }) {
   const [state, setState] = useState({});
   const dispatch = useDispatch();
 
-  console.log(state);
   const saveEdition = () => {
     setEditQ(false);
     dispatch(editQuestion(state));
@@ -25,6 +24,17 @@ export default function GameQuestion({ id, current }) {
     setState({
       ...state,
       [e.target.name]: e.target.value,
+    });
+  };
+ const  handleChangeOfNewInputs = (index,e) => {
+    const { answers } = state;
+    const newInputArr = answers.map(
+      (item, i) =>
+        index === i ?  e.target.value  : item
+    );
+    setState({
+      ...state,
+      answers: newInputArr,
     });
   };
 
@@ -43,8 +53,15 @@ export default function GameQuestion({ id, current }) {
           current.question
         )}
       </div>
-      <div className={styles.items}>{editQ ? <></> : <div />}</div>
-      <div className={styles.correct}>
+      <div className={styles.items}>
+                 { editQ ? <> {current.answers.map((a, index) => (
+                      <input value={a} name='a' className={styles.input} onChange={(e)=>handleChangeOfNewInputs(index,e)}/>
+                  ))}</>:
+                  <>
+                  {current.answers.map((a) => (
+                    <div>{a}</div>
+                ))}</>}
+                </div>      <div className={styles.correct}>
         {editQ ? (
           <input
             className={styles.input}

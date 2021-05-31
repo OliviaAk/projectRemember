@@ -22,6 +22,10 @@ export const getHero = createAsyncThunk('selected hero', async (heroId) => {
   const { data } = await apiServer.get(`dashboard/${heroId}`);
   return data;
 });
+export const getCard = createAsyncThunk('selected card', async (cardId) => {
+  const { data } = await apiServer.get(`cards/info/${cardId}`);
+  return data;
+});
 export const getPublishCards = createAsyncThunk(`cards publish`, async () => {
   const { data } = await apiServer.get(`cards/publish`);
   return data;

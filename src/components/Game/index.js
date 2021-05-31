@@ -14,6 +14,8 @@ import { Button, PopUp } from 'components/shared';
 import styles from './styles.module.css';
 import Trivia from './Trivia';
 import GamePopUp from './GamePopUp';
+import MapComponent from './Map';
+import GameDash from './GameDash';
 
 export default function Game() {
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -64,11 +66,7 @@ export default function Game() {
       ) : (
         <>
           <div className={styles.game}>
-            <Trivia
-              questions={currentQuestions}
-              questionNumber={questionNumber}
-              setQuestionNumber={setQuestionNumber}
-            />
+            <GameDash/>
           </div>
           <div className={styles.menu}>
             <Button onClick={changeGame}>Выбрать другую игру</Button>

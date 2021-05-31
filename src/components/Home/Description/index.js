@@ -7,10 +7,8 @@ import End from '../../../assets/images/star.png';
 
 export default function Home() {
   return (
-    <div className={styles.home}>
       <div className={styles.homeContainer}>
         <div className={styles.homeInfo}>
-          <div className={styles.createInfo}>
             <div className={styles.createItem}>
               <div className={styles.createIcon}>
                 <IconSVG className={styles.icon} src={Start} />
@@ -36,7 +34,5 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 }

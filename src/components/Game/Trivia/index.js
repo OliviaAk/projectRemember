@@ -45,9 +45,6 @@ export default function Trivia({ questions, questionNumber, setQuestionNumber })
   };
   return (
     <div className={styles.trivia}>
-      {end ? (
-        <div className={styles.question}>FUCK</div>
-      ) : (
         <>
           <div className={styles.question}>{question?.question}</div>
           <div className={styles.answers}>
@@ -61,7 +58,6 @@ export default function Trivia({ questions, questionNumber, setQuestionNumber })
             ))}
           </div>
         </>
-      )}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import {
   getPublishCards,
   setPublishCard,
   editCard,
+  getCard,
   deleteCard,
 } from '../thunks';
 
@@ -12,12 +13,16 @@ export const initialState = {
   cards: [],
   publishCards: [],
   newCard: null,
+  clickedCard: null,
 };
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
 const cardsTape = createReducer(initialState, {
   [getCards.fulfilled]: (state, { payload }) => {
     state.cards = payload;
+  },
+  [getCard.fulfilled]: (state, { payload }) => {
+    state.clickedCard = payload;
   },
   [getPublishCards.fulfilled]: (state, { payload }) => {
     state.publishCards = payload;

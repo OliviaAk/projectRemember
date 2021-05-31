@@ -1,12 +1,15 @@
 .game{
-    background-color: #fff;
-    height: 89vh;
+        width: 100%;
+        min-height: 720px;
+        position: relative;
     font-size: 17px;
-    background-size: cover ;
-    background: url('../../assets/images/game.jpg') no-repeat right;
+    background-image: url("../../assets/images/mapGame.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
-.menu{
+.menu
+{
     background-color: #f3f3f3;
     padding:43px;
     text-align: center;
