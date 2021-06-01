@@ -41,16 +41,12 @@ textarea {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     padding: 14px;
-    transition: min-height  0.4s ease;
-    max-height: 46px;
   }
   
   .header {
-    transition: opacity  0.4s ease 0.2s;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-40px);
     padding: 0 0 10px 10px;
+    opacity: 1;
+    visibility: visible;
   }
   
   .user {
@@ -72,15 +68,12 @@ textarea {
     outline: none;
     padding: 0;
     min-height: 60px;
-    transform: translateY(-32px);
     line-height: 1;
     padding: 10px;
 
   }
   
-  .commentBox.expanded .commentField {
-    transform: translateY(40px);
-  }
+
   
   .commentBox.expanded .header {
     transform: translateY(10px);

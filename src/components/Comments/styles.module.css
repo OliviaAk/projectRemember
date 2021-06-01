@@ -3,9 +3,12 @@
     height: 100%;
 }
 .commentsContainer{
-    display: block;
-    max-width: 1200px;
+    display: flex;
+    justify-content: flex-start;
     height: 100%;
-    margin: 0 auto;
+    margin: 0 50px;
     padding: 100px 0 100px 0px;
+}
+.commentsContainer >.div:first-child{
+    margin-right: 40px;
 }

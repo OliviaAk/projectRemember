@@ -156,3 +156,13 @@ export const editQuestion = createAsyncThunk(
     return { data };
   }
 );
+
+export const createComment = createAsyncThunk(`create comment`, async (comment) => {
+  const { data } = await apiServer.post(`comment/`, comment);
+  return data;
+});
+
+export const getComments = createAsyncThunk(`comments`, async () => {
+  const { data } = await apiServer.get(`comment/`);
+  return data;
+});

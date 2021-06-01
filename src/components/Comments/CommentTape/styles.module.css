@@ -1,0 +1,21 @@
+.wrapper{
+    margin: 50px auto;
+    background:#FFF;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 14px;
+    width: 100%;
+    margin-left: 30px;
+    height: 100%;
+}
+.commentItem{
+    background:#FFF;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 14px;
+    width: 100%;
+    margin-left: 30px;
+    height: 100%;
+}

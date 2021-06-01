@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { UserIcon } from 'assets/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { createComment } from 'store/thunks';
 import styles from './styles.module.css';
 
-const INITIAL_HEIGHT = 46;
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
 const useDynamicHeightField = (element, value) => {
@@ -17,17 +18,11 @@ export default function CommentBox() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [commentValue, setCommentValue] = useState('');
 
-  const outerHeight = useRef(INITIAL_HEIGHT);
+  const dispatch = useDispatch();
+  const { quizes, questions } = useSelector((state) => state.quiz);
+
   const textRef = useRef(null);
   const containerRef = useRef(null);
-  useDynamicHeightField(textRef, commentValue);
-
-  const onExpand = () => {
-    if (!isExpanded) {
-      outerHeight.current = containerRef.current.scrollHeight;
-      setIsExpanded(true);
-    }
-  };
 
   const onChange = (e) => {
     setCommentValue(e.target.value);
@@ -39,25 +34,23 @@ export default function CommentBox() {
   };
 
   const onSubmit = (e) => {
-    e.preventDefault();
-    console.log('send the form data somewhere');
+    const commentDta = {
+      comment: commentValue,
+      date: new Date(),
+    };
+    dispatch(createComment(commentDta));
+    onClose();
   };
 
   return (
     <div className="container">
       <form
-        onSubmit={onSubmit}
         ref={containerRef}
         className={`${styles.commentBox}
             ${isExpanded ? styles.expanded : null}
             ${!isExpanded ? styles.collapsed : null}
             ${commentValue.length > 0 ? styles.modified : null}
-
-        
         `}
-        style={{
-          minHeight: isExpanded ? outerHeight.current : INITIAL_HEIGHT,
-        }}
       >
         <div className={styles.header}>
           <div className={styles.user}>
@@ -68,8 +61,6 @@ export default function CommentBox() {
         <label htmlFor={styles.comment}>What are your thoughts?</label>
         <textarea
           ref={textRef}
-          onClick={onExpand}
-          onFocus={onExpand}
           onChange={onChange}
           className={styles.commentField}
           placeholder="Расскажите новости"
@@ -81,7 +72,7 @@ export default function CommentBox() {
           <button type="button" className={styles.cancel} onClick={onClose}>
             Отмена
           </button>
-          <button type="submit" disabled={commentValue.length < 1}>
+          <button type="submit" disabled={commentValue.length < 1} onClick={onSubmit}>
             Отправить
           </button>
         </div>
