@@ -57,7 +57,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "jest":{
+  "jest": {
     "collectCoverage": true,
     "coverageReporters": []
   },
@@ -83,7 +83,5 @@
       "git add"
     ]
   },
-  "devDependencies": {
-    "jest": "^27.0.3"
-  }
+  "devDependencies": {}
 }

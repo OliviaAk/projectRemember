@@ -32,9 +32,11 @@ import Instagramm from './instagram-brands.svg';
 import Vkontakte from './vk-brands.svg';
 import FacebookShared from './facebook-f-brands.svg';
 import OkShared from './odnoklassniki-brands.svg';
+import UserIcon from './userIcon.jpg';
 
 export {
   OkShared,
+  UserIcon,
   FacebookShared,
   Vkontakte,
   Instagramm,

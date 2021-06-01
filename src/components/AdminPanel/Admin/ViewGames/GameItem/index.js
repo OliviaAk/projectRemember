@@ -87,13 +87,15 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
               Свернуть
             </button>
           ) : (
-            <button
-              type="button"
-              onClick={() => setDropDown(true)}
-              className={styles.look}
-            >
-              Просмотреть
-            </button>
+            (
+              <button
+                type="button"
+                onClick={() => setDropDown(true)}
+                className={styles.look}
+              >
+                Просмотреть
+              </button>
+            )``
           )}
         </div>
       </div>
