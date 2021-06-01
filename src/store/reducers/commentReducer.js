@@ -10,6 +10,7 @@ export const initialState = {
 const liveTape = createReducer(initialState, {
   [createComment.fulfilled]: (state, { payload }) => {
     state.newComment = payload;
+    state.comments = [...state.comments, { ...payload }];
   },
   [getComments.fulfilled]: (state, { payload }) => {
     state.comments = payload;

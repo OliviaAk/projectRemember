@@ -44,7 +44,7 @@ export default function Header() {
                 Узнай больше
               </Link>
               <Link to="/comments" className={styles.mainLinks}>
-                Лента
+                Я помню !
               </Link>
             </div>
             <div className={styles.user}>

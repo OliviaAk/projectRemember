@@ -68,11 +68,12 @@ export default function CommentBox() {
           name="comment"
           id="comment"
         />
+
         <div className={styles.actions}>
           <button type="button" className={styles.cancel} onClick={onClose}>
             Отмена
           </button>
-          <button type="submit" disabled={commentValue.length < 1} onClick={onSubmit}>
+          <button type="submit" className={styles.submit} disabled={commentValue.length < 1} onClick={onSubmit}>
             Отправить
           </button>
         </div>

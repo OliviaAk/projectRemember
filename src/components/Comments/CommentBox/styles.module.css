@@ -23,7 +23,7 @@ textarea {
     cursor: not-allowed;
   }
   
-  button {
+  .submit {
     background: green;
     color: #FFFF;
     border-radius: 4px;
@@ -41,6 +41,7 @@ textarea {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     padding: 14px;
+    position: fixed;
   }
   
   .header {
