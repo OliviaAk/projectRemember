@@ -1,0 +1,23 @@
+
+name: Unit Tests Coverage
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: 
+          ubuntu-latest
+    strategy:
+      matrix:
+       node-version: [15.x]
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: Git Status
+        run: git status
+      - name: Install dependencies
+        run: npm install
+      - name: Test application
+        run: npm test

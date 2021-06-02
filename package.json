@@ -19,6 +19,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "husky": "^6.0.0",
+    "jest": "^27.0.3",
     "js-cookie": "^2.2.1",
     "lint-staged": "^10.5.4",
     "moment": "^2.29.1",
@@ -51,9 +52,7 @@
     "husky:pre-push": "npm run lint ",
     "start": " react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --coverage --coverageReporters=text --coverageReporters=text-summary",
-    "test:coverage": "jest --silent --testLocationInResults --coverage --json --outputFile=\"report.json\"",
-    "test:watch": "jest --watch",
+    "test": "jest --coverage --coverageReporters=text --coverageReporters=text-summary ",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
