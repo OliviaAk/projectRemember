@@ -3,8 +3,12 @@ name: Unit Tests Coverage
 
 on:
    pull_request:
-        branches:
+    branches:
             - develop
+    push:
+    branches:
+     - "develop"
+       
 
 jobs:
   coverage:
@@ -16,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       with:
-                  threshold: 80 
+            threshold: 80 
       - name: Git Status
         run: git status
       - name: Install dependencies
