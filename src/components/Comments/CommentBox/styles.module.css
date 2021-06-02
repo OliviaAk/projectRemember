@@ -110,3 +110,23 @@ textarea {
     max-height: unset;
   }
   
+.customUpload {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  margin:  10px;
+}
+.uploadIcon{
+  width: 20px;
+  margin: 0px 5px 0px;
+}
+.uploadText{
+}
+.inputLink{
+  width: 100%;
+  height: 30px;
+  border:1px solid #cac9c9;
+  border-radius: 5px;
+  outline: none;
+}

@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { UserIcon } from 'assets/icons';
+import { UserIcon, Upload } from 'assets/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { createComment } from 'store/thunks';
 import styles from './styles.module.css';
+import IconSVG from '../../shared/Icons';
 
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
@@ -17,12 +18,25 @@ const useDynamicHeightField = (element, value) => {
 export default function CommentBox() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [commentValue, setCommentValue] = useState('');
+  const [fileInputState, setFileInputState] = useState('');
+  const [selectedFile, setSelectedFile] = useState();
 
   const dispatch = useDispatch();
   const { quizes, questions } = useSelector((state) => state.quiz);
 
   const textRef = useRef(null);
   const containerRef = useRef(null);
+
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+  };
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
+  };
 
   const onChange = (e) => {
     setCommentValue(e.target.value);
@@ -68,12 +82,39 @@ export default function CommentBox() {
           name="comment"
           id="comment"
         />
+        <input
+          name="link"
+          type="text"
+          defaultValue="Добавьте ссылку на видео или другие ресурсы"
+          className={styles.inputLink}
+        />
+        <>
+          <div className={styles.formGroup}>
+            <label className={styles.customUpload}>
+              <input
+                id="fileInput"
+                type="file"
+                name="image"
+                onChange={handleFileInputChange}
+                value={fileInputState}
+                className={styles.imgInput}
+              />
+              <IconSVG src={Upload} className={styles.uploadIcon} />
+              <span className={styles.uploadText}>Загрузить фото </span>
+            </label>
+          </div>
+        </>
 
         <div className={styles.actions}>
           <button type="button" className={styles.cancel} onClick={onClose}>
             Отмена
           </button>
-          <button type="submit" className={styles.submit} disabled={commentValue.length < 1} onClick={onSubmit}>
+          <button
+            type="submit"
+            className={styles.submit}
+            disabled={commentValue.length < 1}
+            onClick={onSubmit}
+          >
             Отправить
           </button>
         </div>
