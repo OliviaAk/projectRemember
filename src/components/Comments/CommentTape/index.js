@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import { Image } from 'cloudinary-react';
 import styles from './styles.module.css';
 
 export default function TapeComment({ comments }) {
@@ -17,6 +18,16 @@ export default function TapeComment({ comments }) {
             <div className={styles.container}>
               <span>{c.comment}</span>
             </div>
+            <div className={styles.link}>{c.link && <span><a href={c.link} >{c.link}</a></span>}</div>
+            {c.image &&
+            <Image
+                  cloudName="belarus-remember"
+                  publicId={c.image}
+                  width="180"
+                  height="200"
+                  crop="scale"
+                />
+            }
           </div>
         ))}
     </div>

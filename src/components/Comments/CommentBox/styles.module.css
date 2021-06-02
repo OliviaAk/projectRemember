@@ -115,7 +115,12 @@ textarea {
   cursor: pointer;
   text-align: center;
   width: 100%;
-  margin:  10px;
+  margin:  20px;
+}
+.formGroup{
+  margin:  20px 0;
+
+
 }
 .uploadIcon{
   width: 20px;
@@ -129,4 +134,8 @@ textarea {
   border:1px solid #cac9c9;
   border-radius: 5px;
   outline: none;
+}
+.photo{
+   width: 180px;
+   height: 150px;
 }

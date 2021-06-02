@@ -19,9 +19,13 @@ export default function CommentBox() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [commentValue, setCommentValue] = useState('');
   const [fileInputState, setFileInputState] = useState('');
+  const [previewSource, setPreviewSource] = useState('');
   const [selectedFile, setSelectedFile] = useState();
-
+  const [image, setImage] = useState(null);
+  const [newCard, setData] = useState({});
+  const [isSend, setSend] = useState(false);
   const dispatch = useDispatch();
+  const [link, setLink]= useState('')
   const { quizes, questions } = useSelector((state) => state.quiz);
 
   const textRef = useRef(null);
@@ -30,30 +34,72 @@ export default function CommentBox() {
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
   };
   const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    previewFile(file);
-    setSelectedFile(file);
-    setFileInputState(e.target.value);
+      const file = e.target.files[0];
+      previewFile(file);
+      setSelectedFile(file);
+      setFileInputState(e.target.value);
   };
+
+  const uploadImage = async (base64EncodedImage) => {
+    try {
+      fetch(`${process.env.REACT_APP_API_URI}/comment/images`, {
+        method: 'POST',
+        body: JSON.stringify({ data: base64EncodedImage }),
+        headers: { 'Content-Type': 'application/json' },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setImage(data.imageId);
+        });
+    
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handleSubmitFile = (e) => {
+    e.preventDefault();
+    if (!selectedFile) return;
+    const reader = new FileReader();
+    reader.readAsDataURL(selectedFile);
+    reader.onloadend = () => {
+      uploadImage(reader.result);
+    };
+  };
+
+  useEffect(() => {
+    if (image !== null) {
+      setData({ comment: commentValue, date: new Date(), image, link });
+      setSend(true);
+    }
+  }, [image]);
+
+  useEffect(() => {
+    if (isSend) {
+      setTimeout(() => {
+        dispatch(createComment(newCard));
+        setSend(false);
+        setFileInputState('');
+        setPreviewSource('');
+        setCommentValue('');
+      }, 1000);
+    }
+  }, [isSend]);
 
   const onChange = (e) => {
     setCommentValue(e.target.value);
+  };
+  const linkOnChange = (e) => {
+    setLink(e.target.value);
   };
 
   const onClose = () => {
     setCommentValue('');
     setIsExpanded(false);
-  };
-
-  const onSubmit = (e) => {
-    const commentDta = {
-      comment: commentValue,
-      date: new Date(),
-    };
-    dispatch(createComment(commentDta));
-    onClose();
   };
 
   return (
@@ -85,12 +131,13 @@ export default function CommentBox() {
         <input
           name="link"
           type="text"
-          defaultValue="Добавьте ссылку на видео или другие ресурсы"
+          placeholder="Добавьте ссылку на видео или другие ресурсы"
           className={styles.inputLink}
+          value={link}
+          onChange={linkOnChange}
         />
         <>
           <div className={styles.formGroup}>
-            <label className={styles.customUpload}>
               <input
                 id="fileInput"
                 type="file"
@@ -99,10 +146,8 @@ export default function CommentBox() {
                 value={fileInputState}
                 className={styles.imgInput}
               />
-              <IconSVG src={Upload} className={styles.uploadIcon} />
-              <span className={styles.uploadText}>Загрузить фото </span>
-            </label>
           </div>
+          {previewSource && <IconSVG className={styles.photo} src={previewSource} alt="chosen" />}
         </>
 
         <div className={styles.actions}>
@@ -113,7 +158,7 @@ export default function CommentBox() {
             type="submit"
             className={styles.submit}
             disabled={commentValue.length < 1}
-            onClick={onSubmit}
+            onClick={handleSubmitFile}
           >
             Отправить
           </button>

@@ -2,19 +2,21 @@
 name: Unit Tests Coverage
 
 on:
-  push:
-  pull_request:
+   pull_request:
+        branches:
+            - develop
 
 jobs:
-  build:
-    runs-on: 
-          ubuntu-latest
+  coverage:
+        runs-on: ubuntu-latest
     strategy:
       matrix:
        node-version: [15.x]
     
     steps:
       - uses: actions/checkout@v1
+      with:
+                  threshold: 80 
       - name: Git Status
         run: git status
       - name: Install dependencies

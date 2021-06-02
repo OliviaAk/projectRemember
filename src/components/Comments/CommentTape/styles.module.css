@@ -24,7 +24,11 @@
     border-bottom:1px solid green ;
 }
 .container{
-    padding: 20px;
+    padding: 10px;
+}
+.link{
+    padding: 0 10px;
+    width: 100px;
 }
 .title{
     font-size: 17px;
