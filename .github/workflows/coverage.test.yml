@@ -2,25 +2,28 @@
 name: Unit Tests Coverage
 
 on:
-    push:
-    branches:
-     - "develop"
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
        
 
 jobs:
-    custom_test:
+    test:
         runs-on: ubuntu-latest
-        name: Test locally using act
         steps:
             - name: Checkout
               uses: actions/checkout@v1
-            - name: Test coverage
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  threshold: 80 
+          strategy:
+                matrix:
+                node-version: [15.x]       
+
       - name: Git Status
         run: git status
       - name: Install dependencies
         run: npm install
+        with:
+            github_token: ${{ secrets.SECRET_KEY_GITHUB }}
+
       - name: Test application
         run: npm test
