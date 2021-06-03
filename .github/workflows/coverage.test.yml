@@ -10,6 +10,9 @@ on:
 jobs:
   unit-test:
     runs-on: ubuntu-latest
+    env:
+      COVERAGE_SINGLE: 80
+      COVERAGE_TOTAL: 80
     steps:
       - uses: actions/checkout@v1
 
@@ -20,8 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-  with:
-     minimum-change-threshold: 80 
    - name: Install modules
      run: npm install
    - name: Test Coverage
