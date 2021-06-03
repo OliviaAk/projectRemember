@@ -10,9 +10,6 @@ on:
 jobs:
   unit-test:
     runs-on: ubuntu-latest
-    env:
-      COVERAGE_SINGLE: 80
-      COVERAGE_TOTAL: 80
     steps:
       - uses: actions/checkout@v1
 
@@ -21,9 +18,14 @@ jobs:
 
   coverage-test:
     runs-on: ubuntu-latest
+      env:
+      COVERAGE_SINGLE: 80
+      COVERAGE_TOTAL: 80
     steps:
       - uses: actions/checkout@v1
-   - name: Install modules
-     run: npm install
-   - name: Test Coverage
-     run: npm test
+
+      - name: Install modules
+        run: npm install
+
+      - name: Test Coverage
+        run: npm test
