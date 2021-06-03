@@ -6,8 +6,21 @@ on:
     branches: [ develop ]
   pull_request:
     branches: [ develop ]
-       
-
+ status:
+    project:
+      default:
+        target: auto
+        threshold: 90%
+        base: auto 
+        flags: 
+          - unit
+        paths: 
+          - "src"
+        branches: 
+          - develop
+        if_ci_failed: error #success, failure, error, ignore
+        informational: false
+        only_pulls: false      
 jobs:
   unit-test:
     runs-on: ubuntu-latest
@@ -16,7 +29,6 @@ jobs:
 
       - name: Install modules
         run: npm install
-
 
   coverage-test:
     runs-on: ubuntu-latest
