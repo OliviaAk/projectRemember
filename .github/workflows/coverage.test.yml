@@ -28,7 +28,7 @@ jobs:
       - name: Test Coverage
         run: npm test
 
-  - name: Monitor coverage
+     - name: Monitor coverage
         id: coverage-monitor
         if: github.event_name == 'pull_request'
         uses: ./

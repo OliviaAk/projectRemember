@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { LineTo } from 'react-lineto';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedQuiz } from 'store/actions';
@@ -11,17 +12,18 @@ import {
   getCurrentQuestions,
 } from 'store/thunks';
 import { Button, PopUp } from 'components/shared';
+import Solder from 'assets/images/solder.gif';
 import styles from './styles.module.css';
 import Trivia from './Trivia';
 import GamePopUp from './GamePopUp';
 import MapComponent from './Map';
-import GameDash from './GameDash';
+import ColorCard from './GameDash';
 
 export default function Game() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [openModal, setOpenedModal] = useState(true);
   const [notSelected, setNotSelected] = useState(false);
-
+  const [coordinate, setCoordinate] = useState();
   const { quizes, currentQuiz, questions, selectedQuiz, currentQuestions } = useSelector(
     (state) => state.quiz
   );
@@ -36,7 +38,7 @@ export default function Game() {
 
   useEffect(() => {
     dispatch(getQuiz());
-    setQuestionNumber(1);
+    setQuestionNumber();
   }, []);
 
   const playGame = () => {
@@ -58,6 +60,9 @@ export default function Game() {
     setOpenedModal(true);
     setQuestionNumber(1);
   };
+  const drawLine = (index) => {
+    setCoordinate(index);
+  };
 
   return (
     <>
@@ -66,8 +71,19 @@ export default function Game() {
       ) : (
         <>
           <div className={styles.game}>
-            <GameDash/>
+            {currentQuestions.length > 0 &&
+              currentQuestions.map((c, index) => (
+                <>
+                  <ColorCard
+                    className={index}
+                    onHandleClick={() => drawLine(c._id)}
+                    id={c._id}
+                    coordinate={coordinate}
+                  />
+                </>
+              ))}
           </div>
+
           <div className={styles.menu}>
             <Button onClick={changeGame}>Выбрать другую игру</Button>
             <Button onClick={exit}>Выйти</Button>

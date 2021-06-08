@@ -1,11 +1,16 @@
 .game{
         width: 100%;
-        min-height: 720px;
-        position: relative;
+        min-height: 81vh;
     font-size: 17px;
-    background-image: url("../../assets/images/mapGame.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+    padding-top: 20px ;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
 
 }
 .menu
