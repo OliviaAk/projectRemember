@@ -25,10 +25,12 @@
   list-style: none;
   text-decoration: none;
   color: #000;
+  font-size: 18px;
 }
 .title{
 text-align: center;
-margin-top: 5px;
+margin-top: 10px;
+margin-bottom: 10px;
 }
 .iconItem{
     overflow: hidden;
@@ -117,7 +119,7 @@ margin-top: 5px;
     animation-iteration-count:infinite;
     animation-direction:normal;
     animation-play-state:running;
-    margin-top: 35px;
+    margin-top: 8px;
     right: -30px;
 
 }

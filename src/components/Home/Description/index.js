@@ -15,7 +15,7 @@ export default function Home() {
               </div>
               <div className={styles.createText}>Загрузите фото и добавьте текст</div>
             </div>
-
+            <div className={styles.dash}/>
             <div className={styles.createItem}>
               <div className={styles.createIcon}>
                 <IconSVG className={styles.icon} src={Update} />
@@ -24,6 +24,8 @@ export default function Home() {
                 Сгенерируйте открытку с вашим героем
               </div>
             </div>
+            <div className={styles.dash}/>
+
             <div className={styles.createItem}>
               <div className={styles.createIcon}>
                 <IconSVG className={styles.icon} src={End} />

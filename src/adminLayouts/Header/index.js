@@ -28,13 +28,7 @@ export default function Header() {
         <div className={styles.wrapperMenu}>
           <IconSVG src={HideBar} className={styles.icon} />
           <span className={styles.wrapperText}>Панель администратора</span>
-          <Selector
-            options={themes}
-            value={themes.find((el) => el.value === theme)}
-            onChange={({ value }) => {
-              setThemes(value);
-            }}
-          />
+          
         </div>
         <div className={styles.wrapperUser}>
           <div className={styles.userBlock}>

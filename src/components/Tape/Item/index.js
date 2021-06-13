@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Image } from 'cloudinary-react';
 import {Link} from 'react-router-dom';
+import {
+  FacebookShareButton,
+  VKShareButton,
+  InstapaperShareButton,
+  OKShareButton,
+  TelegramShareButton,
+} from "react-share";
 import { OkShared, FacebookShared,Vkontakte, Instagramm} from 'assets/icons'
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -40,10 +47,19 @@ export default function Item({ item, image, name, user, setIsOpened }) {
         <span>{userEmail.firstName} {userEmail.lastName} помнит...</span>
       </div>
       <div className={styles.sharedBtns}>
-        <Link to='www.google.com'><IconSVG src={FacebookShared} className={styles.iconShared}/></Link>
-        <Link to='/'><IconSVG src={Instagramm}  className={styles.iconShared}/></Link>
-        <Link to='/'><IconSVG src={Vkontakte}  className={styles.iconShared}/></Link>
-        <Link to='/'><IconSVG src={OkShared}  className={styles.iconShared}/></Link>
+      <FacebookShareButton title='Виртульная стена памяти обороны г.Могилева.'  url={window.location.href}>
+            <IconSVG src={FacebookShared} className={styles.iconShared}/>
+      </FacebookShareButton>
+
+      <TelegramShareButton title='Виртульная стена памяти обороны г.Могилева.'  url={window.location.href}>
+      <IconSVG src={Instagramm}  className={styles.iconShared}/>
+            </TelegramShareButton>
+
+      <VKShareButton title='Виртульная стена памяти обороны г.Могилева.'  url={window.location.href}>
+      <IconSVG src={Vkontakte}  className={styles.iconShared}/>      </VKShareButton>
+
+      <OKShareButton title='Виртульная стена памяти обороны г.Могилева.' url={window.location.href}>
+      <IconSVG src={OkShared}  className={styles.iconShared}/>      </OKShareButton>
 
       </div>
       </div>

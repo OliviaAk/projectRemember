@@ -13,11 +13,16 @@
     text-align: center;
     font-weight: 700;
     font-size: 18px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+.header >*{
+    margin-bottom: 5px;
 }
 .heroContent{
     height: 50vh;
     width: 100%;
-    margin: 30px 0 150px;
+    margin: 30px 0 50px;
     position: relative;
 
 }
@@ -35,7 +40,7 @@
     
     width: 405px;
     height: 370px;
-    left: 50px;
+    left: 150px;
     top:40px;
     z-index: 2;
    
@@ -46,8 +51,8 @@
      left:450px;
      top:15px;
 
-    width: 380px;
-    height: 477px;
+    width: 300px;
+    height: 370px;
     border:5px solid #bf404c;
 
 }
@@ -55,33 +60,40 @@
     width: 400px;
     height: 387px;
     z-index: 3;
-    left:800px; 
+    right:75px; 
 }
 .textBlock{
-
     text-indent: 20px;
     display: flex;
-
     flex-direction: column;
-    width: 63%;
-    margin: 50px auto 0 ;
-
+    width: 85%;
+    margin: 0 auto;
 }
+
 .textBlock p{
   text-align: justify;
+  font-size: 18px;
+  line-height: 23px;
+}
+.textHeader{
+    margin-bottom: 5px;
+    font-size: 21px;
+    font-weight: 600;
+
 }
 .decorationLeft{
     position: absolute;
     z-index: 10;
     top:35px;
-    left: 50px;
+    left: 150px;
+
 
 }
 .decorationRight{
     position: absolute;
     z-index: 10;
-    bottom: -28px;
-    right: 0;
+    bottom: 58px;
+    right: 125px;
 
 
 }

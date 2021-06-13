@@ -7,12 +7,12 @@ import styles from './styles.module.css';
 export default function TapeComment({ comments }) {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.title}>Комментарии</div>
+      <div className={styles.title}>Лента новостей Могилева:</div>
       {comments.length > 0 &&
         comments.map((c) => (
           <div className={styles.commentItem}>
             <div className={styles.commentHeader}>
-              <span>Пользователь: Olivia</span>
+              <span>Пользователь: Оливия Ахмаева</span>
               <span>{moment(c.date).format('hh:mm DD/MM/YYYY')}</span>
             </div>
             <div className={styles.container}>
@@ -24,7 +24,7 @@ export default function TapeComment({ comments }) {
                   cloudName="belarus-remember"
                   publicId={c.image}
                   width="180"
-                  height="200"
+                  height="150"
                   crop="scale"
                 />
             }

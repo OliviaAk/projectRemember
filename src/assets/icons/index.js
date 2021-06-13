@@ -33,9 +33,11 @@ import Vkontakte from './vk-brands.svg';
 import FacebookShared from './facebook-f-brands.svg';
 import OkShared from './odnoklassniki-brands.svg';
 import UserIcon from './userIcon.jpg';
+import Download from './download-solid.svg';
 
 export {
   OkShared,
+  Download,
   UserIcon,
   FacebookShared,
   Vkontakte,

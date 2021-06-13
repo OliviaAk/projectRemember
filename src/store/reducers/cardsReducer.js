@@ -13,6 +13,7 @@ export const initialState = {
   cards: [],
   publishCards: [],
   newCard: null,
+  isLoading: false,
   clickedCard: null,
 };
 /* eslint no-param-reassign: ["error", { "props": false }] */
@@ -27,8 +28,13 @@ const cardsTape = createReducer(initialState, {
   [getPublishCards.fulfilled]: (state, { payload }) => {
     state.publishCards = payload;
   },
+  [createCard.pending]: (state, { payload }) => {
+    state.isLoading = true;
+  },
   [createCard.fulfilled]: (state, { payload }) => {
     state.newCard = payload;
+    state.isLoading = false;
+
   },
   [setPublishCard.fulfilled]: (state, { payload }) => {
     const index = state.cards.findIndex((e) => e._id === payload._id);

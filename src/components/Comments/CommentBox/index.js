@@ -115,10 +115,9 @@ export default function CommentBox() {
         <div className={styles.header}>
           <div className={styles.user}>
             <img src={UserIcon} alt="" />
-            <span>Ahmaeva Oliv</span>
+            <span>Оливия Ахмаева</span>
           </div>
         </div>
-        <label htmlFor={styles.comment}>What are your thoughts?</label>
         <textarea
           ref={textRef}
           onChange={onChange}
@@ -128,15 +127,7 @@ export default function CommentBox() {
           name="comment"
           id="comment"
         />
-        <input
-          name="link"
-          type="text"
-          placeholder="Добавьте ссылку на видео или другие ресурсы"
-          className={styles.inputLink}
-          value={link}
-          onChange={linkOnChange}
-        />
-        <>
+        <div className={styles.cont}>
           <div className={styles.formGroup}>
               <input
                 id="fileInput"
@@ -148,7 +139,7 @@ export default function CommentBox() {
               />
           </div>
           {previewSource && <IconSVG className={styles.photo} src={previewSource} alt="chosen" />}
-        </>
+        </div>
 
         <div className={styles.actions}>
           <button type="button" className={styles.cancel} onClick={onClose}>
