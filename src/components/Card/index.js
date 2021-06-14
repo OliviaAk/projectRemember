@@ -4,7 +4,7 @@ import IconSVG from '../shared/Icons';
 import styles from './styles.module.css';
 import Example from '../../assets/images/defaultCard.png';
 import { Upload } from '../../assets/icons';
-import { Button, PopUp, Spinner} from '../shared';
+import { Button, PopUp, Spinner } from '../shared';
 import { createCard } from '../../store/thunks';
 
 export default function Card() {
@@ -21,7 +21,7 @@ export default function Card() {
   const [noUser, setNoUser] = useState(false);
   const { isAuthenticated, user } = useSelector((state) => state.authentication);
   const { isLoading } = useSelector((state) => state.cardsTape);
-  const [showPopSuccess, setIsShowPop]= useState(false);
+  const [showPopSuccess, setIsShowPop] = useState(false);
 
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -51,7 +51,6 @@ export default function Card() {
         .then((data) => {
           setImage(data.imageId);
         });
-     
     } catch (err) {
       console.log(err);
     }
@@ -99,14 +98,14 @@ export default function Card() {
               <IconSVG className={styles.photo} src={Example} />
             )}
             <>
-                  <input
-                    id="fileInput"
-                    type="file"
-                    name="image"
-                    onChange={handleFileInputChange}
-                    value={fileInputState}
-                    className={styles.imgInput}
-                  />
+              <input
+                id="fileInput"
+                type="file"
+                name="image"
+                onChange={handleFileInputChange}
+                value={fileInputState}
+                className={styles.imgInput}
+              />
             </>
           </div>
           <div className={styles.textContainer}>
@@ -147,12 +146,11 @@ export default function Card() {
         title="Невозможно создать открытку, пожалуйста авторизуйтесь!"
       />
 
-       <PopUp
-        show={showPopSuccess}
-        closeModal={() => setIsShowPop(false)}
-        isClose
-      >
-        <div style={{display:'flex', flexDirection: 'column', margin:'30px 20px'}}><p>Успешно отправлена!</p><p> После одобрения администратора, ваша открытка появится на ленте.</p></div>
+      <PopUp show={showPopSuccess} closeModal={() => setIsShowPop(false)} isClose>
+        <div style={{ display: 'flex', flexDirection: 'column', margin: '30px 20px' }}>
+          <p>Успешно отправлена!</p>
+          <p> После одобрения администратора, ваша открытка появится на ленте.</p>
+        </div>
       </PopUp>
     </>
   );

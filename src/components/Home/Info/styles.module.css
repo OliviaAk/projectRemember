@@ -8,7 +8,7 @@
     background-size: cover;
 }
 .homeOverlay{
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.1);
     height: 100vh;
 
 }
