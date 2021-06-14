@@ -6,34 +6,34 @@
     height: 100%;
 
 }
-.createContent{
-    text-align: center;
-    font-size: 25px;
-}
+
 
 .homeInfo{
     display: flex;
     justify-content: space-around;
-    text-align: center;    
+    text-align: center;  
+    width: 100%;  
 }
 .createItem{
-    overflow-x: hidden;
-    position: relative;
     transition: all 0.2s ease;
-    width: 200px;
+    width: 20%;
 }
-.createIcon{
-   padding: 15px 0 0px;
+.dash{
+    width: 17%;
+    height: 3px;
+    margin: auto 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(78, 58, 58);
 }
 
+
 .icon{
-    width: 73px;
-    height: 70px;
+    width: 87px;
+    height: 80px;
 }
 .createText{
     padding: 30px 20px 20px;
-    text-align: center;
     color: rgb(61, 37, 37);
-    font-size: 16px;
-    height: 70px;
+    font-size: 18px;
 }

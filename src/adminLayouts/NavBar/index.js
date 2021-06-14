@@ -104,14 +104,14 @@ export default function NavBar() {
             </div>
           </div>
         </Link>
-        <Link to="/editUsers" className={styles.navLinks}>
+        {/* <Link to="/editUsers" className={styles.navLinks}>
           <div className={styles.linkMainWithout}>
             <div className={styles.navText}>
               <IconSVG src={Users} className={styles.icon} />
               <li className={styles.navItem}>Пользователи</li>
             </div>
           </div>
-        </Link>
+        </Link> */}
       </ul>
     </div>
   );

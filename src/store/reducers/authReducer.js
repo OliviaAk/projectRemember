@@ -8,7 +8,7 @@ export const initialState = {
   isLogoutAdmin: false,
   user: null,
   users: [],
-  isAuthenticated: false,
+  isAuthenticated: true,
   isLogout: false,
 };
 /* eslint no-param-reassign: ["error", { "props": false }] */

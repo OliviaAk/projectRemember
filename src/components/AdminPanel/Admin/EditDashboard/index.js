@@ -100,9 +100,17 @@ export default function EditDashboard() {
     <div className={styles.wrapper}>
       {(loadingHero || isLoad) && <Spinner loading={loadingHero} />}
       <form onSubmit={handleSubmitFile} className={styles.wrapperContainer}>
+        <div style={{display:'block'}}>
         <div className={styles.wrapperImage}>
-          <label className={styles.customUpload}>
-            <input
+
+            {previewSource ? (
+              <IconSVG className={styles.photo} src={previewSource} alt="chosen" />
+            ) : (
+              <IconSVG className={styles.photo} src={Person} />
+            )}
+           
+        </div>
+        <input
               id="fileInput"
               type="file"
               name="image"
@@ -110,12 +118,6 @@ export default function EditDashboard() {
               value={fileInputState}
               className={styles.imgInput}
             />
-            {previewSource ? (
-              <IconSVG className={styles.photo} src={previewSource} alt="chosen" />
-            ) : (
-              <IconSVG className={styles.photo} src={Person} />
-            )}
-          </label>
         </div>
         <div className={styles.textContainer}>
           <input

@@ -31,7 +31,8 @@
     width: 100px;
 }
 .title{
-    font-size: 17px;
+    font-size: 19px;
+    text-transform: uppercase;
     padding-bottom: 10px;
 
 }

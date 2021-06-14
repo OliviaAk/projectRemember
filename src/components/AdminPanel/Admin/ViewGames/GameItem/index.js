@@ -77,7 +77,6 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
           <span>Вопросов {currentQuestions.length}</span>
         </div>
         <div className={styles.btnBlock}>
-          <Selector />
           {drop ? (
             <button
               type="button"
@@ -87,7 +86,7 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
               Свернуть
             </button>
           ) : (
-            (
+            
               <button
                 type="button"
                 onClick={() => setDropDown(true)}
@@ -95,8 +94,8 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
               >
                 Просмотреть
               </button>
-            )``
-          )}
+            )
+          }
         </div>
       </div>
       {drop && (
