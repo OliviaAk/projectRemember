@@ -40,9 +40,9 @@ export default function Header() {
               <Link to="/card" className={styles.mainLinks}>
                 Создание героя
               </Link>
-              {/* <Link to="/game" className={styles.mainLinks}>
+              <Link to="/game" className={styles.mainLinks}>
                 Узнай больше
-              </Link> */}
+              </Link>
               <Link to="/comments" className={styles.mainLinks}>
                 Я помню !
               </Link>

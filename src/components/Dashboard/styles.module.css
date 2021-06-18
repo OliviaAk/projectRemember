@@ -1,5 +1,8 @@
 .dashboard{
-    background: url(../../assets/images/tape.png);
+    background: url(../../assets/images/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .dashboardContainer{
     padding: 50px 0 0 0px;
