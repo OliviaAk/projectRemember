@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { LineTo } from 'react-lineto';
+
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedQuiz } from 'store/actions';
@@ -12,12 +11,9 @@ import {
   getCurrentQuestions,
 } from 'store/thunks';
 import { Button, PopUp } from 'components/shared';
-import Solder from 'assets/images/solder.gif';
-import styles from './styles.module.css';
-import Trivia from './Trivia';
 import GamePopUp from './GamePopUp';
-import MapComponent from './Map';
-import ColorCard from './GameDash';
+import styles from './styles.module.css';
+
 
 export default function Game() {
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -70,20 +66,7 @@ export default function Game() {
         <div />
       ) : (
         <>
-          <div className={styles.game}>
-            {currentQuestions.length > 0 &&
-              currentQuestions.map((c, index) => (
-                <>
-                  <ColorCard
-                    className={index}
-                    onHandleClick={() => drawLine(c._id)}
-                    id={c._id}
-                    coordinate={coordinate}
-                  />
-                </>
-              ))}
-          </div>
-
+          <div className={styles.game}/>
           <div className={styles.menu}>
             <Button onClick={changeGame}>Выбрать другую игру</Button>
             <Button onClick={exit}>Выйти</Button>

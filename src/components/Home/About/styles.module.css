@@ -2,13 +2,14 @@
     padding: 100px 0;
 }
 .homeContainer{
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 0px auto;
     display: flex;
 
 }
 .video{
     width: 520px;
+    height: 250px;
     background: #fff;
     border-right: 0;
     box-shadow: 0 0 50px rgb(0 0 0 / 6%);
@@ -44,4 +45,9 @@
     text-indent: 25px;
     font-family: 'Futura Book';
 
+}
+@media (max-width:1200px){
+    .homeContainer{
+        max-width: 800px;
+    }
 }

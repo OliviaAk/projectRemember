@@ -8,7 +8,8 @@ import { Close, Download } from 'assets/icons';
 import { IconSVG } from 'components/shared';
 import Flag from 'assets/images/flag.png';
 import Flag2 from 'assets/images/flag2.png';
-import Promo from 'assets/images/cardImg.png'
+import Promo from 'assets/images/cardImg.png';
+import Line from 'assets/images/lines.jpg';
 import styles from './styles.module.css';
 
 const ref = React.createRef();
@@ -49,7 +50,7 @@ export function  Presentation () {
                   cloudName="belarus-remember"
                   publicId={clickedCard.image}
                   width="300"
-                  height="350"
+                  height="320"
                   crop="scale"
                 />
                 <div className={styles.header}>
@@ -58,7 +59,11 @@ export function  Presentation () {
                 </div>
                 </div>
                 <div className={styles.right}>
+                  <div className={styles.topText}> <div className={styles.line}/>
+                  <span> п о м н и м </span> <div className={styles.line}/></div>
                   <span className={styles.description}>{clickedCard.description}</span>
+                  <div  className={styles.topText}><div className={styles.line}/><span> г о р д и м с я </span><div className={styles.line}/> </div>
+
                   </div>
               </div>
             }

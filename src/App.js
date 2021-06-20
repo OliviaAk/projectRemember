@@ -17,9 +17,9 @@ import EditUserPage from 'pages/UsersEdit';
 import EditGamePage from 'pages/GameEdit';
 import ViewGamePage from 'pages/GamesView';
 import CommentsPage from 'pages/Comment';
-import PresentationPage from 'pages/Presentation'
-import { getUser } from 'store/thunks';
+import PresentationPage from 'pages/Presentation';
 import GamePage from 'pages/Game';
+import { getUser } from 'store/thunks';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +41,6 @@ function App() {
             <Route path="/singIn" component={LoginPage} />
             <Route component={FacebookSignIn} path="/facebook-oauth" exact />
             <Route component={GoogleSignIn} path="/google-oauth" exact />
-            <Route component={GamePage} path="/game" />
             <Route component={EditCardsPage} path="/editCards" />
             <Route component={EditDashPage} path="/editDashboard" />
             <Route component={ViewDashPage} path="/viewDashboard" />
@@ -50,6 +49,8 @@ function App() {
             <Route component={ViewGamePage} path="/viewGames" />
             <Route component={CommentsPage} path="/comments" />
             <Route component={PresentationPage} path="/presentation" />
+            <Route component={GamePage} path="/game" />
+
 
 
           </Switch>

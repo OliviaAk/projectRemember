@@ -6,7 +6,7 @@
 }
 .dashboardContainer{
     padding: 50px 0 0 0px;
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 0 auto;
 }
 
@@ -23,17 +23,17 @@
 .dashboardItem{
     width: 230px;
     height: 400px;
-    background: #FFFFFF;
+    background: #FFFF;
     box-shadow: 0 2px 48px 0 rgb(0 0 0 0.5);
     border-radius: 20px;
     margin-bottom: 30px;
     margin-top: 20px;
     padding: 30px 40px;
-    margin-right: 80px;
+    margin-right: 90px;
 }
 
 .portraitIcon{
-    width: 230px;
+    width: 210px;
     height: 270px;
 }
 .dashboardItem:hover{

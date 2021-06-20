@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Slide(props) {
   const text = {
-    color: '#0f549e',
+    color: '#FFFF',
     fontSize: '25px',
   };
   return (

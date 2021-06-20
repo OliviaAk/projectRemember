@@ -123,3 +123,8 @@
     -moz-animation: fill 0.51s forwards;
     opacity: 1;
   }
+
+
+  @media (max-width:1300px){
+      
+  }

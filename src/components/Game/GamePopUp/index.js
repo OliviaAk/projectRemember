@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedQuiz } from 'store/actions';
 import { Button, Selector } from 'components/shared';
 import styles from './styles.module.css';
-import Trivia from '../Trivia';
 /* eslint consistent-return: ["warn", { "treatUndefinedAsUnspecified": true }] */
 
 export default function GamePopUp({ quizes, selectedQuiz, playGame, notSelected }) {
@@ -13,6 +12,8 @@ export default function GamePopUp({ quizes, selectedQuiz, playGame, notSelected 
   return (
     <div className={styles.game}>
       <div className={styles.wrapperSelector}>
+      <span>Здравствуй, сдесь можно проити викторину и проверить свои познания в истории Великой Отечественной войны. Выбирите любую игру и начните отвечать на вопросы!</span>
+
         <Selector
           options={quizes.map((l) => ({ label: l.quizName, value: l._id }))}
           value={quizes.map((p) => {
