@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { Button, SingInModal, IconSVG } from 'components/shared';
 import Belarus from 'assets/images/belarus.jpg';
+import { useViewport } from 'context/';
 import styles from './styles.module.css';
 import { logout } from '../../store/actions';
 import { getUsers } from '../../store/thunks';
@@ -12,7 +13,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogout, setIsLogout] = useState(false);
   const dispatch = useDispatch();
-
+  const { isTablet } = useViewport();
   const { user } = useSelector((state) => state.authentication);
   const signOut = () => {
     dispatch(logout());
@@ -25,10 +26,12 @@ export default function Header() {
     <>
       <div className={styles.header}>
         <div className={styles.container}>
-          <div className={styles.logoContent}>
-            <IconSVG src={Belarus} className={styles.logotype} />
-            <span />
-          </div>
+          {!isTablet && (
+            <div className={styles.logoContent}>
+              <IconSVG src={Belarus} className={styles.logotype} />
+              <span />
+            </div>
+          )}
           <div className={styles.userBlock}>
             <div className={styles.navItems}>
               <Link to="/" className={styles.mainLinks}>

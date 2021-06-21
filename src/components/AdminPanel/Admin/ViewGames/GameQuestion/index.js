@@ -26,12 +26,9 @@ export default function GameQuestion({ id, current }) {
       [e.target.name]: e.target.value,
     });
   };
- const  handleChangeOfNewInputs = (index,e) => {
+  const handleChangeOfNewInputs = (index, e) => {
     const { answers } = state;
-    const newInputArr = answers.map(
-      (item, i) =>
-        index === i ?  e.target.value  : item
-    );
+    const newInputArr = answers.map((item, i) => (index === i ? e.target.value : item));
     setState({
       ...state,
       answers: newInputArr,
@@ -54,26 +51,37 @@ export default function GameQuestion({ id, current }) {
         )}
       </div>
       <div className={styles.items}>
-                 { editQ ? <> {current.answers.map((a, index) => (
-                      <input value={a} name='a' className={styles.input} onChange={(e)=>handleChangeOfNewInputs(index,e)}/>
-                  ))}</>:
-                  <>
-                  {current.answers.map((a) => (
-                    <div>{a}</div>
-                ))}</>}
-                </div>      <div className={styles.correct}>
         {editQ ? (
-          <input
-            className={styles.input}
-            value={state.correct}
-            onChange={handleChange}
-            name="correct"
-            type="text"
-          />
+          <>
+            {current.answers.map((a, index) => (
+              <>
+                <input
+                  value={a.answer}
+                  name="a"
+                  className={styles.input}
+                  onChange={(e) => handleChangeOfNewInputs(index, e)}
+                />
+                <input
+                  value={a.isRight}
+                  name="a"
+                  className={styles.input}
+                  onChange={(e) => handleChangeOfNewInputs(index, e)}
+                />
+              </>
+            ))}
+          </>
         ) : (
-          current.correct
+          <div className={styles.answers}>
+            {current.answers.map((a) => (
+              <div>
+                <span>{a.answer}</span>
+                <span>{a.isRight ? 'Верный' : 'Неверный'}</span>
+              </div>
+            ))}
+          </div>
         )}
       </div>
+
       <div className={styles.icons}>
         <IconSVG
           src={editQ ? Saved : Pencil}

@@ -12,21 +12,28 @@ export default function GamePopUp({ quizes, selectedQuiz, playGame, notSelected 
   return (
     <div className={styles.game}>
       <div className={styles.wrapperSelector}>
-      <span>Здравствуй, сдесь можно проити викторину и проверить свои познания в истории Великой Отечественной войны. Выбирите любую игру и начните отвечать на вопросы!</span>
-
-        <Selector
-          options={quizes.map((l) => ({ label: l.quizName, value: l._id }))}
-          value={quizes.map((p) => {
-            if (p._id === selectedQuiz) return { label: p.quizName };
-          })}
-          onChange={({ value }) => {
-            dispatch(setSelectedQuiz(value));
-          }}
-          placeholder="Выбирите игру"
-        />
-        {notSelected && <span>Необходимо выбрать игру!</span>}
+        <div className={styles.text}>
+          Добро пожаловать на вкладку Узнать больше, здесь можно пройти викторину и
+          проверить свои познания в истории Великой Отечественной войны.
+          <br /> Выберите любую игру и начните отвечать на вопросы!
+        </div>
+        <div className={styles.selector}>
+          <Selector
+            options={quizes.map((l) => ({ label: l.quizName, value: l._id }))}
+            value={quizes.map((p) => {
+              if (p._id === selectedQuiz) return { label: p.quizName };
+            })}
+            onChange={({ value }) => {
+              dispatch(setSelectedQuiz(value));
+            }}
+            placeholder="Выбирите игру"
+          />
+        </div>
+        {notSelected && <span className={styles.error}>Необходимо выбрать игру!</span>}
       </div>
-      <Button onClick={playGame}>Играть!</Button>
+      <Button onClick={playGame} buttonColor={styles.gameBtn}>
+        Играть!
+      </Button>
     </div>
   );
 }

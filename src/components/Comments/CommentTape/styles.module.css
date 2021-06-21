@@ -16,6 +16,7 @@
     height: 100%;
     min-height: 50px;
     margin: 10px 0 25px;
+    font-size: 18px;
 }
 .commentHeader{
     display: flex;
@@ -23,16 +24,16 @@
     padding-bottom: 5px;
     border-bottom:1px solid green ;
 }
-.container{
-    padding: 10px;
-}
+
 .link{
-    padding: 0 10px;
-    width: 100px;
+    width: 90%
 }
 .title{
     font-size: 19px;
     text-transform: uppercase;
     padding-bottom: 10px;
 
+}
+.container, .link{
+    margin: 10px 0;
 }

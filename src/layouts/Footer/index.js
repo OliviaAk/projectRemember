@@ -23,8 +23,7 @@ const Footer = () => {
           <div className={styles.footerItem}>
             <h3>Мы в социальных сетях</h3>
             <p className={styles.text}>
-              Подпишись и узнавай больше новостей 
-              о городе Могилеве от нас!
+              Подпишись и узнавай больше новостей о городе Могилеве от нас!
             </p>
             <div className={styles.social}>
               <Link to="/" className={styles.socialLink}>

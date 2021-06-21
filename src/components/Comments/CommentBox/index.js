@@ -25,7 +25,7 @@ export default function CommentBox() {
   const [newCard, setData] = useState({});
   const [isSend, setSend] = useState(false);
   const dispatch = useDispatch();
-  const [link, setLink]= useState('')
+  const [link, setLink] = useState('');
   const { quizes, questions } = useSelector((state) => state.quiz);
 
   const textRef = useRef(null);
@@ -39,10 +39,10 @@ export default function CommentBox() {
     };
   };
   const handleFileInputChange = (e) => {
-      const file = e.target.files[0];
-      previewFile(file);
-      setSelectedFile(file);
-      setFileInputState(e.target.value);
+    const file = e.target.files[0];
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
   };
 
   const uploadImage = async (base64EncodedImage) => {
@@ -56,7 +56,6 @@ export default function CommentBox() {
         .then((data) => {
           setImage(data.imageId);
         });
-    
     } catch (err) {
       console.log(err);
     }
@@ -86,6 +85,7 @@ export default function CommentBox() {
         setFileInputState('');
         setPreviewSource('');
         setCommentValue('');
+        setLink('');
       }, 1000);
     }
   }, [isSend]);
@@ -128,17 +128,29 @@ export default function CommentBox() {
           id="comment"
         />
         <div className={styles.cont}>
-          <div className={styles.formGroup}>
-              <input
-                id="fileInput"
-                type="file"
-                name="image"
-                onChange={handleFileInputChange}
-                value={fileInputState}
-                className={styles.imgInput}
-              />
+          <div className={styles.inputlink}>
+            <input
+              placeholder="Ссылка"
+              value={link}
+              onChange={linkOnChange}
+              className={styles.formLink}
+            />
           </div>
-          {previewSource && <IconSVG className={styles.photo} src={previewSource} alt="chosen" />}
+        </div>
+        <div className={styles.cont}>
+          <div className={styles.formGroup}>
+            <input
+              id="fileInput"
+              type="file"
+              name="image"
+              onChange={handleFileInputChange}
+              value={fileInputState}
+              className={styles.imgInput}
+            />
+          </div>
+          {previewSource && (
+            <IconSVG className={styles.photo} src={previewSource} alt="chosen" />
+          )}
         </div>
 
         <div className={styles.actions}>

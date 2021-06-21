@@ -3,5 +3,9 @@ import Game from 'components/Game';
 import Layout from 'layouts';
 
 export default function GamePage() {
-  return <Game />;
+  return (
+    <Layout>
+      <Game />
+    </Layout>
+  );
 }

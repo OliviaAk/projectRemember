@@ -44,6 +44,7 @@
     line-height: 1.5rem;
     padding: 0 20px;
     margin-top: 10px;
+    margin-right: 10px;
     width: 95%;
   }
   .inputItemQ{
@@ -155,4 +156,8 @@
     text-align: center;
     max-width: 400px;
     margin: 0 auto 30px ;
+}
+.item{
+    display: flex;
+    justify-content: space-between;
 }

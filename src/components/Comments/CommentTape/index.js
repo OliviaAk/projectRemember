@@ -10,25 +10,34 @@ export default function TapeComment({ comments }) {
       <div className={styles.title}>Лента новостей Могилева:</div>
       {comments.length > 0 &&
         comments.map((c) => (
-          <div className={styles.commentItem}>
-            <div className={styles.commentHeader}>
-              <span>Пользователь: Оливия Ахмаева</span>
-              <span>{moment(c.date).format('hh:mm DD/MM/YYYY')}</span>
-            </div>
-            <div className={styles.container}>
-              <span>{c.comment}</span>
-            </div>
-            <div className={styles.link}>{c.link && <span><a href={c.link} >{c.link}</a></span>}</div>
-            {c.image &&
-            <Image
+          <>
+            <div className={styles.commentItem}>
+              <div className={styles.commentHeader}>
+                <span>Пользователь: Оливия Ахмаева</span>
+                <span>{moment(c.date).format('hh:mm DD/MM/YYYY')}</span>
+              </div>
+              <div className={styles.container}>
+                <span>{c.comment}</span>
+              </div>
+              <div className={styles.link}>
+                {c.link && (
+                  <span>
+                    <span>Доп. ресурсы:</span>
+                    <a href={c.link}>{c.link}</a>
+                  </span>
+                )}
+              </div>
+              {c.image && (
+                <Image
                   cloudName="belarus-remember"
                   publicId={c.image}
                   width="180"
                   height="150"
                   crop="scale"
                 />
-            }
-          </div>
+              )}
+            </div>
+          </>
         ))}
     </div>
   );

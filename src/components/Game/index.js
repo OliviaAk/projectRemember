@@ -14,12 +14,13 @@ import { Button, PopUp } from 'components/shared';
 import GamePopUp from './GamePopUp';
 import styles from './styles.module.css';
 
-
 export default function Game() {
-  const [questionNumber, setQuestionNumber] = useState(1);
   const [openModal, setOpenedModal] = useState(true);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
   const [notSelected, setNotSelected] = useState(false);
-  const [coordinate, setCoordinate] = useState();
+  const [clicked, setClicked] = useState(false);
+  const [showScore, setShowScore] = useState(false);
   const { quizes, currentQuiz, questions, selectedQuiz, currentQuestions } = useSelector(
     (state) => state.quiz
   );
@@ -34,7 +35,6 @@ export default function Game() {
 
   useEffect(() => {
     dispatch(getQuiz());
-    setQuestionNumber();
   }, []);
 
   const playGame = () => {
@@ -46,38 +46,64 @@ export default function Game() {
     }
   };
 
-  const exit = () => {
-    dispatch(setSelectedQuiz(null));
-    setQuestionNumber(1);
+  const chooseAnswer = (answer) => {
+    if (answer) {
+      setScore(score + 1);
+    }
+    setClicked(true);
+  };
+  const clikedHandleNext = () => {
+    setClicked(false);
+    if (currentQuestion < currentQuestions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setShowScore(true);
+    }
+  };
+  const closedPopUp = () => {
+    setOpenedModal(false);
     history.push('/');
-  };
-  const changeGame = () => {
-    dispatch(setSelectedQuiz(null));
-    setOpenedModal(true);
-    setQuestionNumber(1);
-  };
-  const drawLine = (index) => {
-    setCoordinate(index);
   };
 
   return (
     <>
-      {openModal ? (
-        <div />
-      ) : (
-        <>
-          <div className={styles.game}/>
-          <div className={styles.menu}>
-            <Button onClick={changeGame}>Выбрать другую игру</Button>
-            <Button onClick={exit}>Выйти</Button>
-          </div>
-        </>
+      {currentQuestions.length && (
+        <div className={styles.game}>
+          {showScore ? (
+            <div>
+              Конец {score} из {currentQuestions.length}
+            </div>
+          ) : (
+            <>
+              <div className={styles.questionNumber}>
+                Вопрос {currentQuestion + 1} из {currentQuestions.length}
+              </div>
+              <div className={styles.questionText}>
+                {currentQuestions[currentQuestion].question}
+              </div>
+              <ul>
+                {currentQuestions[currentQuestion].answers.map((i) => (
+                  <div
+                    onClick={() => {
+                      chooseAnswer(i.isRight);
+                    }}
+                  >
+                    {i.answer}
+                  </div>
+                ))}
+              </ul>
+              <button type="button" onClick={clikedHandleNext}>
+                Next
+              </button>
+            </>
+          )}
+        </div>
       )}
+
       <PopUp
         show={openModal}
-        closeModal={() => {
-          setOpenedModal(false);
-        }}
+        closeModal={closedPopUp}
+        isClose
         wrapperStyles={{ width: '650px', height: '450px', top: '50%  ' }}
       >
         <GamePopUp

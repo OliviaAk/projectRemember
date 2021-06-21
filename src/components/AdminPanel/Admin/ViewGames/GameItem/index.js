@@ -86,16 +86,14 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
               Свернуть
             </button>
           ) : (
-            
-              <button
-                type="button"
-                onClick={() => setDropDown(true)}
-                className={styles.look}
-              >
-                Просмотреть
-              </button>
-            )
-          }
+            <button
+              type="button"
+              onClick={() => setDropDown(true)}
+              className={styles.look}
+            >
+              Просмотреть
+            </button>
+          )}
         </div>
       </div>
       {drop && (
@@ -103,7 +101,6 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
           <div className={styles.titleTable}>
             <div>Вопрос</div>
             <div>Варианты</div>
-            <div>Правильный</div>
             <div />
           </div>
           {currentQuestions.map((c) => (

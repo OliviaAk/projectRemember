@@ -126,14 +126,18 @@ textarea {
   width: 20px;
   margin: 0px 5px 0px;
 }
-.uploadText{
+
+.inputlink{
+ 
 }
-.inputLink{
-  width: 100%;
-  height: 30px;
-  border:1px solid #cac9c9;
-  border-radius: 5px;
+.formLink{
+  border: none;
   outline: none;
+  height: 20px;
+  border: 1px solid #999;
+  border-radius: 3px;  border-radius: 3px;
+  outline: none;
+  width: 350px;
 }
 .photo{
    width: 180px;

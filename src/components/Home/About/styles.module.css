@@ -46,8 +46,24 @@
     font-family: 'Futura Book';
 
 }
-@media (max-width:1200px){
-    .homeContainer{
-        max-width: 800px;
+@media (max-width:1220px){
+    .homeTop{
+        padding: 50px 0;
     }
+    .homeContainer{
+        flex-direction: column;
+        margin: 0 20px;
+    }
+    .fullText{
+        margin-left:0px ;
+        margin-top: 30px;
+    }
+    .video{
+        width: 100%;
+        height: 380px;
+        background: #fff;
+        border-right: 0;
+        box-shadow: 0 0 50px rgb(0 0 0 / 6%);
+    }
+    
 }
