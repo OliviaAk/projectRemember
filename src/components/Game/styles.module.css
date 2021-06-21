@@ -14,12 +14,34 @@
     
 
 }
-.menu
-{
-    background-color: #f3f3f3;
-    padding:43px;
+.wrapperItem{
+    width: 100%;
+    max-width: 900px;
+    height: 450px;
+    padding: 40px;
+    border-radius: 5px;
+    border: 1px solid blue;
+    justify-content: center;
+    align-items: center;
+}
+.wrraper{
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+.questionText, .questionNumber{
+    font-size: 20px;
     text-align: center;
-    display: flex;
-    justify-content: space-around;
+    margin-bottom: 10px;
+
+}
+.itemsQ{
+    margin: 20px 0;
+}
+.questionItem{
+    margin: 5px 0;
+}
+.nextBtn{
+    text-align: center;
+    width: 250px;
 
 }

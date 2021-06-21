@@ -75,26 +75,36 @@ export default function Game() {
             </div>
           ) : (
             <>
-              <div className={styles.questionNumber}>
-                Вопрос {currentQuestion + 1} из {currentQuestions.length}
-              </div>
-              <div className={styles.questionText}>
-                {currentQuestions[currentQuestion].question}
-              </div>
-              <ul>
-                {currentQuestions[currentQuestion].answers.map((i) => (
-                  <div
-                    onClick={() => {
-                      chooseAnswer(i.isRight);
-                    }}
-                  >
-                    {i.answer}
+              <div className={styles.title}>{selectedQuiz}</div>
+              <div className={styles.wrapperItem}>
+                <div className={styles.wrraper}>
+                  <div className={styles.questionNumber}>
+                    Вопрос {currentQuestion + 1} из {currentQuestions.length}
                   </div>
-                ))}
-              </ul>
-              <button type="button" onClick={clikedHandleNext}>
-                Next
-              </button>
+                  <div className={styles.questionText}>
+                    {currentQuestions[currentQuestion].question}
+                  </div>
+                  <div className={styles.itemsQ}>
+                    {currentQuestions[currentQuestion].answers.map((i) => (
+                      <div
+                        onClick={() => {
+                          chooseAnswer(i.isRight);
+                        }}
+                        className={styles.questionItem}
+                      >
+                        {i.answer}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={clikedHandleNext}
+                  className={styles.nextBtn}
+                >
+                  Next
+                </button>
+              </div>
             </>
           )}
         </div>
