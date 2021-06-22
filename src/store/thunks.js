@@ -166,3 +166,9 @@ export const getComments = createAsyncThunk(`comments`, async () => {
   const { data } = await apiServer.get(`comment/`);
   return data;
 });
+
+export const removeComment = createAsyncThunk(`comments`, async (_id) => {
+  const { data } = await apiServer.remove(`comment/${_id}`);
+
+  return data;
+});

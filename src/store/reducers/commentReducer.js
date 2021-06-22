@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { createComment, getComments } from '../thunks';
+import { createComment, getComments, removeComment } from '../thunks';
 
 export const initialState = {
   comments: [],
@@ -14,6 +14,9 @@ const liveTape = createReducer(initialState, {
   },
   [getComments.fulfilled]: (state, { payload }) => {
     state.comments = payload;
+  },
+  [removeComment.fulfilled]: (state, { payload }) => {
+    state.comments = state.comments.filter((item) => item._id !== payload.data);
   },
 });
 

@@ -26,7 +26,6 @@ export default function CommentBox() {
   const [isSend, setSend] = useState(false);
   const dispatch = useDispatch();
   const [link, setLink] = useState('');
-  const { quizes, questions } = useSelector((state) => state.quiz);
 
   const textRef = useRef(null);
   const containerRef = useRef(null);
@@ -130,7 +129,7 @@ export default function CommentBox() {
         <div className={styles.cont}>
           <div className={styles.inputlink}>
             <input
-              placeholder="Ссылка"
+              placeholder="Ссылка на другие ресурсы"
               value={link}
               onChange={linkOnChange}
               className={styles.formLink}

@@ -127,15 +127,12 @@ textarea {
   margin: 0px 5px 0px;
 }
 
-.inputlink{
- 
-}
+
 .formLink{
   border: none;
   outline: none;
   height: 20px;
-  border: 1px solid #999;
-  border-radius: 3px;  border-radius: 3px;
+  border-bottom: 1px solid rgb(146, 145, 145);
   outline: none;
   width: 350px;
 }
