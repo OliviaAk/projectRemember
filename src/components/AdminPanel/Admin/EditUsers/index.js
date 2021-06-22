@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getComments } from 'store/thunks';
+import { getComments, setPublishComment } from 'store/thunks';
 import CommentView from './CommentView';
 import styles from './styles.module.css';
 
@@ -8,10 +8,12 @@ export default function EditUsers() {
   const dispatch = useDispatch();
   const { comments } = useSelector((state) => state.liveTape);
 
-  console.log(comments);
   useEffect(() => {
     dispatch(getComments());
   }, []);
+  const updateI = (id, isPublish) => {
+    dispatch(setPublishComment({ id, isPublish }));
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -24,9 +26,11 @@ export default function EditUsers() {
             link={c.link}
             commentCurrent={c}
             id={c._id}
+            markAsPublish={() => {
+              updateI(c._id, !c.isPublish);
+            }}
           />
         ))}
-        <span>LOL</span>
       </div>
     </div>
   );

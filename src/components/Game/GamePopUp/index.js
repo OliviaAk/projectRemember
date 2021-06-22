@@ -26,7 +26,7 @@ export default function GamePopUp({ quizes, selectedQuiz, playGame, notSelected 
             onChange={({ value }) => {
               dispatch(setSelectedQuiz(value));
             }}
-            placeholder="Выбирите игру"
+            placeholder="Выберите игру"
           />
         </div>
         {notSelected && <span className={styles.error}>Необходимо выбрать игру!</span>}

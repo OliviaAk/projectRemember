@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image } from 'cloudinary-react';
 import { IconSVG } from 'components/shared';
 import { Pencil, Saved } from 'assets/icons';
-import { removeComment } from 'store/thunks';
+import { removeComment, editComment } from 'store/thunks';
 import { useDispatch } from 'react-redux';
 import styles from './styles.module.css';
 
@@ -14,11 +14,13 @@ export default function CommentView({
   comment,
   commentCurrent,
   id,
+  markAsPublish
 }) {
   const [edit, setEdit] = useState(false);
   const [stateCard, setState] = useState({});
   const dispatch = useDispatch();
   const saveEdition = () => {
+    dispatch(editComment(stateCard))
     setEdit(false);
   };
   const editItem = (hero) => {
@@ -50,6 +52,7 @@ export default function CommentView({
                 type="button"
                 className={styles.hideBtn}
                 onClick={(e) => {
+                  markAsPublish();
                   e.stopPropagation();
                 }}
               >
@@ -60,6 +63,7 @@ export default function CommentView({
                 type="button"
                 className={styles.hideBtn}
                 onClick={(e) => {
+                  markAsPublish()
                   e.stopPropagation();
                 }}
               >
@@ -85,6 +89,8 @@ export default function CommentView({
                 type="text"
                 value={stateCard.comment}
                 className={styles.text}
+                onChange={handleChange}
+
               />
             ) : (
               <span>{comment}</span>
@@ -133,4 +139,5 @@ CommentView.propTypes = {
   link: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
   commentCurrent: PropTypes.object.isRequired,
+  markAsPublish: PropTypes.func.isRequired,
 };
