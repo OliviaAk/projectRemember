@@ -164,7 +164,6 @@ export default function CardView({
           )}
         </div>
         <div className={styles.itemInfo}>
-          <div style={{marginTop: '50px'}}>
           <span>
             <strong>Автор: </strong>
           </span>
@@ -176,7 +175,6 @@ export default function CardView({
             className={styles.emailIcon}
             handleClickIcon={handleSubmit}
           />
-          </div>
         </div>
       </div>
     </div>

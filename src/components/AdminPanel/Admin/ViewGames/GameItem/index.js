@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { IconSVG, Selector } from 'components/shared';
+import { IconSVG, Selector, Button } from 'components/shared';
 import { Delete, Pencil, Saved } from 'assets/icons';
-import { deleteQuiz, editQuiz, deleteQuestion, editQuestion } from 'store/thunks';
+import { deleteQuiz, editQuiz } from 'store/thunks';
+import AddQuestion from '../AddQuestion';
 import styles from './styles.module.css';
 import GameQuestion from '../GameQuestion';
 
+const options = [
+  { value: true, label: 'Верный' },
+  { value: false, label: 'Неверный' },
+];
 export default function GameItem({ quizName, id, questions, quizItem }) {
   const [drop, setDropDown] = useState(false);
+  const [dropAdd, setDropAdd] = useState(false);
   const [currentQuestions, setQuestions] = useState([]);
   const [edit, setEdit] = useState(false);
   const [state, setState] = useState({});
+  const [question, setQuestion] = useState('');
+  const [answer1, setAnswer1] = useState({ answer: '', isRight: false });
+  const [answer2, setAnswer2] = useState({ answer: '', isRight: false });
+  const [answer3, setAnswer3] = useState({ answer: '', isRight: false });
+  const [answer4, setAnswer4] = useState({ answer: '', isRight: false });
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -88,10 +99,33 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
           ) : (
             <button
               type="button"
-              onClick={() => setDropDown(true)}
+              onClick={() => {
+                setDropDown(true);
+                setDropAdd(false);
+              }}
               className={styles.look}
             >
               Просмотреть
+            </button>
+          )}
+          {dropAdd ? (
+            <button
+              type="button"
+              onClick={() => setDropAdd(false)}
+              className={styles.look}
+            >
+              Закрыть
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => {
+                setDropAdd(true);
+                setDropDown(false);
+              }}
+              className={styles.look}
+            >
+              Добавить вопрос
             </button>
           )}
         </div>
@@ -106,6 +140,11 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
           {currentQuestions.map((c) => (
             <GameQuestion id={c._id} current={c} />
           ))}
+        </div>
+      )}
+      {dropAdd && (
+        <div className={styles.wrapperQuestion}>
+          <AddQuestion id={id} currentQuestions={currentQuestions} />
         </div>
       )}
     </div>

@@ -8,10 +8,9 @@ import { IconSVG, Selector } from 'components/shared';
 import styles from './styles.module.css';
 
 const themes = [
-  {label: 'Светлая', value: 1},
-  {label: 'Темная', value: 2},
-
-]
+  { label: 'Светлая', value: 1 },
+  { label: 'Темная', value: 2 },
+];
 export default function Header() {
   const [theme, setThemes] = useState(themes[0].value);
 
@@ -26,13 +25,15 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.container}>
         <div className={styles.wrapperMenu}>
-          <IconSVG src={HideBar} className={styles.icon} />
           <span className={styles.wrapperText}>Панель администратора</span>
-          
         </div>
         <div className={styles.wrapperUser}>
           <div className={styles.userBlock}>
-            <IconSVG src={Logout} className={styles.adminIcon} handleClickIcon={onHandleLogout} />
+            <IconSVG
+              src={Logout}
+              className={styles.adminIcon}
+              handleClickIcon={onHandleLogout}
+            />
           </div>
         </div>
       </div>

@@ -116,14 +116,14 @@ export default function EditGames() {
                       value={answer2.answer}
                       className={styles.inputItem}
                       onChange={(e) => {
-                        setAnswer2({ ...answer1, answer: e.target.value });
+                        setAnswer2({ ...answer2, answer: e.target.value });
                       }}
                     />
                     <Selector
                       options={options}
                       value={options.find((el) => el.value === answer2.isRight)}
                       onChange={({ value }) => {
-                        setAnswer2({ ...answer1, isRight: value });
+                        setAnswer2({ ...answer2, isRight: value });
                       }}
                     />
                   </div>
@@ -135,14 +135,14 @@ export default function EditGames() {
                       value={answer3.answer}
                       className={styles.inputItem}
                       onChange={(e) => {
-                        setAnswer3({ ...answer1, answer: e.target.value });
+                        setAnswer3({ ...answer3, answer: e.target.value });
                       }}
                     />
                     <Selector
                       options={options}
                       value={options.find((el) => el.value === answer3.isRight)}
                       onChange={({ value }) => {
-                        setAnswer3({ ...answer1, isRight: value });
+                        setAnswer3({ ...answer3, isRight: value });
                       }}
                     />
                   </div>
@@ -153,14 +153,14 @@ export default function EditGames() {
                       value={answer4.answer}
                       className={styles.inputItem}
                       onChange={(e) => {
-                        setAnswer4({ ...answer1, answer: e.target.value });
+                        setAnswer4({ ...answer4, answer: e.target.value });
                       }}
                     />
                     <Selector
                       options={options}
                       value={options.find((el) => el.value === answer4.isRight)}
                       onChange={({ value }) => {
-                        setAnswer4({ ...answer1, isRight: value });
+                        setAnswer4({ ...answer4, isRight: value });
                       }}
                     />
                   </div>
