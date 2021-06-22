@@ -15,7 +15,6 @@ import {
 import styles from './styles.module.css';
 
 export default function NavBar() {
-;
   const [openDropDown, setOpenDropDown] = useState(false);
   const [openDropDownDash, setOpenDropDownDash] = useState(false);
   const [openDropDownGame, setOpenDropDownGame] = useState(false);
@@ -41,15 +40,16 @@ export default function NavBar() {
             </div>
           </div>
         </Link>
-        <div className={styles.navLinks} onClick={() => setOpenDropDownDash(!openDropDownDash)}>
+        <div
+          className={styles.navLinks}
+          onClick={() => setOpenDropDownDash(!openDropDownDash)}
+        >
           <div className={styles.linkMain}>
             <div className={styles.navText}>
               <IconSVG src={Start} className={styles.icon} />
               <li className={styles.navItem}>Доска памяти</li>
             </div>
-            <div
-              style={{ cursor: 'pointer' }}
-            >
+            <div style={{ cursor: 'pointer' }}>
               {openDropDown || openDropDownDash ? (
                 <img src={bottomArrow} alt="drop" height="15" width="15" />
               ) : (
@@ -57,27 +57,29 @@ export default function NavBar() {
               )}
             </div>
           </div>
-        
-            <ul className={openDropDown || openDropDownDash ? styles.dropDown : styles.noDrop}>
-              <Link to="/viewDashboard" className={styles.dropItem}>
-                Просмотреть героев
-              </Link>
-              <Link to="/editDashboard" className={styles.dropItem}>
-                Добавить героя
-              </Link>
-            </ul>
-          
+
+          <ul
+            className={openDropDown || openDropDownDash ? styles.dropDown : styles.noDrop}
+          >
+            <Link to="/viewDashboard" className={styles.dropItem}>
+              Просмотреть героев
+            </Link>
+            <Link to="/editDashboard" className={styles.dropItem}>
+              Добавить героя
+            </Link>
+          </ul>
         </div>
-        <div className={styles.navLinks}  onClick={() => setOpenDropDownGame(!openDropDownGame)}>
+        <div
+          className={styles.navLinks}
+          onClick={() => setOpenDropDownGame(!openDropDownGame)}
+        >
           <div className={styles.linkMain}>
             <div className={styles.navText}>
               <IconSVG src={Dice} className={styles.icon} />
 
               <li className={styles.navItem}>Игры</li>
             </div>
-            <div
-              style={{ cursor: 'pointer' }}
-            >
+            <div style={{ cursor: 'pointer' }}>
               {openDropDown || openDropDownGame ? (
                 <img src={bottomArrow} alt="drop" height="15" width="15" />
               ) : (
@@ -104,14 +106,14 @@ export default function NavBar() {
             </div>
           </div>
         </Link>
-        {/* <Link to="/editUsers" className={styles.navLinks}>
+        <Link to="/editUsers" className={styles.navLinks}>
           <div className={styles.linkMainWithout}>
             <div className={styles.navText}>
               <IconSVG src={Users} className={styles.icon} />
-              <li className={styles.navItem}>Пользователи</li>
+              <li className={styles.navItem}>Лента памяти</li>
             </div>
           </div>
-        </Link> */}
+        </Link>
       </ul>
     </div>
   );
