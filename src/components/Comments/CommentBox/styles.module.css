@@ -126,16 +126,45 @@ textarea {
   width: 20px;
   margin: 0px 5px 0px;
 }
-.uploadText{
-}
-.inputLink{
-  width: 100%;
-  height: 30px;
-  border:1px solid #cac9c9;
-  border-radius: 5px;
+
+
+.formLink{
+  border: none;
   outline: none;
+  height: 20px;
+  border-bottom: 1px solid rgb(146, 145, 145);
+  outline: none;
+  width: 350px;
 }
 .photo{
    width: 180px;
    height: 150px;
+}
+
+.imgInput::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.cont{
+  margin-left: 10px;
+}
+.imgInput::before {
+  content: 'Добавте изображение';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.imgInput:hover::before {
+  border-color: black;
+}
+.imgInput:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }

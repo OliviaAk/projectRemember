@@ -1,8 +1,8 @@
 import React from 'react';
 import { IconSVG } from '../../shared';
 import styles from './styles.module.css';
-import Video from '../../../assets/images/download.jpg';
-
+import Video from '../../../assets/images/1.jpg';
+ 
 export default function About() {
   return (
     <div className={styles.homeTop}>

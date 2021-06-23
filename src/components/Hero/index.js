@@ -23,31 +23,31 @@ export default function Hero() {
           </div>
           <div className={styles.heroContent}>
             <span className={styles.decorationLeft}>
-              <img src={Flag} alt="flag" height="120" />
+              <img src={Flag} alt="flag" height="100" />
             </span>
             <div className={styles.imageBlock}>
               <span className={styles.imgOne}>
-                <img src={Exa} alt="" width="405" height="370" />
+                <img src={Exa} alt="" width="350" height="270" />
               </span>
               <span className={styles.imgTwo}>
                 <Image
                   cloudName="belarus-remember"
                   publicId={hero.image}
-                  width="380"
-                  height="477"
+                  width="300"
+                  height="370"
                   crop="scale"
                 />
               </span>
               <span className={styles.imgTree}>
-                <img src={Ex} alt="" width="400" height="387" />
+                <img src={Ex} alt="" width="350" height="300" />
               </span>
             </div>
             <span className={styles.decorationRight}>
-              <img src={Flag2} alt="flag" height="190" />
+              <img src={Flag2} alt="flag" height="140" />
             </span>
           </div>
           <div className={styles.textBlock}>
-            <div>Краткие сведения </div>
+            <div className={styles.textHeader}>Краткие сведения </div>
             <p>{hero.text} </p>
           </div>
         </div>

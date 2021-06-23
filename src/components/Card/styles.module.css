@@ -1,6 +1,6 @@
 .card{
         background-color: #fff;
-        height: 100vh;
+        height: 100%;
         padding-top: 120px;
         font-size: 17px;
 
@@ -11,6 +11,8 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 40px;
+
 }
 .wrapperImage{
     display: flex;
@@ -54,19 +56,33 @@
     text-align: center;
 }
 
-.imgInput {
-    display: none;
-}
-.customUpload {
+
+.imgInput::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .cont{
+    margin-left: 10px;
+  }
+  .imgInput::before {
+    content: 'Добавте изображение';
     display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
     cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
     text-align: center;
-    width: 100%;
-    margin:  10px;
-}
-.uploadIcon{
-    width: 20px;
-    margin: 0px 5px 0px;
-}
-.uploadText{
-}
+    width: 94%;
+  }
+  .imgInput:hover::before {
+    border-color: black;
+  }
+  .imgInput:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }

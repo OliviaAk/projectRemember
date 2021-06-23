@@ -25,8 +25,7 @@ export default function CommentBox() {
   const [newCard, setData] = useState({});
   const [isSend, setSend] = useState(false);
   const dispatch = useDispatch();
-  const [link, setLink]= useState('')
-  const { quizes, questions } = useSelector((state) => state.quiz);
+  const [link, setLink] = useState('');
 
   const textRef = useRef(null);
   const containerRef = useRef(null);
@@ -39,10 +38,10 @@ export default function CommentBox() {
     };
   };
   const handleFileInputChange = (e) => {
-      const file = e.target.files[0];
-      previewFile(file);
-      setSelectedFile(file);
-      setFileInputState(e.target.value);
+    const file = e.target.files[0];
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
   };
 
   const uploadImage = async (base64EncodedImage) => {
@@ -56,7 +55,6 @@ export default function CommentBox() {
         .then((data) => {
           setImage(data.imageId);
         });
-    
     } catch (err) {
       console.log(err);
     }
@@ -86,6 +84,7 @@ export default function CommentBox() {
         setFileInputState('');
         setPreviewSource('');
         setCommentValue('');
+        setLink('');
       }, 1000);
     }
   }, [isSend]);
@@ -115,10 +114,9 @@ export default function CommentBox() {
         <div className={styles.header}>
           <div className={styles.user}>
             <img src={UserIcon} alt="" />
-            <span>Ahmaeva Oliv</span>
+            <span>Оливия Ахмаева</span>
           </div>
         </div>
-        <label htmlFor={styles.comment}>What are your thoughts?</label>
         <textarea
           ref={textRef}
           onChange={onChange}
@@ -128,27 +126,31 @@ export default function CommentBox() {
           name="comment"
           id="comment"
         />
-        <input
-          name="link"
-          type="text"
-          placeholder="Добавьте ссылку на видео или другие ресурсы"
-          className={styles.inputLink}
-          value={link}
-          onChange={linkOnChange}
-        />
-        <>
-          <div className={styles.formGroup}>
-              <input
-                id="fileInput"
-                type="file"
-                name="image"
-                onChange={handleFileInputChange}
-                value={fileInputState}
-                className={styles.imgInput}
-              />
+        <div className={styles.cont}>
+          <div className={styles.inputlink}>
+            <input
+              placeholder="Ссылка на другие ресурсы"
+              value={link}
+              onChange={linkOnChange}
+              className={styles.formLink}
+            />
           </div>
-          {previewSource && <IconSVG className={styles.photo} src={previewSource} alt="chosen" />}
-        </>
+        </div>
+        <div className={styles.cont}>
+          <div className={styles.formGroup}>
+            <input
+              id="fileInput"
+              type="file"
+              name="image"
+              onChange={handleFileInputChange}
+              value={fileInputState}
+              className={styles.imgInput}
+            />
+          </div>
+          {previewSource && (
+            <IconSVG className={styles.photo} src={previewSource} alt="chosen" />
+          )}
+        </div>
 
         <div className={styles.actions}>
           <button type="button" className={styles.cancel} onClick={onClose}>

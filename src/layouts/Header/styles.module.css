@@ -123,3 +123,67 @@
     -moz-animation: fill 0.51s forwards;
     opacity: 1;
   }
+
+
+  @media (max-width:1200px){
+    .container{
+        max-width: 100%;
+        width: 100%;
+        margin: 5px 0;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+    
+    }
+ 
+  }
+
+  
+  @media (max-width:1130px){
+    
+    .mainLinks{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #555;
+        font-size: 15px;
+        font-weight: 400;
+        padding: 8px 2px;
+        border-radius: 0;
+        position: relative;
+        width: 135px;
+        transition: all 2s;
+    
+    }
+    .userBlock{
+       
+        margin-left: 0px;
+    }
+    .navItems {
+       
+        margin-right: 0px;
+    }
+  }
+
+  @media (max-width:1000px){
+    
+    .mainLinks{
+
+        width: 130px;
+        
+    }
+  }
+
+  @media (max-width:991PX){
+    
+    .mainLinks{
+
+        width: 150px;
+        
+    }
+    .container{
+        max-width: 100%;
+        width: 100%;
+        justify-content: center;
+    }
+  }

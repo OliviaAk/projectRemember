@@ -1,0 +1,14 @@
+.wrapper{
+    padding:  2.25rem  2.25rem   0;
+
+}
+
+.wrapperContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+.wrapperContainer >*{
+    margin-right: 30px;
+}

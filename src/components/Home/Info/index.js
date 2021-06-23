@@ -38,7 +38,7 @@ export default function Info() {
         <div className={styles.homeContainer}>
           <div className={styles.homeMain}>
             <p className={styles.homeMainTitle}>
-              Виртуальная стена памяти города Могилева
+              Виртуальная стена памяти героев обороны Могилева
             </p>
             <div className={styles.homeCarusel}>
               <Slide image={slides[currentSlide]} />

@@ -166,3 +166,29 @@ export const getComments = createAsyncThunk(`comments`, async () => {
   const { data } = await apiServer.get(`comment/`);
   return data;
 });
+
+export const removeComment = createAsyncThunk(`remove comments`, async (_id) => {
+  const { data } = await apiServer.remove(`comment/${_id}`);
+  return data;
+});
+
+export const setPublishComment = createAsyncThunk(
+  'published comment',
+  async ({ id, isPublish }) => {
+    const { data } = await apiServer.patch(`comment/${id}`, { isPublish });
+    return data;
+  }
+);
+
+export const editComment = createAsyncThunk(
+  'edit comment',
+  async ({ _id, link, comment, isPublish }) => {
+    const { data } = await apiServer.post(`comment/info`, {
+      link,
+      comment,
+      isPublish,
+      _id
+    });
+    return {data} ;
+  }
+);

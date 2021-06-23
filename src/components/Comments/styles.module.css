@@ -1,6 +1,9 @@
 .comments{
     background-color: #fff;
-    height: 100%;
+    background-image: url('../../assets/images/hom.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
 .commentsContainer{
     display: flex;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPublishCard, getCards , editCard} from 'store/thunks';
+import { setPublishCard, getCards, editCard, getUsers } from 'store/thunks';
 import styles from './styles.module.css';
 import CardView from './CardView';
 
@@ -10,6 +10,9 @@ export default function EditCards() {
 
   useEffect(() => {
     dispatch(getCards());
+  }, []);
+  useEffect(() => {
+    dispatch(getUsers());
   }, []);
   const updateI = (id, isPublish) => {
     dispatch(setPublishCard({ id, isPublish }));

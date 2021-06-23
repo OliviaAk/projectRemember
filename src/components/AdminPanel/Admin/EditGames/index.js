@@ -4,15 +4,18 @@ import { createQuiz, getQuiz, createQuestion, getQuestions } from 'store/thunks'
 import { Button, Selector } from 'components/shared';
 import styles from './styles.module.css';
 
+const options = [
+  { value: true, label: 'Верный' },
+  { value: false, label: 'Неверный' },
+];
 export default function EditGames() {
   const [quizName, setName] = useState('');
   const [count, setCount] = useState(1);
   const [question, setQuestion] = useState('');
-  const [correct, setRight] = useState('');
-  const [answer1, setAnswer1] = useState('');
-  const [answer2, setAnswer2] = useState('');
-  const [answer3, setAnswer3] = useState('');
-  const [answer4, setAnswer4] = useState('');
+  const [answer1, setAnswer1] = useState({ answer: '', isRight: false });
+  const [answer2, setAnswer2] = useState({ answer: '', isRight: false });
+  const [answer3, setAnswer3] = useState({ answer: '', isRight: false });
+  const [answer4, setAnswer4] = useState({ answer: '', isRight: false });
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const { quizes, currentQuiz } = useSelector((state) => state.quiz);
@@ -36,16 +39,13 @@ export default function EditGames() {
   const sendQuestion = () => {
     const array = [];
     array.push(answer1, answer2, answer3, answer4);
-    dispatch(
-      createQuestion({ question, answers: array, correct, quizId: currentQuiz._id })
-    );
+    dispatch(createQuestion({ question, answers: array, quizId: currentQuiz._id }));
     setCount(count + 1);
     setQuestion('');
-    setRight('');
-    setAnswer1('');
-    setAnswer2('');
-    setAnswer3('');
-    setAnswer4('');
+    setAnswer1({ answer: '', isRight: false });
+    setAnswer2({ answer: '', isRight: false });
+    setAnswer3({ answer: '', isRight: false });
+    setAnswer4({ answer: '', isRight: false });
   };
   return (
     <div className={styles.wrapper}>
@@ -89,57 +89,81 @@ export default function EditGames() {
                 </div>
                 <div className={styles.textItem}>
                   <span className={styles.text}>Варианты ответа</span>
-                  <input
-                    placeholder="Ответ 1"
-                    name="answer1"
-                    value={answer1}
-                    type="text"
-                    className={styles.inputItem}
-                    onChange={(e) => {
-                      setAnswer1(e.target.value);
-                    }}
-                  />
-                  <input
-                    placeholder="Ответ 2"
-                    type="text"
-                    name="answer2"
-                    value={answer2}
-                    className={styles.inputItem}
-                    onChange={(e) => {
-                      setAnswer2(e.target.value);
-                    }}
-                  />
-                  <input
-                    placeholder="Ответ 3"
-                    type="text"
-                    name="answer3"
-                    value={answer3}
-                    className={styles.inputItem}
-                    onChange={(e) => {
-                      setAnswer3(e.target.value);
-                    }}
-                  />
-                  <input
-                    placeholder="Ответ 4"
-                    type="text"
-                    value={answer4}
-                    className={styles.inputItem}
-                    onChange={(e) => {
-                      setAnswer4(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className={styles.textItem}>
-                  <span className={styles.text}>Правильный вариант</span>
-                  <input
-                    placeholder="Ответ"
-                    type="text"
-                    className={styles.inputItemR}
-                    value={correct}
-                    onChange={(e) => {
-                      setRight(e.target.value);
-                    }}
-                  />
+                  <div className={styles.item}>
+                    <input
+                      placeholder="Ответ 1"
+                      name="answer1"
+                      value={answer1.answer}
+                      type="text"
+                      className={styles.inputItem}
+                      onChange={(e) => {
+                        setAnswer1({ ...answer1, answer: e.target.value });
+                      }}
+                    />
+                    <Selector
+                      options={options}
+                      value={options.find((el) => el.value === answer1.isRight)}
+                      onChange={({ value }) => {
+                        setAnswer1({ ...answer1, isRight: value });
+                      }}
+                    />
+                  </div>
+                  <div className={styles.item}>
+                    <input
+                      placeholder="Ответ 2"
+                      type="text"
+                      name="answer2"
+                      value={answer2.answer}
+                      className={styles.inputItem}
+                      onChange={(e) => {
+                        setAnswer2({ ...answer2, answer: e.target.value });
+                      }}
+                    />
+                    <Selector
+                      options={options}
+                      value={options.find((el) => el.value === answer2.isRight)}
+                      onChange={({ value }) => {
+                        setAnswer2({ ...answer2, isRight: value });
+                      }}
+                    />
+                  </div>
+                  <div className={styles.item}>
+                    <input
+                      placeholder="Ответ 3"
+                      type="text"
+                      name="answer3"
+                      value={answer3.answer}
+                      className={styles.inputItem}
+                      onChange={(e) => {
+                        setAnswer3({ ...answer3, answer: e.target.value });
+                      }}
+                    />
+                    <Selector
+                      options={options}
+                      value={options.find((el) => el.value === answer3.isRight)}
+                      onChange={({ value }) => {
+                        setAnswer3({ ...answer3, isRight: value });
+                      }}
+                    />
+                  </div>
+                  <div className={styles.item}>
+                    <input
+                      placeholder="Ответ 4"
+                      type="text"
+                      value={answer4.answer}
+                      className={styles.inputItem}
+                      onChange={(e) => {
+                        setAnswer4({ ...answer4, answer: e.target.value });
+                      }}
+                    />
+                    <Selector
+                      options={options}
+                      value={options.find((el) => el.value === answer4.isRight)}
+                      onChange={({ value }) => {
+                        setAnswer4({ ...answer4, isRight: value });
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
               <div className={styles.submit}>

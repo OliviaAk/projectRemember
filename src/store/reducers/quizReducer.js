@@ -28,6 +28,7 @@ const quiz = createReducer(initialState, {
   },
   [createQuestion.fulfilled]: (state, { payload }) => {
     state.question = payload;
+    state.questions = [...state.questions, { ...payload }];
   },
   [getCurrentQuestions.fulfilled]: (state, { payload }) => {
     state.currentQuestions = payload;

@@ -6,11 +6,16 @@ import { Delete, Pencil, Saved } from 'assets/icons';
 import { deleteQuiz, editQuiz, deleteQuestion, editQuestion } from 'store/thunks';
 import styles from './styles.module.css';
 
+const options = [
+  { value: true, label: 'Верный' },
+  { value: false, label: 'Неверный' },
+];
 export default function GameQuestion({ id, current }) {
   const [editQ, setEditQ] = useState(false);
   const [state, setState] = useState({});
   const dispatch = useDispatch();
 
+  console.log(state);
   const saveEdition = () => {
     setEditQ(false);
     dispatch(editQuestion(state));
@@ -26,11 +31,10 @@ export default function GameQuestion({ id, current }) {
       [e.target.name]: e.target.value,
     });
   };
- const  handleChangeOfNewInputs = (index,e) => {
+  const handleChangeOfNewInputs = (index, e) => {
     const { answers } = state;
-    const newInputArr = answers.map(
-      (item, i) =>
-        index === i ?  e.target.value  : item
+    const newInputArr = answers.map((item, i) =>
+      index === i ? { ...item, answer: e.target.value } : item
     );
     setState({
       ...state,
@@ -38,6 +42,16 @@ export default function GameQuestion({ id, current }) {
     });
   };
 
+  const handleChangeSelector = (index, value) => {
+    const { answers } = state;
+    const newInputArr = answers.map((item, i) =>
+      index === i ? { ...item, isRight: value } : item
+    );
+    setState({
+      ...state,
+      answers: newInputArr,
+    });
+  };
   return (
     <div className={styles.table}>
       <div className={styles.question}>
@@ -54,26 +68,43 @@ export default function GameQuestion({ id, current }) {
         )}
       </div>
       <div className={styles.items}>
-                 { editQ ? <> {current.answers.map((a, index) => (
-                      <input value={a} name='a' className={styles.input} onChange={(e)=>handleChangeOfNewInputs(index,e)}/>
-                  ))}</>:
-                  <>
-                  {current.answers.map((a) => (
-                    <div>{a}</div>
-                ))}</>}
-                </div>      <div className={styles.correct}>
         {editQ ? (
-          <input
-            className={styles.input}
-            value={state.correct}
-            onChange={handleChange}
-            name="correct"
-            type="text"
-          />
+          <>
+            {state.answers.map((a, index) => (
+              <div className={styles.editWrraper}>
+                <input
+                  value={a.answer}
+                  name="a"
+                  className={styles.input}
+                  onChange={(e) => handleChangeOfNewInputs(index, e)}
+                />
+                <Selector
+                  options={options}
+                  value={options.find((el) => el.value === a.isRight)}
+                  onChange={({ value }) => {
+                    handleChangeSelector(index, value);
+                  }}
+                />
+              </div>
+            ))}
+          </>
         ) : (
-          current.correct
+          <div className={styles.answers}>
+            {current.answers.map((a) => (
+              <div className={styles.itemAnswer}>
+                <div
+                  className={`${styles.answer} ${
+                    a.isRight ? styles.correct : styles.incorrect
+                  }`}
+                >
+                  {a.answer}
+                </div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
+
       <div className={styles.icons}>
         <IconSVG
           src={editQ ? Saved : Pencil}

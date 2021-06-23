@@ -4,7 +4,7 @@
     font-size: 1rem;
     display: flex;
     justify-content: space-around;
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 40px auto;
     font-weight: 400
 }
@@ -25,10 +25,12 @@
   list-style: none;
   text-decoration: none;
   color: #000;
+  font-size: 18px;
 }
 .title{
 text-align: center;
-margin-top: 5px;
+margin-top: 10px;
+margin-bottom: 10px;
 }
 .iconItem{
     overflow: hidden;
@@ -117,7 +119,7 @@ margin-top: 5px;
     animation-iteration-count:infinite;
     animation-direction:normal;
     animation-play-state:running;
-    margin-top: 35px;
+    margin-top: 8px;
     right: -30px;
 
 }
@@ -130,3 +132,60 @@ margin-top: 5px;
   0%   {right:-30px;}
   100% {right:-15px;}
   }
+
+
+  @media (max-width:1310px){
+    .splitItem{
+      padding: 5px;
+      margin: 0 5px;    
+  }
+  .splitItems{
+    max-width: 1000px;
+}
+}
+
+@media (max-width:1150px){
+  .itemImg {
+    width: 300px;
+    height: 250px;
+    transition: all 0.2s linear;
+    display: block;
+  position: relative;
+}
+.splitItems{
+  max-width: 800px;
+}
+
+}
+
+@media (max-width:1010px){
+  .itemImg {
+    width: 280px;
+    height: 250px;
+    transition: all 0.2s linear;
+    display: block;
+  position: relative;
+}
+
+
+}
+@media (max-width:950px){
+  
+  .splitItems{
+
+    flex-direction: column;
+}
+.itemImg {
+  width: 300px;
+  height: 220px;
+  transition: all 0.2s linear;
+  display: block;
+position: relative;
+
+}
+.title{
+  margin-top: 50px;
+}
+
+
+}
