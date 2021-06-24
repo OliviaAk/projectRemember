@@ -26,6 +26,7 @@ export default function EditUsers() {
             link={c.link}
             commentCurrent={c}
             id={c._id}
+            user={c.userId}
             markAsPublish={() => {
               updateI(c._id, !c.isPublish);
             }}

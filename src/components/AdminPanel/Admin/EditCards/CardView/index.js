@@ -169,7 +169,7 @@ export default function CardView({
             <strong>Автор: </strong>
           </span>
           <span>
-            {userName.firstName} {userName.lastName}
+            {userName.name} 
           </span>
           <IconSVG
             src={Email}

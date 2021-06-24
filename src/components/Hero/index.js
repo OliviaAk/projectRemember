@@ -1,21 +1,36 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { Image } from 'cloudinary-react';
 import Exa from 'assets/images/ee.jpg';
 import Ex from 'assets/images/ex.jpg';
 import Flag from 'assets/images/flag.png';
 import Flag2 from 'assets/images/flag2.png';
-
+import { useHistory } from 'react-router-dom';
 import { Spinner } from '../shared';
 import styles from './styles.module.css';
 
 export default function Hero() {
+  
   const { hero, isSelected } = useSelector((state) => state.dashboard);
+  const history = useHistory()
+  useEffect(()=>{
+    sessionStorage.reload = true;
+
+  },[])
+
+  useEffect(()=>{
+    if(sessionStorage.reload && hero === null) {
+        sessionStorage.reload = "";
+        history.push('/dashboard');
+    }
+  },[])
+
   return (
     <div className={styles.hero}>
       {isSelected ? (
         <Spinner loading={isSelected} />
       ) : (
+        hero && (
         <div className={styles.heroContainer}>
           <div className={styles.header}>
             <p>{hero.name}</p>
@@ -50,7 +65,8 @@ export default function Hero() {
             <div className={styles.textHeader}>Краткие сведения </div>
             <p>{hero.text} </p>
           </div>
-        </div>
+        </div>)
+        
       )}
     </div>
   );

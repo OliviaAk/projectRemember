@@ -63,6 +63,25 @@
   font-size: 16px;
   color: #000;
 }
+.inputPassword{
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 1px solid #6b75d3;
+  margin: 10px 0;
+  padding: 15px;
+  width: 250px;
+  outline: none;
+  font-size: 16px;
+  color: #000;
+}
+.iconPassword{
+  width: 18px;
+}
+.password{
+  border: none;
+  outline: none;
+}
 .loginBtn{
   width: 250px;
   margin-top: 10px;

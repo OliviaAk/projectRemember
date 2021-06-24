@@ -1,5 +1,4 @@
 import React, { useContext, useEffect , useRef} from 'react';
-import PropTypes from 'prop-types';
 import Pdf from "react-to-pdf";
 import {useHistory} from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -8,8 +7,6 @@ import { Close, Download } from 'assets/icons';
 import { IconSVG } from 'components/shared';
 import Flag from 'assets/images/flag.png';
 import Flag2 from 'assets/images/flag2.png';
-import Promo from 'assets/images/cardImg.png';
-import Line from 'assets/images/lines.jpg';
 import styles from './styles.module.css';
 
 const ref = React.createRef();
@@ -21,23 +18,29 @@ const options = {
 };
 
 export function  Presentation () {
-  console.log(ref)
 
   const history = useHistory();
   const { clickedCard } = useSelector((state) => state.cardsTape);
   const closeCard = ()=>{
     history.push('/')
   }
+  useEffect(()=>{
+    if(sessionStorage.reload && clickedCard === null) {
+        sessionStorage.reload = "";
+        history.push('/card');
+    }
+  },[])
 
   return (
     <div className={styles.shadow}>
-         <div className={styles.headerButtons} >
+         
+      <div className={styles.modalContainer} ref={ref}>
+      <div className={styles.headerButtons} >
             <IconSVG src={Close}  className={styles.closeIcon} handleClickIcon={closeCard} />
             <Pdf targetRef={ref} filename="открыткаВов.pdf" options={options} x={.25} y={.05} scale={1.035} >
         {({ toPdf }) => <IconSVG className={styles.closeIcon} handleClickIcon={toPdf} src={Download}  />}
       </Pdf>
           </div>
-      <div className={styles.modalContainer} ref={ref}>
       <span className={styles.decorationLeft}>
               <img src={Flag} alt="flag" height="120" />
             </span>

@@ -3,6 +3,7 @@ import { UserIcon, Upload } from 'assets/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { createComment } from 'store/thunks';
 import styles from './styles.module.css';
+import { Button, PopUp, Spinner } from 'components/shared';
 import IconSVG from '../../shared/Icons';
 
 /* eslint no-param-reassign: ["error", { "props": false }] */
@@ -18,10 +19,11 @@ export default function CommentBox() {
   const [isSend, setSend] = useState(false);
   const dispatch = useDispatch();
   const [link, setLink] = useState('');
+  const [noUser, setNoUser] = useState(false);
 
   const textRef = useRef(null);
   const containerRef = useRef(null);
-  const { user } = useSelector((state) => state.authentication);
+  const { user , isAuthenticated} = useSelector((state) => state.authentication);
 
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -31,10 +33,14 @@ export default function CommentBox() {
     };
   };
   const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    previewFile(file);
-    setSelectedFile(file);
-    setFileInputState(e.target.value);
+    if (user ===  null) {
+      setNoUser(true);
+    } else {
+      const file = e.target.files[0];
+      previewFile(file);
+      setSelectedFile(file);
+      setFileInputState(e.target.value);
+    }
   };
 
   const uploadImage = async (base64EncodedImage) => {
@@ -64,7 +70,7 @@ export default function CommentBox() {
 
   useEffect(() => {
     if (image !== null) {
-      setData({ comment: commentValue, date: new Date(), image, link });
+      setData({ comment: commentValue, date: new Date(), image, link , userId:user._id});
       setSend(true);
     }
   }, [image]);
@@ -96,6 +102,7 @@ export default function CommentBox() {
 
   return (
     <div className="container">
+
       <form
         ref={containerRef}
         className={`${styles.commentBox}
@@ -161,6 +168,14 @@ export default function CommentBox() {
           </button>
         </div>
       </form>
+      <PopUp
+        show={noUser}
+        closeModal={() => setNoUser(false)}
+        isClose
+      >
+                <div className={styles.noUserPopUp}>Невозможно создать открытку, пожалуйста авторизуйтесь!</div>
+                </PopUp>
+
     </div>
   );
 }

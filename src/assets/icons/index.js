@@ -40,10 +40,12 @@ import LibOk from './ok.png';
 import LibVk from './vk.png';
 import LibYou from './yt.png';
 import LibTw from './tw.png';
-
+import ShowPassword from './eye-solid.svg'
+import HidePassword from './eye-slash-solid.svg'
 
 export {
   LibFac, 
+  HidePassword,ShowPassword,
   LibInst,
    LibOk, 
    LibTw,

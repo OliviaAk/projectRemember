@@ -3,10 +3,11 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 import { IconSVG } from '..';
-import { Close } from '../../../assets/icons';
+import { Close ,  HidePassword,ShowPassword,} from '../../../assets/icons';
 import {login} from 'store/thunks';
 
 const SignInModal = ({ show, closeModal }) => {
+  const [isPasswordVisible, setVisible]= useState(false)
   const [userCredentials, setUserCredentials]= useState({name:'', email:'', password:''})
   const dispatch = useDispatch();
 
@@ -34,9 +35,13 @@ const SignInModal = ({ show, closeModal }) => {
         <div className={styles.modalBody}>
           <p>Пожалуйста, авторизуйтесь, чтобы создавать  открытки и добавлять комментарии.</p>
           <div className={styles.wrapperContainer}>
-            <input value={userCredentials.name} name='name' placeholder='Введите имя и фамилию' onChange={onHandleChange} className={styles.input}/>
+           <input value={userCredentials.name} name='name' placeholder='Введите имя и фамилию' onChange={onHandleChange} className={styles.input} />    
+          
             <input value={userCredentials.email} name='email' placeholder='Введите почту' onChange={onHandleChange} className={styles.input}/>
-            <input value={userCredentials.password} name='password' placeholder='Пароль' onChange={onHandleChange} className={styles.input}/>
+            <div className={styles.inputPassword} >
+            <input value={userCredentials.password} className={styles.password} name='password' placeholder='Пароль' onChange={onHandleChange} type={isPasswordVisible ? 'text': 'password'}/>
+            <img src={isPasswordVisible ? ShowPassword: HidePassword} alt='password' onClick={()=>setVisible(!isPasswordVisible)} className={styles.iconPassword}/>
+            </div>
           </div>
           <button onClick={singIn} className={styles.loginBtn}>Войти</button>
         </div>

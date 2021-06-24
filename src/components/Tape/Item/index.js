@@ -11,7 +11,7 @@ import {
 import { OkShared, FacebookShared,Vkontakte, Instagramm} from 'assets/icons'
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Button, IconSVG } from '../../shared';
+import {  IconSVG } from '../../shared';
 import styles from './styles.module.css';
 import { getUsers } from 'store/thunks';
 
@@ -58,7 +58,7 @@ export default function Item({ item, image, name, user, setIsOpened }) {
 
       <TelegramShareButton title='Виртульная стена памяти героев обороны г.Могилева.'  url={window.location.href}>
       <IconSVG src={Instagramm}  className={styles.iconShared}/>
-            </TelegramShareButton>
+          </TelegramShareButton>
 
       <VKShareButton title='Виртульная стена памяти героев обороны г.Могилева.'  url={window.location.href}>
       <IconSVG src={Vkontakte}  className={styles.iconShared}/>      </VKShareButton>

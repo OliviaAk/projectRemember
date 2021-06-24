@@ -64,8 +64,6 @@
     -webkit-appearance: none;
     -webkit-transition-duration: 0.15s;
     transition-duration: 0.15s;
-    -webkit-transition-property: border,background-color,color,box-shadow;
-    transition-property: border,background-color,color,box-shadow;
     -webkit-transition-timing-function: ease-in;
     transition-timing-function: ease-in;
     width: 97%;
@@ -123,8 +121,6 @@
   border-width: 1px;
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
-  -webkit-transition-property: border,background-color,color,box-shadow;
-  transition-property: border,background-color,color,box-shadow;
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
   width: 97%;
@@ -146,13 +142,12 @@
   .imgInput::before {
     content: 'Добавте изображение';
     display: inline-block;
-    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    background:#FFF;
     border: 1px solid #999;
     border-radius: 3px;
     padding: 5px 8px;
     outline: none;
     white-space: nowrap;
-    -webkit-user-select: none;
     cursor: pointer;
     text-shadow: 1px 1px #fff;
     font-weight: 700;
@@ -165,5 +160,5 @@
     border-color: black;
   }
   .imgInput:active::before {
-    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    background: -webkit-linear-gradient(to left, #e3e3e3, #f9f9f9);
   }

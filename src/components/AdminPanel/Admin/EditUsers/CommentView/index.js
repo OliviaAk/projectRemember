@@ -4,7 +4,7 @@ import { Image } from 'cloudinary-react';
 import { IconSVG } from 'components/shared';
 import { Pencil, Saved } from 'assets/icons';
 import { removeComment, editComment } from 'store/thunks';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles.module.css';
 
 export default function CommentView({
@@ -14,11 +14,19 @@ export default function CommentView({
   comment,
   commentCurrent,
   id,
-  markAsPublish
+  markAsPublish,
+  user
 }) {
   const [edit, setEdit] = useState(false);
   const [stateCard, setState] = useState({});
+  const [userName, setUserName] = useState({});
+  const { users } = useSelector((state) => state.authentication);
   const dispatch = useDispatch();
+  useEffect(() => {
+    const findName = users.find((u) => u._id === user);
+    setUserName(findName);
+  }, [user, users]);
+
   const saveEdition = () => {
     dispatch(editComment(stateCard))
     setEdit(false);
@@ -80,7 +88,7 @@ export default function CommentView({
           </div>
         </div>
         <div className={styles.wrapperContent}>
-          <span>Комментарий добавила Ахмаева Оливия</span>
+          <span>Автор комментария {userName.name}</span>
           <div className={styles.itemInfo}>
             <span>Комментарий:</span>
             {edit ? (

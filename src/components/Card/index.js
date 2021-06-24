@@ -23,7 +23,6 @@ export default function Card() {
   const { isLoading } = useSelector((state) => state.cardsTape);
   const [showPopSuccess, setIsShowPop] = useState(false);
 
-  console.log(isAuthenticated)
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
