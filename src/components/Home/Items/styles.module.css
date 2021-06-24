@@ -189,3 +189,13 @@ position: relative;
 
 
 }
+
+@media (max-width:570px){
+  
+  .splitItem{
+    display: flex;
+    flex-direction: column;
+}
+
+
+}

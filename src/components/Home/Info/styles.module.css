@@ -88,3 +88,12 @@
     }
     
 }
+
+
+@media (max-width:768px) {
+    .homeMainTitle{
+        color: #fff;
+        font-size: 2rem;
+    }
+    
+}

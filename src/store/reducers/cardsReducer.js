@@ -16,7 +16,6 @@ export const initialState = {
   isLoading: false,
   clickedCard: null,
 };
-/* eslint no-param-reassign: ["error", { "props": false }] */
 
 const cardsTape = createReducer(initialState, {
   [getCards.fulfilled]: (state, { payload }) => {

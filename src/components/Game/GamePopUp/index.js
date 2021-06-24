@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedQuiz } from 'store/actions';
 import { Button, Selector } from 'components/shared';
 import styles from './styles.module.css';
-/* eslint consistent-return: ["warn", { "treatUndefinedAsUnspecified": true }] */
 
 export default function GamePopUp({ quizes, selectedQuiz, playGame, notSelected }) {
   const dispatch = useDispatch();

@@ -20,7 +20,6 @@ export const initialState = {
   questions: [],
   selectedQuiz: null,
 };
-/* eslint no-param-reassign: ["error", { "props": false }] */
 
 const quiz = createReducer(initialState, {
   [createQuiz.fulfilled]: (state, { payload }) => {

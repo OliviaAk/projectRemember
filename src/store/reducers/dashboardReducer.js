@@ -17,7 +17,6 @@ export const initialState = {
   isSelected: false,
   loadingHero: false,
 };
-/* eslint no-param-reassign: ["error", { "props": false }] */
 
 const dashboard = createReducer(initialState, {
   [getHero.fulfilled]: (state, { payload }) => {

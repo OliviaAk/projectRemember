@@ -17,7 +17,6 @@ export const initialState = {
   isInvalidUser: false,
   isUserCreating: false,
 };
-/* eslint no-param-reassign: ["error", { "props": false }] */
 
 const authentication = createReducer(initialState, {
   [loginAdmin.fulfilled]: (state, { payload }) => {

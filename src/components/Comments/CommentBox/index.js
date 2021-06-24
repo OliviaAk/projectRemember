@@ -6,7 +6,6 @@ import styles from './styles.module.css';
 import { Button, PopUp, Spinner } from 'components/shared';
 import IconSVG from '../../shared/Icons';
 
-/* eslint no-param-reassign: ["error", { "props": false }] */
 
 export default function CommentBox() {
   const [isExpanded, setIsExpanded] = useState(false);
