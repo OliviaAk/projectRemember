@@ -26,8 +26,8 @@ export default function CardView({
   const [userName, setUserName] = useState({});
   const emailConfig = {
     email: userName.email,
-    firstName: userName.firstName,
-    message: ` ${userName.firstName}, спасибо за участие. Ваша открыка одобрена и опубликована на сайте, можете поделится ей с друзьями! `,
+    firstName: userName.name,
+    message: ` ${userName.name}, спасибо за участие. Ваша открыка одобрена и опубликована на сайте, можете поделится ей с друзьями! `,
   };
   const handleSubmit = (e) => {
     e.preventDefault();

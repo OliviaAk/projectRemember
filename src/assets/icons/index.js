@@ -28,7 +28,7 @@ import Medal from './medal-solid.svg';
 import Exit from './door-closed-solid.svg';
 import Logout from './door-open-solid.svg';
 import Delete from './trash-alt-solid.svg';
-import Instagramm from './instagram-brands.svg';
+import Instagramm from './telegram-plane-brands.svg';
 import Vkontakte from './vk-brands.svg';
 import FacebookShared from './facebook-f-brands.svg';
 import OkShared from './odnoklassniki-brands.svg';
