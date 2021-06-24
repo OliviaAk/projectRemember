@@ -203,3 +203,6 @@ text-align: center;
     border: none;
     box-shadow: 0 0 0 0 #00b887, 0 0 0 0 #00997a, 0 0 transparent;
 }
+.emailIcon, .icon{
+    cursor: pointer;
+}

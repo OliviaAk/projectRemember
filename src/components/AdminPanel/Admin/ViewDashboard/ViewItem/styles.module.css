@@ -13,6 +13,9 @@
     text-align: justify;
 
 }
+.icon{
+    cursor: pointer;
+}
 .wrapperContent{
     margin-left: 20px;
     display: flex;

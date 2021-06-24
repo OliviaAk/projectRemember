@@ -98,10 +98,11 @@ export default function ViewItem({
           )}
 
           {edit ? (
-            <IconSVG src={Saved} handleClickIcon={saveEdition} />
+            <IconSVG src={Saved} handleClickIcon={saveEdition} className={styles.icon}/>
           ) : (
             <IconSVG
               src={Pencil}
+              className={styles.icon}
               handleClickIcon={() => {
                 editItem(heroCurrent);
               }}

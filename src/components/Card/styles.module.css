@@ -1,6 +1,9 @@
 .card{
-        background-color: #fff;
-        height: 100%;
+  background-image: url(../../assets/images/tape.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;    
         padding-top: 120px;
         font-size: 17px;
 
@@ -11,7 +14,7 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
 
 }
 .wrapperImage{
@@ -23,6 +26,7 @@
     
 .photo{
     height: 450px;
+    width: 350px ;
     position: relative;
     border-radius: 8px;
     box-shadow: 0 25px 50px rgb(0 0 0 / 5%);
@@ -33,7 +37,9 @@
     flex-direction: column;
 }
 
-
+.noUserPopUp{
+  margin: 20px;
+}
 .inputItem{
     width: 550px;
     margin: 15px 0;   

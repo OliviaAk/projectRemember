@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector} from 'react-redux';
 import ViewDashPage from 'pages/DashboardView';
 import HomePage from 'pages/Main';
 import DashboardPage from 'pages/Dashboard';
@@ -28,6 +28,8 @@ function App() {
   const [isTablet, setIsTablet] = useState(window.innerWidth);
   const [isSmallMobile, setIsSmallMobile] = useState(window.innerWidth);
   const dispatch = useDispatch();
+  const { clickedCard } = useSelector((state) => state.cardsTape);
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
       dispatch(getUser());

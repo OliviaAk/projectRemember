@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { loginAdmin, getUser, getUsers } from '../thunks';
+import { loginAdmin, getUser, getUsers, login } from '../thunks';
 import { setOAuthToken, logout, logoutAdmin, setOAuthTokenGoogle } from '../actions';
 
 export const initialState = {
@@ -8,8 +8,14 @@ export const initialState = {
   isLogoutAdmin: false,
   user: null,
   users: [],
-  isAuthenticated: true,
+  isAuthenticated: false,
   isLogout: false,
+  error: null,
+  isLoading: false,
+  isRegistered: false,
+  isInvalidCredentials: false,
+  isInvalidUser: false,
+  isUserCreating: false,
 };
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
@@ -42,6 +48,24 @@ const authentication = createReducer(initialState, {
     localStorage.removeItem('token');
     state.user = null;
     state.isLogout = true;
+    state.isAuthenticated = false;
+
+  },
+  [login.fulfilled]: (state, { payload }) => {
+    state.isAuthenticated = true;
+    state.isLoading = false;
+    state.isLogout = false;
+    state.isInvalidCredentials = false;
+    state.user = payload;
+  },
+  [login.pending]: (state) => {
+    state.isLoading = true;
+    state.isInvalidCredentials = false;
+  },
+  [login.rejected]: (state) => {
+    state.isLoading = false;
+    state.isInvalidCredentials = true;
+    state.isAuthenticated = false;
   },
 });
 

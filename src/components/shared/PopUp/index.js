@@ -19,7 +19,7 @@ const PopUp = ({ show, closeModal, children, wrapperStyles, isClose }) => {
       <div className={styles.modalMain} style={wrapperStyles}>
         <div className={styles.modalHeader}>
           <div />
-          {isClose && <IconSVG handleClickIcon={closeModal} src={Close} />}
+          {isClose && <IconSVG handleClickIcon={closeModal} src={Close} className={styles.iconClose} />}
         </div>
         <div className={styles.modalBody}>{children}</div>
       </div>

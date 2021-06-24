@@ -13,16 +13,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Button, IconSVG } from '../../shared';
 import styles from './styles.module.css';
+import { getUsers } from 'store/thunks';
 
 export default function Item({ item, image, name, user, setIsOpened }) {
-  const [userEmail, setUserEmail] = useState({});
+  const [userEmail, setUserEmail] = useState('');
   const { users } = useSelector((state) => state.authentication);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(getUsers())
+  },[])
 
   useEffect(() => {
     if (users.length > 0) {
       users.map((i) => {
         if (i._id === user) {
-          setUserEmail({firstName: i.firstName, lastName: i.lastName});
+          setUserEmail(i.name);
         }
       });
     }
@@ -44,21 +49,21 @@ export default function Item({ item, image, name, user, setIsOpened }) {
       <div className={styles.textContainer}>
       <h3 className={styles.name}>{name}</h3>
       <div className={styles.infoBlock}>
-        <span>{userEmail.firstName} {userEmail.lastName} помнит...</span>
+        <span>{userEmail} помнит...</span>
       </div>
       <div className={styles.sharedBtns}>
-      <FacebookShareButton title='Виртульная стена памяти обороны г.Могилева.'  url={window.location.href}>
+      <FacebookShareButton title='Виртульная стена памяти героев обороны г.Могилева.'  url={window.location.href}>
             <IconSVG src={FacebookShared} className={styles.iconShared}/>
       </FacebookShareButton>
 
-      <TelegramShareButton title='Виртульная стена памяти обороны г.Могилева.'  url={window.location.href}>
+      <TelegramShareButton title='Виртульная стена памяти героев обороны г.Могилева.'  url={window.location.href}>
       <IconSVG src={Instagramm}  className={styles.iconShared}/>
             </TelegramShareButton>
 
-      <VKShareButton title='Виртульная стена памяти обороны г.Могилева.'  url={window.location.href}>
+      <VKShareButton title='Виртульная стена памяти героев обороны г.Могилева.'  url={window.location.href}>
       <IconSVG src={Vkontakte}  className={styles.iconShared}/>      </VKShareButton>
 
-      <OKShareButton title='Виртульная стена памяти обороны г.Могилева.' url={window.location.href}>
+      <OKShareButton title='Виртульная стена памяти героев обороны г.Могилева.' url={window.location.href}>
       <IconSVG src={OkShared}  className={styles.iconShared}/>      </OKShareButton>
 
       </div>

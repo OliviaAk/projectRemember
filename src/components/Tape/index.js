@@ -31,7 +31,6 @@ const responsive = {
 };
 
 export default function Tape() {
-  const [openedCard, setIsOpened] = useState(false);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -39,7 +38,7 @@ export default function Tape() {
 
   const openCard = (cardId) => {
     dispatch(getCard(cardId));
-    history.push('/presentation');
+    history.push(`/presentation`);
   };
 
   useEffect(() => {

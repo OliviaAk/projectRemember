@@ -115,8 +115,11 @@ export default function GameQuestion({ id, current }) {
                   editItem(current);
                 }
           }
+          className={styles.icon}
+
         />
-        <IconSVG handleClickIcon={() => dispatch(deleteQuestion(id))} src={Delete} />
+        <IconSVG handleClickIcon={() => dispatch(deleteQuestion(id))} src={Delete}               className={styles.icon}
+/>
       </div>
     </div>
   );

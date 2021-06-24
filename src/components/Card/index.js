@@ -19,10 +19,11 @@ export default function Card() {
   const [isSend, setSend] = useState(false);
   const dispatch = useDispatch();
   const [noUser, setNoUser] = useState(false);
-  const { isAuthenticated, user } = useSelector((state) => state.authentication);
+  const { isAuthenticated } = useSelector((state) => state.authentication);
   const { isLoading } = useSelector((state) => state.cardsTape);
   const [showPopSuccess, setIsShowPop] = useState(false);
 
+  console.log(isAuthenticated)
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -143,8 +144,11 @@ export default function Card() {
       <PopUp
         show={noUser}
         closeModal={() => setNoUser(false)}
-        title="Невозможно создать открытку, пожалуйста авторизуйтесь!"
-      />
+        isClose
+      >
+                <div className={styles.noUserPopUp}>Невозможно создать открытку, пожалуйста авторизуйтесь!</div>
+
+        </PopUp>
 
       <PopUp show={showPopSuccess} closeModal={() => setIsShowPop(false)} isClose>
         <div style={{ display: 'flex', flexDirection: 'column', margin: '30px 20px' }}>

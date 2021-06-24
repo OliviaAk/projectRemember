@@ -9,6 +9,10 @@
     width: 100%;
     border: 1px solid #dddddd;;
 }
+.icon{
+  cursor: pointer;
+}
+
 .table >*{
     width: 27%;
    padding: 12px;

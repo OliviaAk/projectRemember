@@ -7,14 +7,6 @@ import IconSVG from '../../shared/Icons';
 
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
-const useDynamicHeightField = (element, value) => {
-  useEffect(() => {
-    if (!element) return;
-    element.current.style.height = 'auto';
-    element.current.style.height = `${element.current.scrollHeight}px`;
-  }, [element, value]);
-};
-
 export default function CommentBox() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [commentValue, setCommentValue] = useState('');
@@ -29,6 +21,7 @@ export default function CommentBox() {
 
   const textRef = useRef(null);
   const containerRef = useRef(null);
+  const { user } = useSelector((state) => state.authentication);
 
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -114,7 +107,9 @@ export default function CommentBox() {
         <div className={styles.header}>
           <div className={styles.user}>
             <img src={UserIcon} alt="" />
-            <span>Оливия Ахмаева</span>
+            {user &&
+            <span>{user.name}</span>
+            }
           </div>
         </div>
         <textarea

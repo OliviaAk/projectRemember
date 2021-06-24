@@ -7,7 +7,6 @@ import Belarus from 'assets/images/belarus.jpg';
 import { useViewport } from 'context/';
 import styles from './styles.module.css';
 import { logout } from '../../store/actions';
-import { getUsers } from '../../store/thunks';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,12 +14,11 @@ export default function Header() {
   const dispatch = useDispatch();
   const { isTablet } = useViewport();
   const { user } = useSelector((state) => state.authentication);
+
   const signOut = () => {
     dispatch(logout());
   };
-  useEffect(() => {
-    dispatch(getUsers());
-  }, []);
+
 
   return (
     <>
@@ -59,7 +57,7 @@ export default function Header() {
                     </div>
                   ) : (
                     <div className={styles.userInfo}>
-                      {user.firstName} {user.lastName}
+                      {user.name} 
                     </div>
                   )}
                 </div>

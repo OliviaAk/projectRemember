@@ -80,8 +80,10 @@ export default function GameItem({ quizName, id, questions, quizItem }) {
                       editItem(quizItem);
                     }
               }
+              className={styles.icon}
             />
-            <IconSVG handleClickIcon={() => dispatch(deleteQuiz(id))} src={Delete} />
+            <IconSVG handleClickIcon={() => dispatch(deleteQuiz(id))} src={Delete} className={styles.icon}
+ />
           </div>
         </div>
         <div className={styles.blockInfo}>

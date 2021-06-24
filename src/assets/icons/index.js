@@ -34,8 +34,20 @@ import FacebookShared from './facebook-f-brands.svg';
 import OkShared from './odnoklassniki-brands.svg';
 import UserIcon from './userIcon.jpg';
 import Download from './download-solid.svg';
+import LibInst from './ig.png';
+import LibFac from './fb.png';
+import LibOk from './ok.png';
+import LibVk from './vk.png';
+import LibYou from './yt.png';
+import LibTw from './tw.png';
+
 
 export {
+  LibFac, 
+  LibInst,
+   LibOk, 
+   LibTw,
+    LibYou, LibVk, 
   OkShared,
   Download,
   UserIcon,

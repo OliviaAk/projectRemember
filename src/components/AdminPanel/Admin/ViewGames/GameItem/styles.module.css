@@ -12,7 +12,9 @@
     padding: 20px;
     text-align: justify;
     flex-direction: column;
-
+}
+.icon{
+    cursor: pointer;
 }
 .wrapperContent{
     display: flex;

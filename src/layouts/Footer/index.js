@@ -1,9 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useHistory, Link } from 'react-router-dom';
 import { IconSVG } from '../../components/shared';
 import styles from './styles.module.css';
-import { Admin } from '../../assets/icons';
+import { Admin , LibFac, 
+  LibInst,
+   LibOk, 
+   LibTw,
+    LibYou, LibVk, } from '../../assets/icons';
 
 const Footer = () => {
   const history = useHistory();
@@ -25,22 +28,31 @@ const Footer = () => {
             <p className={styles.text}>
               Подпишись и узнавай больше новостей о городе Могилеве от нас!
             </p>
+            <div className={styles.wrapper}>
             <div className={styles.social}>
-              <Link to="/" className={styles.socialLink}>
-                Facebook
-              </Link>
-              <Link to="/" className={styles.socialLink}>
-                Twitter
-              </Link>
-              <Link to="/" className={styles.socialLink}>
-                Google +
-              </Link>
+              <a href="https://www.facebook.com/%D0%9A%D0%B0%D1%80%D0%BB-%D0%9C%D0%B0%D1%80%D0%BA%D1%81-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D1%83%D0%B5%D1%82-109567247313020" className={styles.socialLink}>
+                <img src={LibFac} alt='facebook' className={styles.icon}/>
+              </a>
+              <a href="https://www.instagram.com/karl_marks_mogilev/" className={styles.socialLink} >
+              <img src={LibInst} alt='instagram' className={styles.icon}/>
+              </a>
+              <a href="https://twitter.com/csgpb_mogilev" className={styles.socialLink}>
+              <img src={LibTw} alt='twitter' className={styles.icon}/>
+              </a>
+              <a href="https://www.youtube.com/channel/UCa5jbG2FcmbVqhcuVRLYlbw" className={styles.socialLink}>
+              <img src={LibYou} alt='youTube' className={styles.icon}/>
+              </a>
+              <a href="https://vk.com/public187729870" className={styles.socialLink}>
+              <img src={LibVk} alt='vk' className={styles.icon}/>
+              </a>
+              
             </div>
             <IconSVG
               src={Admin}
               handleClickIcon={openAdmin}
               className={styles.adminIcon}
             />
+            </div>
           </div>
           <div className={styles.footerItem}>
             <div className={styles.contacts}>

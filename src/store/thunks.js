@@ -1,10 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { apiServer } from '../services/api';
 
-export const loginAdmin = createAsyncThunk('auth/login', async (userCredentials) => {
+export const loginAdmin = createAsyncThunk('auth/login admin', async (userCredentials) => {
   const { data } = await apiServer.post(`admin/`, userCredentials);
   return data;
 });
+export const login = createAsyncThunk('auth/login', async(userCredentials)=>{
+  const { data: token } = await apiServer.post(`auth/login`, userCredentials);
+  localStorage.setItem("token", token);
+  const { data: user } = await apiServer.get(`user/`);
+  return user;
+})
 
 export const getCards = createAsyncThunk(`cards`, async () => {
   const { data } = await apiServer.get(`cards/info`);
